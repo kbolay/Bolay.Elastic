@@ -13,15 +13,15 @@ namespace Bolay.Elastic.Api.Analyze
     public class AnalyzeRepository : IAnalyzeRepository
     {
         private readonly Uri _ClusterUri;
-        private readonly IHttpRequestUtility _HttpRequestUtility;
+        private readonly IHttpLayer _httpLayer;
 
-        public AnalyzeRepository(IUriProvider clusterUri, IHttpRequestUtility httpRequestUtility)
+        public AnalyzeRepository(IUriProvider clusterUri, IHttpLayer httpLayer)
         {
             if (clusterUri == null || clusterUri.Uri == null)
                 throw new ArgumentNullException("clusterUri", "The analyze repository requires a uri provider for the elastic cluster.");
 
             _ClusterUri = clusterUri.Uri;
-            _HttpRequestUtility = httpRequestUtility;
+            _httpLayer = httpLayer;
         }
 
         public IEnumerable<AnalyzedToken> AnalyzeText(AnalyzeRequest request)
@@ -37,7 +37,7 @@ namespace Bolay.Elastic.Api.Analyze
             else
                 analyzeUri = new Uri(_ClusterUri, endPath);
 
-            HttpResponse response = _HttpRequestUtility.Get(new HttpRequest(analyzeUri));
+            HttpResponse response = _httpLayer.Get(new HttpRequest(analyzeUri));
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new AnalyzeRequestException(analyzeUri);
 

@@ -26,15 +26,15 @@ namespace Bolay.Elastic.Api.Document
     public class DocumentRepository<T> : IDocumentRepository<T>
     {
         private readonly IElasticUriProvider _ElasticCluster;
-        private readonly IHttpRequestUtility _HttpRequestUtility;
+        private readonly IHttpLayer _httpLayer;
 
-        public DocumentRepository(IElasticUriProvider clusterUriProvider, IHttpRequestUtility httpRequestUtility)
+        public DocumentRepository(IElasticUriProvider clusterUriProvider, IHttpLayer httpLayer)
         {
             if (clusterUriProvider == null || clusterUriProvider.Uri == null)
                 throw new ArgumentNullException("clusterUriProvider");
 
             _ElasticCluster = clusterUriProvider;
-            _HttpRequestUtility = httpRequestUtility;
+            _httpLayer = httpLayer;
         }
 
         public MultiGetResponse<T> MultiGet(MultiGetDocumentRequest request)
@@ -43,7 +43,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "MultiGetDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster));
-            HttpResponse response = _HttpRequestUtility.Get(httpRequest);
+            HttpResponse response = _httpLayer.Get(httpRequest);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 return JsonConvert.DeserializeObject<MultiGetResponse<T>>(response.Body);
 
@@ -57,7 +57,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "GetDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster));
-            HttpResponse response = _HttpRequestUtility.Get(httpRequest);
+            HttpResponse response = _httpLayer.Get(httpRequest);
 
             // TODO: should i throw an exception when document is not found, but no reason is given
             // this is relevant for bad document ids and document types...
@@ -93,7 +93,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "DoesExistDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster));
-            HttpResponse response = _HttpRequestUtility.Head(httpRequest);
+            HttpResponse response = _httpLayer.Head(httpRequest);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 return JsonConvert.DeserializeObject<DoesExistResponse>(response.Body);
@@ -108,7 +108,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "IndexDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster), request.Document);
-            HttpResponse response = _HttpRequestUtility.Post(httpRequest);
+            HttpResponse response = _httpLayer.Post(httpRequest);
             if (response.StatusCode == System.Net.HttpStatusCode.Created || response.StatusCode == System.Net.HttpStatusCode.OK)
                 return JsonConvert.DeserializeObject<IndexResponse>(response.Body);
 
@@ -121,7 +121,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "UpdateDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster), request.Content);
-            HttpResponse response = _HttpRequestUtility.Put(httpRequest);
+            HttpResponse response = _httpLayer.Put(httpRequest);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 return JsonConvert.DeserializeObject<UpdateResponse>(response.Body);
 
@@ -134,7 +134,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "DeleteDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster));
-            HttpResponse response = _HttpRequestUtility.Delete(httpRequest);
+            HttpResponse response = _httpLayer.Delete(httpRequest);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 return JsonConvert.DeserializeObject<DeleteResponse>(response.Body);
 
@@ -147,7 +147,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "BulkDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster), request.BuildContent());
-            HttpResponse response = _HttpRequestUtility.Post(httpRequest);
+            HttpResponse response = _httpLayer.Post(httpRequest);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 IEnumerable<AdminElasticResponse> results = JsonConvert.DeserializeObject<IEnumerable<AdminElasticResponse>>(response.Body);
@@ -167,7 +167,7 @@ namespace Bolay.Elastic.Api.Document
                 throw new ArgumentNullException("request", "BulkDocumentRequest is required.");
 
             HttpRequest httpRequest = new HttpRequest(request.BuildUri(_ElasticCluster), request.ContentQuery);
-            HttpResponse response = _HttpRequestUtility.Delete(httpRequest);
+            HttpResponse response = _httpLayer.Delete(httpRequest);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 return JsonConvert.DeserializeObject<DeleteByQueryResponse>(response.Body);

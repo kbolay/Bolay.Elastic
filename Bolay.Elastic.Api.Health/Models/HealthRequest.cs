@@ -1,5 +1,4 @@
-﻿using Bolay.Elastic.Api.Basic.Models;
-using Bolay.Elastic.Models;
+﻿using Bolay.Elastic.Models;
 using Bolay.Elastic.Time;
 using System;
 using System.Collections.Generic;

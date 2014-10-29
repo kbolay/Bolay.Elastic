@@ -10,12 +10,12 @@ namespace Bolay.Elastic.Api.Settings.Tests
     [TestClass]
     public class UnitTests_SettingsRepository
     {
-        private Mock<IHttpRequestUtility> _MockedHttpRequestUtility { get; set; }
+        private Mock<IHttpLayer> _MockedhttpLayer { get; set; }
 
         [TestInitialize]
         public void Init()
         {
-            _MockedHttpRequestUtility = new Mock<IHttpRequestUtility>();
+            _MockedhttpLayer = new Mock<IHttpLayer>();
         }
 
         [TestMethod]
@@ -24,14 +24,14 @@ namespace Bolay.Elastic.Api.Settings.Tests
             string responseBody = EmbeddedResource.GetContentOfEmbeddedResourceFile(typeof(UnitTest_Deserialize).Assembly, "Bolay.Elastic.Api.Settings.Tests.Resources.IndexSettings.json");
 
             // set up mock http request utiltiy
-            _MockedHttpRequestUtility
+            _MockedhttpLayer
                 .Setup(x => x.Get(It.IsAny<HttpRequest>()))
                 .Returns(new HttpResponse(HttpStatusCode.OK, responseBody));
 
             // set up the repository with the mocked http request utility
             SettingsRepository settingsRepo = new SettingsRepository(
                     new ElasticUriProvider("http://es:9200/"),
-                    _MockedHttpRequestUtility.Object);
+                    _MockedhttpLayer.Object);
 
             IEnumerable<Settings.Models.Settings> indexSettingsCollection = settingsRepo.Get();
 
@@ -45,14 +45,14 @@ namespace Bolay.Elastic.Api.Settings.Tests
             string responseBody = EmbeddedResource.GetContentOfEmbeddedResourceFile(typeof(UnitTest_Deserialize).Assembly, "Bolay.Elastic.Api.Settings.Tests.Resources.IndexSettings.json");
 
             // set up mock http request utiltiy
-            _MockedHttpRequestUtility
+            _MockedhttpLayer
                 .Setup(x => x.Get(It.IsAny<HttpRequest>()))
                 .Returns(new HttpResponse(HttpStatusCode.OK, responseBody));
 
             // set up the repository with the mocked http request utility
             SettingsRepository settingsRepo = new SettingsRepository(
                     new ElasticUriProvider("http://es:9200/"),
-                    _MockedHttpRequestUtility.Object);
+                    _MockedhttpLayer.Object);
 
             IEnumerable<Settings.Models.Settings> indexSettingsCollection = settingsRepo.GetByAlias("alias");
 
@@ -66,7 +66,7 @@ namespace Bolay.Elastic.Api.Settings.Tests
             // set up the repository with the mocked http request utility
             SettingsRepository settingsRepo = new SettingsRepository(
                     new ElasticUriProvider("http://es:9200/"),
-                    _MockedHttpRequestUtility.Object);
+                    _MockedhttpLayer.Object);
 
             try
             {
@@ -85,14 +85,14 @@ namespace Bolay.Elastic.Api.Settings.Tests
             string responseBody = EmbeddedResource.GetContentOfEmbeddedResourceFile(typeof(UnitTest_Deserialize).Assembly, "Bolay.Elastic.Api.Settings.Tests.Resources.IndexSettings.json");
 
             // set up mock http request utiltiy
-            _MockedHttpRequestUtility
+            _MockedhttpLayer
                 .Setup(x => x.Get(It.IsAny<HttpRequest>()))
                 .Returns(new HttpResponse(HttpStatusCode.OK, responseBody));
 
             // set up the repository with the mocked http request utility
             SettingsRepository settingsRepo = new SettingsRepository(
                     new ElasticUriProvider("http://es:9200/"),
-                    _MockedHttpRequestUtility.Object);
+                    _MockedhttpLayer.Object);
 
             Settings.Models.Settings indexSettings = settingsRepo.GetByIndex("indexName");
 
@@ -107,7 +107,7 @@ namespace Bolay.Elastic.Api.Settings.Tests
             // set up the repository with the mocked http request utility
             SettingsRepository settingsRepo = new SettingsRepository(
                     new ElasticUriProvider("http://es:9200/"),
-                    _MockedHttpRequestUtility.Object);
+                    _MockedhttpLayer.Object);
 
             try
             {

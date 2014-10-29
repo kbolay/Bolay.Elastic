@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic", "Bolay.Elastic\Bolay.Elastic.csproj", "{D7844DDD-0BF8-4799-8D4B-EC1CA7624270}"
 EndProject
@@ -64,102 +64,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq2ElasticSearch", "Linq2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.QueryBuilding", "Bolay.Elastic.QueryBuilding\Bolay.Elastic.QueryBuilding.csproj", "{6854B371-3E41-4BB8-B20A-2481ED274FCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Bulk", "Bolay.Elastic.Api.Bulk\Bolay.Elastic.Api.Bulk.csproj", "{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 28
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://bolay.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Bolay.Elastic.Api.Alias\\Bolay.Elastic.Api.Alias.csproj
-		SccProjectName1 = Bolay.Elastic.Api.Alias
-		SccLocalPath1 = Bolay.Elastic.Api.Alias
-		SccProjectUniqueName2 = Bolay.Elastic.Api.ClusterState\\Bolay.Elastic.Api.ClusterState.csproj
-		SccProjectName2 = Bolay.Elastic.Api.ClusterState
-		SccLocalPath2 = Bolay.Elastic.Api.ClusterState
-		SccProjectUniqueName3 = Bolay.Elastic.Api.Document.Tests\\Bolay.Elastic.Api.Document.Tests.csproj
-		SccProjectTopLevelParentUniqueName3 = Bolay.Elastic.sln
-		SccProjectName3 = Bolay.Elastic.Api.Document.Tests
-		SccLocalPath3 = Bolay.Elastic.Api.Document.Tests
-		SccProjectUniqueName4 = Bolay.Elastic.Api.Document\\Bolay.Elastic.Api.Document.csproj
-		SccProjectName4 = Bolay.Elastic.Api.Document
-		SccLocalPath4 = Bolay.Elastic.Api.Document
-		SccProjectUniqueName5 = Bolay.Elastic.Api.Health\\Bolay.Elastic.Api.Health.csproj
-		SccProjectName5 = Bolay.Elastic.Api.Health
-		SccLocalPath5 = Bolay.Elastic.Api.Health
-		SccProjectUniqueName6 = Bolay.Elastic.Api.Mapping.Tests\\Bolay.Elastic.Api.Mapping.Tests.csproj
-		SccProjectTopLevelParentUniqueName6 = Bolay.Elastic.sln
-		SccProjectName6 = Bolay.Elastic.Api.Mapping.Tests
-		SccLocalPath6 = Bolay.Elastic.Api.Mapping.Tests
-		SccProjectUniqueName7 = Bolay.Elastic.Api.Mapping\\Bolay.Elastic.Api.Mapping.csproj
-		SccProjectName7 = Bolay.Elastic.Api.Mapping
-		SccLocalPath7 = Bolay.Elastic.Api.Mapping
-		SccProjectUniqueName8 = Bolay.Elastic.Api.Tests\\Bolay.Elastic.Api.Tests.csproj
-		SccProjectTopLevelParentUniqueName8 = Bolay.Elastic.sln
-		SccProjectName8 = Bolay.Elastic.Api.Tests
-		SccLocalPath8 = Bolay.Elastic.Api.Tests
-		SccProjectUniqueName9 = Bolay.Elastic.Api.Version\\Bolay.Elastic.Api.Basic.csproj
-		SccProjectName9 = Bolay.Elastic.Api.Version
-		SccLocalPath9 = Bolay.Elastic.Api.Version
-		SccProjectUniqueName10 = Bolay.Elastic.Api\\Bolay.Elastic.Api.csproj
-		SccProjectName10 = Bolay.Elastic.Api
-		SccLocalPath10 = Bolay.Elastic.Api
-		SccProjectUniqueName11 = Bolay.Elastic.Linq\\Bolay.Elastic.Linq.csproj
-		SccProjectName11 = Bolay.Elastic.Linq
-		SccLocalPath11 = Bolay.Elastic.Linq
-		SccProjectUniqueName12 = Bolay.Elastic.Mvc4\\Bolay.Elastic.Mvc4.csproj
-		SccProjectName12 = Bolay.Elastic.Mvc4
-		SccLocalPath12 = Bolay.Elastic.Mvc4
-		SccProjectUniqueName13 = Bolay.Elastic.Plugin\\Bolay.Elastic.Plugin.csproj
-		SccProjectName13 = Bolay.Elastic.Plugin
-		SccLocalPath13 = Bolay.Elastic.Plugin
-		SccProjectUniqueName14 = Bolay.Elastic.QueryDSL\\Bolay.Elastic.QueryDSL.csproj
-		SccProjectName14 = Bolay.Elastic.QueryDSL
-		SccLocalPath14 = Bolay.Elastic.QueryDSL
-		SccProjectUniqueName15 = Bolay.Elastic.Tests\\Bolay.Elastic.Tests.csproj
-		SccProjectTopLevelParentUniqueName15 = Bolay.Elastic.sln
-		SccProjectName15 = Bolay.Elastic.Tests
-		SccLocalPath15 = Bolay.Elastic.Tests
-		SccProjectUniqueName16 = Bolay.Elastic\\Bolay.Elastic.csproj
-		SccProjectName16 = Bolay.Elastic
-		SccLocalPath16 = Bolay.Elastic
-		SccProjectUniqueName17 = Bolay.Elastic.Api.Analyze\\Bolay.Elastic.Api.Analyze.csproj
-		SccProjectName17 = Bolay.Elastic.Api.Analyze
-		SccLocalPath17 = Bolay.Elastic.Api.Analyze
-		SccProjectUniqueName18 = Bolay.Elastic.QueryDSL.Tests\\Bolay.Elastic.QueryDSL.Tests.csproj
-		SccProjectTopLevelParentUniqueName18 = Bolay.Elastic.sln
-		SccProjectName18 = Bolay.Elastic.QueryDSL.Tests
-		SccLocalPath18 = Bolay.Elastic.QueryDSL.Tests
-		SccProjectUniqueName19 = Bolay.Elastic.Api.Search\\Bolay.Elastic.Api.Search.csproj
-		SccProjectName19 = Bolay.Elastic.Api.Search
-		SccLocalPath19 = Bolay.Elastic.Api.Search
-		SccProjectUniqueName20 = Bolay.Elastic.Mapping\\Bolay.Elastic.Mapping.csproj
-		SccProjectName20 = Bolay.Elastic.Mapping
-		SccLocalPath20 = Bolay.Elastic.Mapping
-		SccProjectUniqueName21 = Bolay.Elastic.Mapping.Tests\\Bolay.Elastic.Mapping.Tests.csproj
-		SccProjectTopLevelParentUniqueName21 = Bolay.Elastic.sln
-		SccProjectName21 = Bolay.Elastic.Mapping.Tests
-		SccLocalPath21 = Bolay.Elastic.Mapping.Tests
-		SccProjectUniqueName22 = Bolay.Elastic.Analysis\\Bolay.Elastic.Analysis.csproj
-		SccProjectName22 = Bolay.Elastic.Analysis
-		SccLocalPath22 = Bolay.Elastic.Analysis
-		SccProjectUniqueName23 = Bolay.Elastic.Analysis.Tests\\Bolay.Elastic.Analysis.Tests.csproj
-		SccProjectTopLevelParentUniqueName23 = Bolay.Elastic.sln
-		SccProjectName23 = Bolay.Elastic.Analysis.Tests
-		SccLocalPath23 = Bolay.Elastic.Analysis.Tests
-		SccProjectUniqueName24 = Bolay.Elastic.Api.Settings\\Bolay.Elastic.Api.Settings.csproj
-		SccProjectName24 = Bolay.Elastic.Api.Settings
-		SccLocalPath24 = Bolay.Elastic.Api.Settings
-		SccProjectUniqueName25 = Bolay.Elastic.Api.Settings.Tests\\Bolay.Elastic.Api.Settings.Tests.csproj
-		SccProjectTopLevelParentUniqueName25 = Bolay.Elastic.sln
-		SccProjectName25 = Bolay.Elastic.Api.Settings.Tests
-		SccLocalPath25 = Bolay.Elastic.Api.Settings.Tests
-		SccProjectUniqueName26 = Linq2ElasticSearch\\Linq2ElasticSearch.csproj
-		SccProjectName26 = Linq2ElasticSearch
-		SccLocalPath26 = Linq2ElasticSearch
-		SccProjectUniqueName27 = Bolay.Elastic.QueryBuilding\\Bolay.Elastic.QueryBuilding.csproj
-		SccProjectName27 = Bolay.Elastic.QueryBuilding
-		SccLocalPath27 = Bolay.Elastic.QueryBuilding
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -273,6 +180,10 @@ Global
 		{6854B371-3E41-4BB8-B20A-2481ED274FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6854B371-3E41-4BB8-B20A-2481ED274FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6854B371-3E41-4BB8-B20A-2481ED274FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

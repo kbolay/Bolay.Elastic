@@ -1,0 +1,13 @@
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.Api.Settings.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.Api.Settings.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.Analysis.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.Api.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Newtonsoft.Json.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.Analysis.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.Api.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Bolay.Elastic.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\bin\Debug\Newtonsoft.Json.xml
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\obj\Debug\Bolay.Elastic.Api.Settings.csprojResolveAssemblyReference.cache
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\obj\Debug\Bolay.Elastic.Api.Settings.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Settings\obj\Debug\Bolay.Elastic.Api.Settings.pdb

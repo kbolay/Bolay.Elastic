@@ -1,0 +1,9 @@
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\bin\Debug\Bolay.Elastic.QueryDSL.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\bin\Debug\Bolay.Elastic.QueryDSL.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\bin\Debug\Bolay.Elastic.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\bin\Debug\Newtonsoft.Json.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\bin\Debug\Bolay.Elastic.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\bin\Debug\Newtonsoft.Json.xml
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\obj\Debug\Bolay.Elastic.QueryDSL.csprojResolveAssemblyReference.cache
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\obj\Debug\Bolay.Elastic.QueryDSL.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL\obj\Debug\Bolay.Elastic.QueryDSL.pdb

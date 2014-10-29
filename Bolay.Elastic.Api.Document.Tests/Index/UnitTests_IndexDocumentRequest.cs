@@ -8,7 +8,7 @@ namespace Bolay.Elastic.Api.Document.Tests.Index
     [TestClass]
     public class UnitTests_IndexDocumentRequest
     {
-        private ElasticUriProvider _ClusterUri = new ElasticUriProvider("http://10.137.8.224:9200");
+        private ElasticUriProvider _ClusterUri = new ElasticUriProvider("http://localhost:9200");
         private string _Index = "testindex";
         private string _Type = "tweet";
         private string _Id = "1234";

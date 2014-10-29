@@ -67,18 +67,18 @@ namespace Bolay.Elastic.Api.Document.Tests.Get
         public void PASS_BuildUriPath()
         {
             GetDocumentRequest request = new GetDocumentRequest(_Index, _Type, _Id);
-            Uri uri = request.BuildUri(new ElasticUriProvider("http://10.137.8.224:9200/dumb/values"));
+            Uri uri = request.BuildUri(new ElasticUriProvider("http://localhost:9200/dumb/values"));
             Assert.IsNotNull(uri);
-            Assert.AreEqual(new Uri("http://10.137.8.224:9200/" + _Index + "/" + _Type + "/" + _Id), uri);
+            Assert.AreEqual(new Uri("http://localhost:9200/" + _Index + "/" + _Type + "/" + _Id), uri);
         }
 
         [TestMethod]
         public void PASS_BuildUriPath_ExcludeMetadata()
         {
             GetDocumentRequest request = new GetDocumentRequest(_Index, _Type, _Id) { ExcludeMetaData = true };
-            Uri uri = request.BuildUri(new ElasticUriProvider("http://10.137.8.224:9200/dumb/values"));
+            Uri uri = request.BuildUri(new ElasticUriProvider("http://localhost:9200/dumb/values"));
             Assert.IsNotNull(uri);
-            Assert.AreEqual(new Uri("http://10.137.8.224:9200/" + _Index + "/" + _Type + "/" + _Id + "/" + "_source"), uri);
+            Assert.AreEqual(new Uri("http://localhost:9200/" + _Index + "/" + _Type + "/" + _Id + "/" + "_source"), uri);
         }
 
         [TestMethod]

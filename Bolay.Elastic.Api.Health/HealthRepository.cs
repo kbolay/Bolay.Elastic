@@ -36,7 +36,7 @@ namespace Bolay.Elastic.Api.Health
         //    else
         //        clusterUri = new Uri(_ClusterUri, "_cluster/health" + healthRequest.ToString());
 
-        //    HttpResponse response = HttpRequestUtility.Get(clusterUri);
+        //    HttpResponse response = httpLayer.Get(clusterUri);
         //    if (response.StatusCode != System.Net.HttpStatusCode.OK)
         //        throw new ElasticRequestException(clusterUri);
 
@@ -58,7 +58,7 @@ namespace Bolay.Elastic.Api.Health
         //    if (healthRequest.Level == LevelSetting.Cluster)
         //        throw new InvalidLevelException(requestUri, "Cluster is not a valid level for a health request on an alias.");
 
-        //    HttpResponse response = HttpRequestUtility.Get(requestUri);
+        //    HttpResponse response = httpLayer.Get(requestUri);
         //    if (response.StatusCode != System.Net.HttpStatusCode.OK)
         //        throw new ElasticRequestException(requestUri);
 
@@ -84,7 +84,7 @@ namespace Bolay.Elastic.Api.Health
         //    if (healthRequest.Level == LevelSetting.Cluster)
         //        throw new InvalidLevelException(requestUri, "Cluster is not a valid level for a health request on an alias.");
 
-        //    HttpResponse response = HttpRequestUtility.Get(requestUri);
+        //    HttpResponse response = httpLayer.Get(requestUri);
         //    if (response.StatusCode != System.Net.HttpStatusCode.OK)
         //        throw new ElasticRequestException(requestUri);
 
@@ -110,7 +110,7 @@ namespace Bolay.Elastic.Api.Health
         //    if (healthRequest.Level == LevelSetting.Cluster)
         //        throw new InvalidLevelException(requestUri, "Cluster is not a valid level for a health request on an index.");
 
-        //    HttpResponse response = HttpRequestUtility.Get(requestUri);
+        //    HttpResponse response = httpLayer.Get(requestUri);
         //    if (response.StatusCode != System.Net.HttpStatusCode.OK)
         //        throw new ElasticRequestException(requestUri);
 
@@ -137,7 +137,7 @@ namespace Bolay.Elastic.Api.Health
         //    if (healthRequest.Level != LevelSetting.Shards)
         //        throw new InvalidLevelException(requestUri, "Shards is the only valid level for a health request on a shard.");
 
-        //    HttpResponse response = HttpRequestUtility.Get(requestUri);
+        //    HttpResponse response = httpLayer.Get(requestUri);
         //    if (response.StatusCode != System.Net.HttpStatusCode.OK)
         //        throw new ElasticRequestException(requestUri);
 

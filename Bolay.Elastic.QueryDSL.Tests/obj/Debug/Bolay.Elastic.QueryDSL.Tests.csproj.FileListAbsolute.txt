@@ -1,0 +1,11 @@
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Bolay.Elastic.QueryDSL.Tests.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Bolay.Elastic.QueryDSL.Tests.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Bolay.Elastic.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Bolay.Elastic.QueryDSL.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Newtonsoft.Json.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Bolay.Elastic.QueryDSL.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Bolay.Elastic.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\bin\Debug\Newtonsoft.Json.xml
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\obj\Debug\Bolay.Elastic.QueryDSL.Tests.csprojResolveAssemblyReference.cache
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\obj\Debug\Bolay.Elastic.QueryDSL.Tests.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryDSL.Tests\obj\Debug\Bolay.Elastic.QueryDSL.Tests.pdb

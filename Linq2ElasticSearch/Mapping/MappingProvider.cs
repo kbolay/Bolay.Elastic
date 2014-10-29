@@ -14,7 +14,7 @@ namespace Linq2ElasticSearch.Mapping
         private readonly IndexMapping _DefaultMapping;
         private IMappingRepository _MappingRepository { get; set; }
 
-        private IndexMapping _RealMapping { get; set; }
+        private IEnumerable<IndexMapping> _RealMapping { get; set; }
 
         public MappingProvider(IMappingRepository mappingRepository, IndexMapping defaultMapping) 
         {
@@ -26,7 +26,7 @@ namespace Linq2ElasticSearch.Mapping
             });
         }
 
-        public ModelMapping<T> GetDocumentMapping(DocumentType<T> documentType)
+        public ModelMapping<T> GetDocumentMapping<T>(DocumentType<T> documentType) where T : class
         {
  	        throw new NotImplementedException();
         }

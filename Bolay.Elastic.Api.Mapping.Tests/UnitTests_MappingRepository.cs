@@ -13,13 +13,13 @@ namespace Bolay.Elastic.Api.Mapping.Tests
     [TestClass]
     public class UnitTests_MappingRepository
     {
-        private Mock<IHttpRequestUtility> _MockedHttpRequestUtility { get; set; }
+        private Mock<IHttpLayer> _MockedhttpLayer { get; set; }
         private Mock<ISettingsRepository> _MockedSettingsRepository { get; set; }
 
         [TestInitialize]
         public void Init()
         {
-            _MockedHttpRequestUtility = new Mock<IHttpRequestUtility>();
+            _MockedhttpLayer = new Mock<IHttpLayer>();
             _MockedSettingsRepository = new Mock<ISettingsRepository>();
         }
 
@@ -33,13 +33,13 @@ namespace Bolay.Elastic.Api.Mapping.Tests
             _MockedSettingsRepository.Setup(x => x.Get())
                                      .Returns(clusterSettings);
 
-            _MockedHttpRequestUtility.Setup(x => x.Get(It.IsAny<HttpRequest>()))
+            _MockedhttpLayer.Setup(x => x.Get(It.IsAny<HttpRequest>()))
                                      .Returns(new HttpResponse(HttpStatusCode.OK, clusterMappingJson));
 
             MappingRepository mappingRepo = new MappingRepository(
                 new ElasticUriProvider("http://es:9200/"),
                 _MockedSettingsRepository.Object,
-                _MockedHttpRequestUtility.Object);
+                _MockedhttpLayer.Object);
 
             IEnumerable<IndexMapping> clusterMappings = mappingRepo.GetClusterMapping();
 

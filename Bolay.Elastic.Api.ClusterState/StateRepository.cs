@@ -32,7 +32,7 @@ namespace Bolay.Elastic.Api.ClusterState
         //    else
         //        clusterUri = new Uri(_ClusterUri, "_cluster/state" + request.ToString());
 
-        //    HttpResponse response = HttpRequestUtility.Get(clusterUri);
+        //    HttpResponse response = httpLayer.Get(clusterUri);
         //    if (response.StatusCode != System.Net.HttpStatusCode.OK)
         //        throw new ElasticRequestException(clusterUri);
 

@@ -1,0 +1,13 @@
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.QueryBuilding.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.QueryBuilding.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.Mapping.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Newtonsoft.Json.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.Analysis.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.Mapping.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Newtonsoft.Json.xml
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\bin\Debug\Bolay.Elastic.Analysis.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\obj\Debug\Bolay.Elastic.QueryBuilding.csprojResolveAssemblyReference.cache
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\obj\Debug\Bolay.Elastic.QueryBuilding.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.QueryBuilding\obj\Debug\Bolay.Elastic.QueryBuilding.pdb

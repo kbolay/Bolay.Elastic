@@ -23,14 +23,16 @@ namespace Bolay.Elastic.Api.Document.MultiGet
             get { return _Documents; }
             set
             {
-                if (value != null && value.Any()) 
+                if (value != null && value.Any())
                 {
-                    if(_DocumentIds != null && _DocumentIds.Any())
+                    if (_DocumentIds != null && _DocumentIds.Any())
                         throw new ArgumentException("Documents", "Documents and DocumentIds should not both be populated.");
                     _Documents = value;
                 }
-
-                _Documents = null;
+                else
+                {
+                    _Documents = null;
+                }                
             }
         }
 
@@ -42,7 +44,7 @@ namespace Bolay.Elastic.Api.Document.MultiGet
         [JsonProperty("ids")]
         public IEnumerable<string> DocumentIds
         {
-            get { return DocumentIds; }
+            get { return _DocumentIds; }
             set
             {
                 if (value != null && value.Any())
@@ -51,8 +53,10 @@ namespace Bolay.Elastic.Api.Document.MultiGet
                         throw new ArgumentException("DocumentIds", "DocumentIds and Documents should not both be populated.");
                     _DocumentIds = value;
                 }
-
-                _DocumentIds = null;
+                else
+                {
+                    _DocumentIds = null;
+                }                
             }
         }
 

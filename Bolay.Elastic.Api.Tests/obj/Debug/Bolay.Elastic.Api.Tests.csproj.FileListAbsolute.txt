@@ -1,0 +1,11 @@
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Bolay.Elastic.Api.Tests.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Bolay.Elastic.Api.Tests.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Bolay.Elastic.Api.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Newtonsoft.Json.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Bolay.Elastic.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Bolay.Elastic.Api.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Newtonsoft.Json.xml
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\bin\Debug\Bolay.Elastic.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\obj\Debug\Bolay.Elastic.Api.Tests.csprojResolveAssemblyReference.cache
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\obj\Debug\Bolay.Elastic.Api.Tests.dll
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Tests\obj\Debug\Bolay.Elastic.Api.Tests.pdb

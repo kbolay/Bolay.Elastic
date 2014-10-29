@@ -21,22 +21,22 @@ namespace Bolay.Elastic.Api.Mapping
 
         private readonly Uri _ClusterUri;
         private readonly ISettingsRepository _SettingsRepository;
-        private readonly IHttpRequestUtility _HttpRequestUtility;
+        private readonly IHttpLayer _httpLayer;
 
-        public MappingRepository(IUriProvider clusterUri, ISettingsRepository settingsRepository, IHttpRequestUtility httpRequestUtility)
+        public MappingRepository(IUriProvider clusterUri, ISettingsRepository settingsRepository, IHttpLayer httpLayer)
         {
             if (clusterUri == null || clusterUri.Uri == null)
                 throw new ArgumentNullException("clusterUri", "The mapping repository requires a uri provider for the elastic cluster.");
 
             _ClusterUri = clusterUri.Uri;
-            _HttpRequestUtility = httpRequestUtility;
+            _httpLayer = httpLayer;
             _SettingsRepository = settingsRepository;
         }
 
         public IEnumerable<IndexMapping> GetClusterMapping()
         {
             Uri mappingUri = new Uri(_ClusterUri, _MAPPING);
-            HttpResponse response = _HttpRequestUtility.Get(new HttpRequest(mappingUri));
+            HttpResponse response = _httpLayer.Get(new HttpRequest(mappingUri));
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new MappingRequestException(mappingUri);
 
@@ -47,7 +47,7 @@ namespace Bolay.Elastic.Api.Mapping
         public IEnumerable<IndexMapping> GetAliasMapping(string alias)
         {
             Uri mappingUri = new Uri(_ClusterUri, alias + "/" + _MAPPING);
-            HttpResponse response = _HttpRequestUtility.Get(new HttpRequest(mappingUri));
+            HttpResponse response = _httpLayer.Get(new HttpRequest(mappingUri));
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new MappingRequestException(mappingUri);
 
@@ -58,7 +58,7 @@ namespace Bolay.Elastic.Api.Mapping
         public IndexMapping GetIndexMapping(string indexName)
         {
             Uri mappingUri = new Uri(_ClusterUri, indexName + "/" + _MAPPING);
-            HttpResponse response = _HttpRequestUtility.Get(new HttpRequest(mappingUri));
+            HttpResponse response = _httpLayer.Get(new HttpRequest(mappingUri));
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new MappingRequestException(mappingUri);
 
@@ -69,7 +69,7 @@ namespace Bolay.Elastic.Api.Mapping
         public RootObjectProperty GetIndexTypeMapping(string indexName, string type)
         {
             Uri mappingUri = new Uri(_ClusterUri, indexName + "/" + type + "/" + _MAPPING);
-            HttpResponse response = _HttpRequestUtility.Get(new HttpRequest(mappingUri));
+            HttpResponse response = _httpLayer.Get(new HttpRequest(mappingUri));
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new MappingRequestException(mappingUri);
 

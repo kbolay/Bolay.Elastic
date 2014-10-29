@@ -13,7 +13,7 @@ namespace Bolay.Elastic.Api.Document.Tests.Get
     [TestClass]
     public class IntegrationTests_GetDocuments
     {
-        private ElasticUriProvider clusterUri = new ElasticUriProvider("http://10.137.8.224:9200");
+        private ElasticUriProvider clusterUri = new ElasticUriProvider("http://localhost:9200");
         private DocumentRepository<Tweet> tweetRepo;
 
         private string _Index = "tweetindex";
@@ -23,7 +23,7 @@ namespace Bolay.Elastic.Api.Document.Tests.Get
         [TestInitialize]
         public void Init()
         {
-            tweetRepo = new DocumentRepository<Tweet>(clusterUri, new HttpRequestUtility());
+            tweetRepo = new DocumentRepository<Tweet>(clusterUri, new HttpLayer());
             tweetRepo.Index(
                 new IndexDocumentRequest<Tweet>(
                     _Index,
@@ -63,7 +63,7 @@ namespace Bolay.Elastic.Api.Document.Tests.Get
         [TestMethod]
         public void PASS_GetDocument_ClusterNotFound()
         {
-            tweetRepo = new DocumentRepository<Tweet>(new ElasticUriProvider("http://notelastic:9200/"), new HttpRequestUtility());
+            tweetRepo = new DocumentRepository<Tweet>(new ElasticUriProvider("http://notelastic:9200/"), new HttpLayer());
             GetDocumentRequest request = new GetDocumentRequest(_Index, _DocumentType, _Id);
             try
             {
@@ -79,7 +79,7 @@ namespace Bolay.Elastic.Api.Document.Tests.Get
                 Assert.Fail();
             }
 
-            tweetRepo = new DocumentRepository<Tweet>(clusterUri, new HttpRequestUtility());
+            tweetRepo = new DocumentRepository<Tweet>(clusterUri, new HttpLayer());
         }
 
         [TestMethod]

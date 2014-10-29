@@ -7,13 +7,13 @@ using Newtonsoft.Json;
 namespace Kgb.Elastic.Tests
 {
     [TestClass]
-    public class UnitTest_HttpRequestUtility
+    public class UnitTest_httpLayer
     {
         [TestMethod]
         public void PASS_Get_Google()
         {
             string uri = "http://www.google.com";
-            HttpResponse response = new HttpRequestUtility().Get(new HttpRequest(uri));
+            HttpResponse response = new HttpLayer().Get(new HttpRequest(uri));
 
             Assert.IsNotNull(response);
             Assert.AreEqual(System.Net.HttpStatusCode.OK, response.StatusCode);
@@ -27,7 +27,7 @@ namespace Kgb.Elastic.Tests
             string uri = "http://www.google.com";
             Dictionary<string, string> headers = new Dictionary<string,string>();
             headers.Add("accept-language", "fr;q=1.0");
-            HttpResponse response = new HttpRequestUtility().Get(new HttpRequest(uri, null, headers));
+            HttpResponse response = new HttpLayer().Get(new HttpRequest(uri, null, headers));
 
             Assert.IsNotNull(response);
             Assert.AreEqual(System.Net.HttpStatusCode.OK, response.StatusCode);

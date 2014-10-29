@@ -15,15 +15,15 @@ namespace Bolay.Elastic.Api.Settings
         private const string _SETTINGS = "_settings";
 
         private readonly Uri _ClusterUri;
-        private readonly IHttpRequestUtility _HttpRequestUtility;
+        private readonly IHttpLayer _httpLayer;
 
-        public SettingsRepository(IUriProvider clusterUri, IHttpRequestUtility httpRequestUtility)
+        public SettingsRepository(IUriProvider clusterUri, IHttpLayer httpLayer)
         {
             if (clusterUri == null || clusterUri.Uri == null)
                 throw new ArgumentNullException("clusterUri", "Cluster uri is required for the Settings Repository.");
 
             _ClusterUri = new Uri(clusterUri.Uri.GetLeftPart(UriPartial.Authority));
-            _HttpRequestUtility = httpRequestUtility;
+            _httpLayer = httpLayer;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Bolay.Elastic.Api.Settings
         {
             Uri clusterUri = new Uri(_ClusterUri, _SETTINGS);
             HttpRequest request = new HttpRequest(clusterUri.ToString());
-            HttpResponse response = _HttpRequestUtility.Get(request);
+            HttpResponse response = _httpLayer.Get(request);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new ElasticRequestException(request, response);
 
@@ -48,7 +48,7 @@ namespace Bolay.Elastic.Api.Settings
 
             Uri clusterUri = new Uri(_ClusterUri, alias + "/" + _SETTINGS);
             HttpRequest request = new HttpRequest(clusterUri.ToString());
-            HttpResponse response = _HttpRequestUtility.Get(request);
+            HttpResponse response = _httpLayer.Get(request);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new ElasticRequestException(request, response);
 
@@ -67,7 +67,7 @@ namespace Bolay.Elastic.Api.Settings
 
             Uri clusterUri = new Uri(_ClusterUri, indexName + "/" + _SETTINGS);
             HttpRequest request = new HttpRequest(clusterUri.ToString());
-            HttpResponse response = _HttpRequestUtility.Get(request);
+            HttpResponse response = _httpLayer.Get(request);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new ElasticRequestException(request, response);
 

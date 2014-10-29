@@ -8,6 +8,6 @@ namespace Linq2ElasticSearch.Mapping
 {
     public interface IMappingProvider
     {
-        ModelMapping<T> GetDocumentMapping<T>(DocumentType<T> documentType);
+        ModelMapping<T> GetDocumentMapping<T>(DocumentType<T> documentType) where T : class;
     }
 }
