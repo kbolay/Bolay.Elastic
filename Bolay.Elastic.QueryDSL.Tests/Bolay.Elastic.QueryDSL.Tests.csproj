@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B71FCB9-05A0-43A7-8A7A-F7E72BCF1410}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.QueryDSL.Tests</RootNamespace>
+    <AssemblyName>Bolay.Elastic.QueryDSL.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Aggregations\UnitTests_PercentilesAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_AggregationResults.cs" />
+    <Compile Include="Aggregations\UnitTests_Aggregations.cs" />
+    <Compile Include="Aggregations\UnitTests_GeoHashGridAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_GeoDistanceAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_DateHistogramAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_HistogramAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_IPv4RangeAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_DateRangeAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_RangeAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_TermsAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_NestedAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_MissingAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_FilterAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_GlobalAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_ValueCountAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_ExtendedStatisticsAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_StatisticsAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_AverageAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_SumAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_MaximumAggregate.cs" />
+    <Compile Include="Aggregations\UnitTests_MinimumAggregate.cs" />
+    <Compile Include="Explanations\UnitTests_Explanation.cs" />
+    <Compile Include="Faceting\UnitTests_TermsStatisticsFacet.cs" />
+    <Compile Include="Faceting\UnitTests_Facets.cs" />
+    <Compile Include="Faceting\UnitTests_GeoDistanceFacet.cs" />
+    <Compile Include="Faceting\UnitTests_StatisticalFacet.cs" />
+    <Compile Include="Faceting\UnitTests_QueryFacet.cs" />
+    <Compile Include="Faceting\UnitTests_FilterFacet.cs" />
+    <Compile Include="Faceting\UnitTests_DateHistogramFacet.cs" />
+    <Compile Include="Faceting\UnitTests_HistogramFacet.cs" />
+    <Compile Include="Faceting\UnitTests_RangeFacet.cs" />
+    <Compile Include="Faceting\UnitTests_TermsFacet.cs" />
+    <Compile Include="Filters\And\UnitTests_AndFilter.cs" />
+    <Compile Include="Filters\Bool\UnitTests_BoolFilter.cs" />
+    <Compile Include="Filters\DocumentType\UnitTests_TypeFilter.cs" />
+    <Compile Include="Filters\Exists\UnitTests_ExistsFilter.cs" />
+    <Compile Include="Filters\GeoBoundingBox\UnitTests_GeoBoundingBoxFilter.cs" />
+    <Compile Include="Filters\GeoDistanceRange\UnitTests_GeoDistanceRangeFilter.cs" />
+    <Compile Include="Filters\GeoDistance\UnitTests_GeoDistanceFilter.cs" />
+    <Compile Include="Filters\GeoHashCell\UnitTests_GeoHashCellFilter.cs" />
+    <Compile Include="Filters\GeoPolygon\UnitTests_GeoPolygonFilter.cs" />
+    <Compile Include="Filters\GeoShape\UnitTests_GeoShapeFilter.cs" />
+    <Compile Include="Filters\HasChild\UnitTests_HasChildFilter.cs" />
+    <Compile Include="Filters\HasParent\UnitTests_HasParentFilter.cs" />
+    <Compile Include="Filters\Ids\UnitTests_IdsFilter.cs" />
+    <Compile Include="Filters\Indices\UnitTests_IndicesFilter.cs" />
+    <Compile Include="Filters\Limit\UnitTests_LimitFilter.cs" />
+    <Compile Include="Filters\MatchAll\UnitTests_MatchAllFilter.cs" />
+    <Compile Include="Filters\Missing\UnitTests_MissingFilter.cs" />
+    <Compile Include="Filters\Nested\UnitTests_NestedFilter.cs" />
+    <Compile Include="Filters\Not\UnitTests_NotFilter.cs" />
+    <Compile Include="Filters\Or\UnitTests_OrFilter.cs" />
+    <Compile Include="Filters\Prefix\UnitTests_PrefixFilter.cs" />
+    <Compile Include="Filters\Query\UnitTests_QueryFilter.cs" />
+    <Compile Include="Filters\Range\UnitTests_StringRangeFilter.cs" />
+    <Compile Include="Filters\Range\UnitTests_IntegerRangeFilter.cs" />
+    <Compile Include="Filters\Range\UnitTests_DoubleRangeFilter.cs" />
+    <Compile Include="Filters\Range\UnitTests_DateTimeRangeFilter.cs" />
+    <Compile Include="Filters\Regex\UnitTests_RegexFilter.cs" />
+    <Compile Include="Filters\Script\UnitTests_ScriptFilter.cs" />
+    <Compile Include="Filters\Terms\UnitTests_TermsFilter.cs" />
+    <Compile Include="Filters\Term\UnitTests_TermFilter.cs" />
+    <Compile Include="Highlighting\UnitTests_Highlighter.cs" />
+    <Compile Include="IndexBoosts\UnitTests_IndicesBoost.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Bool\UnitTests_BoolQuery.cs" />
+    <Compile Include="Queries\Boosting\UnitTests_BoostingQuery.cs" />
+    <Compile Include="Queries\Common\UnitTests_CommonQuery.cs" />
+    <Compile Include="Queries\ConstantScore\UnitTests_ConstantScoreQuery.cs" />
+    <Compile Include="Queries\ConstantScore\UnitTests_ConstantScoreFilter.cs" />
+    <Compile Include="Queries\DisMax\UnitTests_DisjuncitonMaxQuery.cs" />
+    <Compile Include="Queries\Filtered\UnitTests_FilteredQuery.cs" />
+    <Compile Include="Queries\FuzzyLikeThis\UnitTests_FuzzyLikeThisField.cs" />
+    <Compile Include="Queries\FuzzyLikeThis\UnitTests_FuzzyLikeThis.cs" />
+    <Compile Include="Queries\Fuzzy\UnitTests_FuzzyStringQuery.cs" />
+    <Compile Include="Queries\Fuzzy\UnitTests_FuzzyNumberQuery.cs" />
+    <Compile Include="Queries\Fuzzy\UnitTests_FuzzyDateQuery.cs" />
+    <Compile Include="Queries\GeoShape\UnitTests_GeoShapeQuery.cs" />
+    <Compile Include="Queries\HasChild\UnitTests_HasChildQuery.cs" />
+    <Compile Include="Queries\HasParent\UnitTests_HasParentQuery.cs" />
+    <Compile Include="Queries\Ids\UnitTests_IdsQuery.cs" />
+    <Compile Include="Queries\Indices\UnitTests_IndicesQuery.cs" />
+    <Compile Include="Queries\MatchAll\UnitTests_MatchAllQuery.cs" />
+    <Compile Include="Queries\Match\UnitTests_MultiMatchQuery.cs" />
+    <Compile Include="Queries\Match\UnitTests_MatchPhrasePrefixQuery.cs" />
+    <Compile Include="Queries\Match\UnitTests_MatchPhraseQuery.cs" />
+    <Compile Include="Queries\Match\UnitTests_MatchQuery.cs" />
+    <Compile Include="Queries\MoreLikeThis\UnitTests_MoreLikeThisFieldQuery.cs" />
+    <Compile Include="Queries\MoreLikeThis\UnitTests_MoreLikeThisQuery.cs" />
+    <Compile Include="Queries\Nested\UnitTests_NestedQuery.cs" />
+    <Compile Include="Queries\Prefix\UnitTests_PrefixQuery.cs" />
+    <Compile Include="Queries\QueryString\UnitTests_QueryStringQuery.cs" />
+    <Compile Include="Queries\Range\UnitTests_DateTimeRangeQuery.cs" />
+    <Compile Include="Queries\Range\UnitTests_DoubleRangeQuery.cs" />
+    <Compile Include="Queries\Range\UnitTests_IntegerRangeQuery.cs" />
+    <Compile Include="Queries\Range\UnitTests_StringRangeQuery.cs" />
+    <Compile Include="Queries\Regex\UnitTests_RegexQuery.cs" />
+    <Compile Include="Queries\Scoring\UnitTests_FunctionScoreFilter.cs" />
+    <Compile Include="Queries\Scoring\UnitTests_FunctionScoreQuery.cs" />
+    <Compile Include="Queries\SimpleQueryString\UnitTests_SimpleQueryStringQuery.cs" />
+    <Compile Include="Queries\Span\UnitTests_SpanNearQuery.cs" />
+    <Compile Include="Queries\Span\UnitTests_SpanOrQuery.cs" />
+    <Compile Include="Queries\Span\UnitTests_SpanNotQuery.cs" />
+    <Compile Include="Queries\Span\UnitTests_SpanMultiTermQuery.cs" />
+    <Compile Include="Queries\Span\UnitTests_SpanTermQuery.cs" />
+    <Compile Include="Queries\Span\UnitTests_SpanFirstQuery.cs" />
+    <Compile Include="Queries\Terms\UnitTests_TermsQuery.cs" />
+    <Compile Include="Queries\Term\UnitTests_TermQuery.cs" />
+    <Compile Include="Queries\TopChildren\UnitTests_TopChildrenQuery.cs" />
+    <Compile Include="Queries\Wildcard\UnitTests_WildcardQuery.cs" />
+    <Compile Include="Rescoring\UnitTests_Rescore.cs" />
+    <Compile Include="ScriptFields\UnitTests_ScriptFields.cs" />
+    <Compile Include="Sorting\Field\UnitTests_FieldSort.cs" />
+    <Compile Include="Sorting\GeoDistance\UnitTests_GeoDistanceSort.cs" />
+    <Compile Include="Sorting\Script\UnitTests_ScriptSort.cs" />
+    <Compile Include="SourceFiltering\UnitTests_SourceFilter.cs" />
+    <Compile Include="Suggestors\UnitTests_Suggestions.cs" />
+    <Compile Include="Suggestors\UnitTests_Suggests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic.QueryDSL\Bolay.Elastic.QueryDSL.csproj">
+      <Project>{45a4cdd6-a184-494d-b720-b98666cf5cb9}</Project>
+      <Name>Bolay.Elastic.QueryDSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

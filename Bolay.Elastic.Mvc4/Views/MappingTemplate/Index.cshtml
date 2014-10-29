@@ -1,0 +1,42 @@
+﻿@model Bolay.Elastic.Mvc4.ViewModels.MappingTemplateViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("BuildMapping", "MappingTemplate"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MappingTemplateViewModel</legend>
+        <p>
+            <input type="submit" value="Build" />
+        </p>
+        <div class="column">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.JsonTemplate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.JsonTemplate)
+                @Html.ValidationMessageFor(model => model.JsonTemplate)
+            </div>
+        </div>
+        <div class="column">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SampleDocument)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SampleDocument)
+                @Html.ValidationMessageFor(model => model.SampleDocument)
+            </div>
+        </div>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

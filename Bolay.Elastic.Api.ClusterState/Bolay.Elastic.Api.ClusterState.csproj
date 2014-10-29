@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49B356D0-A0CE-428F-8839-D39B8A5C9CF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.Api.ClusterState</RootNamespace>
+    <AssemblyName>Bolay.Elastic.Api.ClusterState</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IStateRepository.cs" />
+    <Compile Include="Models\MetaDataIndex.cs" />
+    <Compile Include="Models\IndexState.cs" />
+    <Compile Include="Models\MetaData.cs" />
+    <Compile Include="Models\Node.cs" />
+    <Compile Include="Models\NodeAttributes.cs" />
+    <Compile Include="Models\RoutingIndex.cs" />
+    <Compile Include="Models\RoutingNodes.cs" />
+    <Compile Include="Models\ShardGroup.cs" />
+    <Compile Include="Models\ShardInstance.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\StateRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\MetaDataIndexCollectionConverter.cs" />
+    <Compile Include="Serialization\MetaDataIndexConverter.cs" />
+    <Compile Include="Serialization\NodeCollectionConverter.cs" />
+    <Compile Include="Serialization\RoutingIndexCollectionConverter.cs" />
+    <Compile Include="Serialization\ShardGroupCollectionConverter.cs" />
+    <Compile Include="Serialization\TemplateCollectionConverter.cs" />
+    <Compile Include="StateRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic.Api.Mapping\Bolay.Elastic.Api.Mapping.csproj">
+      <Project>{754c74d8-e632-47f5-9f1e-a72aa93fe459}</Project>
+      <Name>Bolay.Elastic.Api.Mapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic.Api\Bolay.Elastic.Api.csproj">
+      <Project>{a13c96da-14b2-4059-a117-69afb3bba2bd}</Project>
+      <Name>Bolay.Elastic.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

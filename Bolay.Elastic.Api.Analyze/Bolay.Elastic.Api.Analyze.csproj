@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61B46195-F102-4975-BA41-105225038DB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.Api.Analyze</RootNamespace>
+    <AssemblyName>Bolay.Elastic.Api.Analyze</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalyzeRepository.cs" />
+    <Compile Include="Exceptions\AnalyzeRequestException.cs" />
+    <Compile Include="IAnalyzeRepository.cs" />
+    <Compile Include="IndexAnalysis\Serialization\AnalysisSerializer.cs" />
+    <Compile Include="Models\AnalyzeRequest.cs" />
+    <Compile Include="Models\AnalyzedToken.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\AnalyzerEnum.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\AnalyzerBase.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Arabic.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Armenian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Basque.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Brazilian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Bulgarian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Catalan.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Chinese.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\CJK.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Custom.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Czech.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Danish.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Dutch.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\English.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Finnish.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\French.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Galician.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\German.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Greek.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Hindi.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Hungarian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Indonesian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Italian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Keyword.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\LanguageBase.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Norwegian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Pattern.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Persian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Portuguese.cs" />
+    <Compile Include="IndexAnalysis\CharacterFilters\CharacterFilterEnum.cs" />
+    <Compile Include="IndexAnalysis\CharacterFilters\HtmlStrip.cs" />
+    <Compile Include="IndexAnalysis\CharacterFilters\Mapping.cs" />
+    <Compile Include="IndexAnalysis\CharacterFilters\PatternReplace.cs" />
+    <Compile Include="IndexAnalysis\RegexFlagEnum.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Romanian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Russian.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Simple.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Snowball.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Spanish.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Standard.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\StemExclusionLanguageBase.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\StopWord.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Swedish.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Thai.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Turkish.cs" />
+    <Compile Include="IndexAnalysis\Analyzers\Whitespace.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\CharacterClassEnum.cs" />
+    <Compile Include="IndexAnalysis\CharacterFilters\CharacterFilterBase.cs" />
+    <Compile Include="IndexAnalysis\SnowballLanguageEnum.cs" />
+    <Compile Include="IndexAnalysis\SupportedLanguageEnum.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\AsciiFolding.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\CommonGrams.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\CompoundWord.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\DecompounderEnum.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\EdgeNGram.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Elision.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Hunspell.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\KeepWords.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\KeywordMarker.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\KeywordRepeat.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\KStem.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Length.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\LimitTokenCount.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Lowercase.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\LowercaseSupportedLanguageEnum.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\NGram.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Normalization.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\PatternCapture.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\PatternReplace.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Phonetic.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\PorterStem.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Reverse.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Shingle.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\SideEnum.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Snowball.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Standard.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Stemmer.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\StemmerLanguageEnum.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\StemmerOverride.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\StopWord.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Synonym.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\TokenFilterBase.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\TokenFilterEnum.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Trim.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Truncate.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\Unique.cs" />
+    <Compile Include="IndexAnalysis\TokenFilters\WordDelimeter.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\TokenizerEnum.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\EdgeNGram.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\Keyword.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\Letter.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\Lowercase.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\NGram.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\PathHierarchy.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\Pattern.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\Standard.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\TokenizerBase.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\UaxEmailUrl.cs" />
+    <Compile Include="IndexAnalysis\Tokenizers\Whitespace.cs" />
+    <Compile Include="Models\AnalyzeResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic.Api\Bolay.Elastic.Api.csproj">
+      <Project>{a13c96da-14b2-4059-a117-69afb3bba2bd}</Project>
+      <Name>Bolay.Elastic.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

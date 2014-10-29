@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{754C74D8-E632-47F5-9F1E-A72AA93FE459}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.Api.Mapping</RootNamespace>
+    <AssemblyName>Bolay.Elastic.Api.Mapping</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\MappingRequestException.cs" />
+    <Compile Include="IMappingRepository.cs" />
+    <Compile Include="MappingRepository.cs" />
+    <Compile Include="Models\IndexMapping.cs" />
+    <Compile Include="Models\IndexMappingCollection.cs" />
+    <Compile Include="Models\IndexMappingCollectionSerializer.cs" />
+    <Compile Include="Models\IndexMappingSerializer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic.Analysis\Bolay.Elastic.Analysis.csproj">
+      <Project>{37c4538c-1b07-4628-99b7-014c3e5a2301}</Project>
+      <Name>Bolay.Elastic.Analysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic.Api.Settings\Bolay.Elastic.Api.Settings.csproj">
+      <Project>{a31f1dc1-e379-494a-a202-6063da427f3a}</Project>
+      <Name>Bolay.Elastic.Api.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic.Api\Bolay.Elastic.Api.csproj">
+      <Project>{a13c96da-14b2-4059-a117-69afb3bba2bd}</Project>
+      <Name>Bolay.Elastic.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic.Mapping\Bolay.Elastic.Mapping.csproj">
+      <Project>{3c061068-8f6d-489f-8c6f-f6a9008f308e}</Project>
+      <Name>Bolay.Elastic.Mapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

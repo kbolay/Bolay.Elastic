@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7844DDD-0BF8-4799-8D4B-EC1CA7624270}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic</RootNamespace>
+    <AssemblyName>Bolay.Elastic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConnectionStringProvider.cs" />
+    <Compile Include="Coordinates\CoordinatePointSerializer.cs" />
+    <Compile Include="Coordinates\SerializeTypeException.cs" />
+    <Compile Include="EmbeddedResource.cs" />
+    <Compile Include="Models\RegexFlagEnum.cs" />
+    <Compile Include="Time\DateFormatSerializer.cs" />
+    <Compile Include="Time\DateTimeFormatEnum.cs" />
+    <Compile Include="Time\DateFormat.cs" />
+    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="Distance\DistanceSerializer.cs" />
+    <Compile Include="Distance\DistanceValue.cs" />
+    <Compile Include="Distance\DistanceUnitEnum.cs" />
+    <Compile Include="Exceptions\ConflictingPropertiesException.cs" />
+    <Compile Include="Exceptions\ParsingException.cs" />
+    <Compile Include="Exceptions\RequiredPropertyMissingException.cs" />
+    <Compile Include="Exceptions\SerializeTypeException.cs" />
+    <Compile Include="GeoShapes\Envelope.cs" />
+    <Compile Include="GeoShapes\EnvelopeSerializer.cs" />
+    <Compile Include="GeoShapes\GeoShapeBase.cs" />
+    <Compile Include="GeoShapes\GeoShapeSerializer.cs" />
+    <Compile Include="GeoShapes\GeoShapeTypeEnum.cs" />
+    <Compile Include="GeoShapes\IndexedShape.cs" />
+    <Compile Include="GeoShapes\IndexedShapeSerializer.cs" />
+    <Compile Include="GeoShapes\LineString.cs" />
+    <Compile Include="GeoShapes\LineStringSerializer.cs" />
+    <Compile Include="GeoShapes\MultiPoint.cs" />
+    <Compile Include="GeoShapes\MultiPointSerializer.cs" />
+    <Compile Include="GeoShapes\MultiPolygon.cs" />
+    <Compile Include="GeoShapes\MultiPolygonSerializer.cs" />
+    <Compile Include="GeoShapes\Point.cs" />
+    <Compile Include="GeoShapes\PointSerializer.cs" />
+    <Compile Include="GeoShapes\Polygon.cs" />
+    <Compile Include="GeoShapes\PolygonSerializer.cs" />
+    <Compile Include="Interfaces\IConnectionStringProvider.cs" />
+    <Compile Include="Interfaces\IElasticUriProvider.cs" />
+    <Compile Include="Interfaces\IUriProvider.cs" />
+    <Compile Include="Models\Cluster.cs" />
+    <Compile Include="Coordinates\CoordinatePoint.cs" />
+    <Compile Include="Models\Index.cs" />
+    <Compile Include="Models\SizeUnit.cs" />
+    <Compile Include="Models\TypeSafeEnumSerializer.cs" />
+    <Compile Include="Scripts\Script.cs" />
+    <Compile Include="Scripts\ScriptParameter.cs" />
+    <Compile Include="Scripts\ScriptParameterCollectionSerializer.cs" />
+    <Compile Include="Scripts\ScriptSerializer.cs" />
+    <Compile Include="Time\TimeSerializer.cs" />
+    <Compile Include="Time\TimeUnit.cs" />
+    <Compile Include="Time\TimeValue.cs" />
+    <Compile Include="Models\TypeSafeEnumBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ElasticUriProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45A4CDD6-A184-494D-B720-B98666CF5CB9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.QueryDSL</RootNamespace>
+    <AssemblyName>Bolay.Elastic.QueryDSL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregations\Aggregations.cs" />
+    <Compile Include="Aggregations\AggregationsSerializer.cs" />
+    <Compile Include="Aggregations\AggregationTypeEnum.cs" />
+    <Compile Include="Aggregations\Average\AverageAggregate.cs" />
+    <Compile Include="Aggregations\Average\AverageSerializer.cs" />
+    <Compile Include="Aggregations\BucketAggregationBase.cs" />
+    <Compile Include="Aggregations\Filter\FilterSerializer.cs" />
+    <Compile Include="Aggregations\GeoDistance\DistanceRangeBucket.cs" />
+    <Compile Include="Aggregations\GeoDistance\GeoDistanceSerializer.cs" />
+    <Compile Include="Aggregations\GeoHashGrid\GeoHashGridSerializer.cs" />
+    <Compile Include="Aggregations\Global\GlobalSerializer.cs" />
+    <Compile Include="Aggregations\Histogram\Date\DateHistogramSerializer.cs" />
+    <Compile Include="Aggregations\Histogram\HistogramSerializer.cs" />
+    <Compile Include="Aggregations\Missing\MissingSerializer.cs" />
+    <Compile Include="Aggregations\Nested\NestedSerializer.cs" />
+    <Compile Include="Aggregations\Percentiles\PercentilesAggregate.cs" />
+    <Compile Include="Aggregations\Percentiles\PercentilesSerializer.cs" />
+    <Compile Include="Aggregations\Range\Date\DateRangeBucket.cs" />
+    <Compile Include="Aggregations\Range\Date\DateRangeSerializer.cs" />
+    <Compile Include="Aggregations\Range\IPv4\IpRangeBucket.cs" />
+    <Compile Include="Aggregations\Range\IPv4\IPv4RangeSerializer.cs" />
+    <Compile Include="Aggregations\Range\RangeBucket.cs" />
+    <Compile Include="Aggregations\Range\RangeSerializer.cs" />
+    <Compile Include="Aggregations\Results\AggregationResultBase.cs" />
+    <Compile Include="Aggregations\Results\AggregationsResult.cs" />
+    <Compile Include="Aggregations\Results\AggregationsResultSerializer.cs" />
+    <Compile Include="Aggregations\Results\BucketAggregation.cs" />
+    <Compile Include="Aggregations\Results\DistanceAggregation.cs" />
+    <Compile Include="Aggregations\Results\ExtendedStatisticsAggregation.cs" />
+    <Compile Include="Aggregations\Results\IAggregationResult.cs" />
+    <Compile Include="Aggregations\Results\MultiBucketAggregation.cs" />
+    <Compile Include="Aggregations\Results\PercentilesAggregation.cs" />
+    <Compile Include="Aggregations\Results\RangeAggregation.cs" />
+    <Compile Include="Aggregations\Results\SingleValueAggregation.cs" />
+    <Compile Include="Aggregations\Results\StatisticsAggregation.cs" />
+    <Compile Include="Aggregations\Statistics\Extended\ExtendedStatisticSerializer.cs" />
+    <Compile Include="Aggregations\Statistics\StatisticsSerializer.cs" />
+    <Compile Include="Aggregations\Terms\ExecutionTypeEnum.cs" />
+    <Compile Include="Aggregations\Terms\RegexPattern.cs" />
+    <Compile Include="Aggregations\Terms\TermsSerializer.cs" />
+    <Compile Include="Aggregations\ValueCount\ValueCountAggregate.cs" />
+    <Compile Include="Aggregations\Filter\FilterAggregate.cs" />
+    <Compile Include="Aggregations\GeoDistance\GeoDistanceAggregate.cs" />
+    <Compile Include="Aggregations\GeoHashGrid\GeoHashGridAggregate.cs" />
+    <Compile Include="Aggregations\Global\GlobalAggregate.cs" />
+    <Compile Include="Aggregations\Histogram\Date\DateHistogramAggregate.cs" />
+    <Compile Include="Aggregations\Histogram\HistogramAggregate.cs" />
+    <Compile Include="Aggregations\IAggregation.cs" />
+    <Compile Include="Aggregations\Maximum\MaximumSerializer.cs" />
+    <Compile Include="Aggregations\MetricAggregationBase.cs" />
+    <Compile Include="Aggregations\Minimum\MinimumSerializer.cs" />
+    <Compile Include="Aggregations\Missing\MissingAggregate.cs" />
+    <Compile Include="Aggregations\Nested\NestedAggregate.cs" />
+    <Compile Include="Aggregations\Range\Date\DateRangeAggregate.cs" />
+    <Compile Include="Aggregations\Range\IPv4\IPv4RangeAggregate.cs" />
+    <Compile Include="Aggregations\Range\RangeAggregate.cs" />
+    <Compile Include="Aggregations\Statistics\Extended\ExtendedStatisticsAggregate.cs" />
+    <Compile Include="Aggregations\Maximum\MaximumAggregate.cs" />
+    <Compile Include="Aggregations\Minimum\MinimumAggregate.cs" />
+    <Compile Include="Aggregations\Statistics\StatisticsAggregate.cs" />
+    <Compile Include="Aggregations\Sum\SumAggregate.cs" />
+    <Compile Include="Aggregations\Sum\SumSerializer.cs" />
+    <Compile Include="Aggregations\Terms\TermsAggregate.cs" />
+    <Compile Include="Aggregations\ValueCount\ValueCountSerializer.cs" />
+    <Compile Include="BoostedField.cs" />
+    <Compile Include="Explanations\Explanation.cs" />
+    <Compile Include="Faceting\DateHistogram\DateHistogramEntry.cs" />
+    <Compile Include="Faceting\DateHistogram\DateHistogramFacet.cs" />
+    <Compile Include="Faceting\DateHistogram\DateHistogramResponse.cs" />
+    <Compile Include="Faceting\DateHistogram\DateHistogramResponseSerializer.cs" />
+    <Compile Include="Faceting\DateHistogram\DateHistogramSerializer.cs" />
+    <Compile Include="DateIntervalEnum.cs" />
+    <Compile Include="Faceting\FacetBase.cs" />
+    <Compile Include="Faceting\FacetResponseSerializer.cs" />
+    <Compile Include="Faceting\Facets.cs" />
+    <Compile Include="Faceting\FacetSerializer.cs" />
+    <Compile Include="Faceting\FacetsResponse.cs" />
+    <Compile Include="Faceting\FacetTypeEnum.cs" />
+    <Compile Include="Faceting\Filter\FilterFacet.cs" />
+    <Compile Include="Faceting\Filter\FilterResponse.cs" />
+    <Compile Include="Faceting\Filter\FilterResponseSerializer.cs" />
+    <Compile Include="Faceting\Filter\FilterFacetSerializer.cs" />
+    <Compile Include="Faceting\GeoDistance\DistanceBucket.cs" />
+    <Compile Include="Faceting\GeoDistance\ExtendedDistanceUnitEnum.cs" />
+    <Compile Include="Faceting\GeoDistance\GeoDistanceFacet.cs" />
+    <Compile Include="Faceting\GeoDistance\GeoDistanceResponse.cs" />
+    <Compile Include="Faceting\GeoDistance\GeoDistanceFacetSerializer.cs" />
+    <Compile Include="Faceting\GeoDistance\GeoDistanceRange.cs" />
+    <Compile Include="Faceting\GeoDistance\GeoDistanceResponseSerializer.cs" />
+    <Compile Include="Faceting\Histogram\HistogramEntry.cs" />
+    <Compile Include="Faceting\Histogram\HistogramFacet.cs" />
+    <Compile Include="Faceting\Histogram\HistogramResponse.cs" />
+    <Compile Include="Faceting\Histogram\HistogramResponseSerializer.cs" />
+    <Compile Include="Faceting\Histogram\HistogramSerializer.cs" />
+    <Compile Include="Faceting\IFacet.cs" />
+    <Compile Include="Faceting\Query\QueryFacet.cs" />
+    <Compile Include="Faceting\Query\QueryFacetSerializer.cs" />
+    <Compile Include="Faceting\Query\QueryResponse.cs" />
+    <Compile Include="Faceting\Query\QueryResponseSerializer.cs" />
+    <Compile Include="Faceting\Range\RangeFacet.cs" />
+    <Compile Include="Faceting\Range\RangeFacetSerializer.cs" />
+    <Compile Include="Faceting\Range\RangeBucket.cs" />
+    <Compile Include="Faceting\Range\RangeResponse.cs" />
+    <Compile Include="Faceting\Range\RangeResponseBucket.cs" />
+    <Compile Include="Faceting\Range\RangeResponseSerializer.cs" />
+    <Compile Include="Faceting\Statistics\StatisticsFacet.cs" />
+    <Compile Include="Faceting\Statistics\StatisticsFacetSerializer.cs" />
+    <Compile Include="Faceting\Statistics\StatisticsResponse.cs" />
+    <Compile Include="Faceting\Statistics\StatisticsResponseSerializer.cs" />
+    <Compile Include="Faceting\TermsStatistics\OrderOptionEnum.cs" />
+    <Compile Include="Faceting\TermsStatistics\TermStatisticBucket.cs" />
+    <Compile Include="Faceting\TermsStatistics\TermsStatisticsFacet.cs" />
+    <Compile Include="Faceting\TermsStatistics\TermsStatisticsResponse.cs" />
+    <Compile Include="Faceting\TermsStatistics\TermsStatisticsResponseSerializer.cs" />
+    <Compile Include="Faceting\TermsStatistics\TermsStatisticsSerializer.cs" />
+    <Compile Include="Faceting\Terms\OrderingEnum.cs" />
+    <Compile Include="Faceting\IFacetResponse.cs" />
+    <Compile Include="Faceting\Terms\TermBucket.cs" />
+    <Compile Include="Faceting\Terms\TermsResponse.cs" />
+    <Compile Include="Faceting\Terms\TermsResponseSerializer.cs" />
+    <Compile Include="Faceting\Terms\TermsFacet.cs" />
+    <Compile Include="Faceting\Terms\TermsSerializer.cs" />
+    <Compile Include="Filters\And\AndFilter.cs" />
+    <Compile Include="Filters\And\AndSerializer.cs" />
+    <Compile Include="Filters\Bool\BoolFilter.cs" />
+    <Compile Include="Filters\Bool\BoolSerializer.cs" />
+    <Compile Include="Filters\Exists\ExistsFilter.cs" />
+    <Compile Include="Filters\Exists\ExistsSerializer.cs" />
+    <Compile Include="Filters\FilterBase.cs" />
+    <Compile Include="Filters\FilterSerializer.cs" />
+    <Compile Include="Filters\GeoBoundingBox\ExecutionTypeEnum.cs" />
+    <Compile Include="Filters\GeoBoundingBox\GeoBoundingBoxFilter.cs" />
+    <Compile Include="Filters\GeoBoundingBox\GeoBoundingBoxSerializer.cs" />
+    <Compile Include="Filters\GeoDistanceRange\GeoDistanceRangeFilter.cs" />
+    <Compile Include="Filters\GeoDistanceRange\GeoDistanceRangeSerializer.cs" />
+    <Compile Include="Filters\GeoDistance\BoundingBoxOptimizeEnum.cs" />
+    <Compile Include="DistanceComputeTypeEnum.cs" />
+    <Compile Include="Filters\GeoDistance\GeoDistanceFilter.cs" />
+    <Compile Include="Filters\GeoDistance\GeoDistanceSerializer.cs" />
+    <Compile Include="Filters\GeoHashCell\GeoHashCellFilter.cs" />
+    <Compile Include="Filters\GeoHashCell\GeoHashCellSerializer.cs" />
+    <Compile Include="Filters\GeoPolygon\GeoPolygonFilter.cs" />
+    <Compile Include="Filters\GeoPolygon\GeoPolygonSerializer.cs" />
+    <Compile Include="Filters\GeoShape\GeoShapeFilter.cs" />
+    <Compile Include="Filters\GeoShape\GeoShapeSerializer.cs" />
+    <Compile Include="Filters\HasChild\HasChildFilter.cs" />
+    <Compile Include="Filters\HasChild\HasChildSerializer.cs" />
+    <Compile Include="Filters\HasParent\HasParentFilter.cs" />
+    <Compile Include="Filters\HasParent\HasParentSerializer.cs" />
+    <Compile Include="Filters\Ids\IdsFilter.cs" />
+    <Compile Include="Filters\Ids\IdsSerializer.cs" />
+    <Compile Include="Filters\Indices\IndicesFilter.cs" />
+    <Compile Include="Filters\Indices\IndicesSerializer.cs" />
+    <Compile Include="Filters\Indices\NonMatchingTypeEnum.cs" />
+    <Compile Include="Filters\Limit\LimitFilter.cs" />
+    <Compile Include="Filters\Limit\LimitSerializer.cs" />
+    <Compile Include="Filters\MatchAll\MatchAllFilter.cs" />
+    <Compile Include="Filters\MatchAll\MatchAllSerializer.cs" />
+    <Compile Include="Filters\Missing\MissingFilter.cs" />
+    <Compile Include="Filters\Missing\MissingSerializer.cs" />
+    <Compile Include="Filters\Nested\NestedFilter.cs" />
+    <Compile Include="Filters\Nested\NestedSerializer.cs" />
+    <Compile Include="Filters\Not\NotFilter.cs" />
+    <Compile Include="Filters\Not\NotSerializer.cs" />
+    <Compile Include="Filters\Or\OrFilter.cs" />
+    <Compile Include="Filters\Or\OrSerializer.cs" />
+    <Compile Include="Filters\Prefix\PrefixFilter.cs" />
+    <Compile Include="Filters\Prefix\PrefixSerializer.cs" />
+    <Compile Include="Filters\Query\QueryFilter.cs" />
+    <Compile Include="Filters\Query\QuerySerializer.cs" />
+    <Compile Include="Filters\Range\DateTimeRangeFilter.cs" />
+    <Compile Include="Filters\Range\DoubleRangeFilter.cs" />
+    <Compile Include="Filters\Range\ExecutionTypeEnum.cs" />
+    <Compile Include="Filters\Range\IntegerRangeFilter.cs" />
+    <Compile Include="Filters\Range\RangeFilterBase.cs" />
+    <Compile Include="Filters\Range\RangeSerializer.cs" />
+    <Compile Include="Filters\Range\StringRangeFilter.cs" />
+    <Compile Include="Filters\Regex\RegexFilter.cs" />
+    <Compile Include="Filters\Regex\RegexSerializer.cs" />
+    <Compile Include="Filters\Script\ScriptFilter.cs" />
+    <Compile Include="Filters\Script\ScriptFilterSerializer.cs" />
+    <Compile Include="Filters\Terms\ExecutionTypeEnum.cs" />
+    <Compile Include="Filters\Terms\TermsFilter.cs" />
+    <Compile Include="Filters\Terms\TermsSerializer.cs" />
+    <Compile Include="Filters\DocumentType\TypeFilter.cs" />
+    <Compile Include="Filters\DocumentType\TypeSerializer.cs" />
+    <Compile Include="Highlighting\EncoderTypeEnum.cs" />
+    <Compile Include="Highlighting\FieldHighlighter.cs" />
+    <Compile Include="Highlighting\Highlighter.cs" />
+    <Compile Include="Highlighting\HighlighterOptions.cs" />
+    <Compile Include="Highlighting\HighlighterSerializer.cs" />
+    <Compile Include="Highlighting\HighlighterTypeEnum.cs" />
+    <Compile Include="Highlighting\TagsSchemaEnum.cs" />
+    <Compile Include="IndexBoosts\IndexBoost.cs" />
+    <Compile Include="IndexBoosts\IndicesBoost.cs" />
+    <Compile Include="IndexBoosts\IndicesBoostSerializer.cs" />
+    <Compile Include="Queries\Filtered\FilteredQuery.cs" />
+    <Compile Include="Filters\FilterTypeEnum.cs" />
+    <Compile Include="Filters\IFilter.cs" />
+    <Compile Include="Filters\Term\TermFilter.cs" />
+    <Compile Include="Filters\Term\TermSerializer.cs" />
+    <Compile Include="ISearchPiece.cs" />
+    <Compile Include="MinimumShouldMatch\CombinationMatch.cs" />
+    <Compile Include="MinimumShouldMatch\IntegerMatch.cs" />
+    <Compile Include="MinimumShouldMatch\MinimumShouldMatchBase.cs" />
+    <Compile Include="MinimumShouldMatch\MinimumShouldMatchTypeEnum.cs" />
+    <Compile Include="MinimumShouldMatch\MultipleCombinationMatch.cs" />
+    <Compile Include="MinimumShouldMatch\PercentageMatch.cs" />
+    <Compile Include="MinimumShouldMatch\SingleValueMatchBase.cs" />
+    <Compile Include="Queries\Common\MinimumShouldMatch.cs" />
+    <Compile Include="Queries\ConstantScore\ConstantScoreFilter.cs" />
+    <Compile Include="Queries\ConstantScore\ConstantScoreQuery.cs" />
+    <Compile Include="Queries\ConstantScore\ConstantScoreQueryBase.cs" />
+    <Compile Include="Queries\ConstantScore\ConstantScoreSerializer.cs" />
+    <Compile Include="Queries\DisMax\DisMaxSerializer.cs" />
+    <Compile Include="Queries\Fuzzy\FuzzyQueryBase.cs" />
+    <Compile Include="Queries\HasChild\HasChildQuery.cs" />
+    <Compile Include="Queries\HasChild\HasChildSerializer.cs" />
+    <Compile Include="Queries\HasChild\ScoreTypeEnum.cs" />
+    <Compile Include="Queries\HasParent\HasParentQuery.cs" />
+    <Compile Include="Queries\HasParent\HasParentSerializer.cs" />
+    <Compile Include="Queries\HasParent\ScoreTypeEnum.cs" />
+    <Compile Include="Queries\Ids\IdsQuery.cs" />
+    <Compile Include="Queries\Ids\IdsSerializer.cs" />
+    <Compile Include="Queries\Indices\IndicesQuery.cs" />
+    <Compile Include="Queries\Indices\IndicesSerializer.cs" />
+    <Compile Include="Queries\Indices\NonMatchingTypeEnum.cs" />
+    <Compile Include="Queries\MatchAll\MatchAllQuery.cs" />
+    <Compile Include="Queries\MatchAll\MatchAllSerializer.cs" />
+    <Compile Include="Queries\MoreLikeThis\MoreLikeThisBase.cs" />
+    <Compile Include="Queries\MoreLikeThis\MoreLikeThisFieldQuery.cs" />
+    <Compile Include="Queries\MoreLikeThis\MoreLikeThisQuery.cs" />
+    <Compile Include="Queries\MoreLikeThis\MoreLikeThisSerializer.cs" />
+    <Compile Include="Queries\Nested\NestedQuery.cs" />
+    <Compile Include="Queries\Nested\NestedSerializer.cs" />
+    <Compile Include="Queries\Nested\ScoreModeEnum.cs" />
+    <Compile Include="Queries\Prefix\PrefixQuery.cs" />
+    <Compile Include="Queries\Prefix\PrefixSerializer.cs" />
+    <Compile Include="Queries\QueryBase.cs" />
+    <Compile Include="Queries\QueryString\QueryStringQuery.cs" />
+    <Compile Include="Queries\QueryString\QueryStringSerializer.cs" />
+    <Compile Include="Queries\Range\DateTimeRangeQuery.cs" />
+    <Compile Include="Queries\Range\DoubleRangeQuery.cs" />
+    <Compile Include="Queries\Range\IntegerRangeQuery.cs" />
+    <Compile Include="Queries\Range\RangeSerializer.cs" />
+    <Compile Include="Queries\Range\StringRangeQuery.cs" />
+    <Compile Include="RegexOperatorEnum.cs" />
+    <Compile Include="Queries\Regex\RegexQuery.cs" />
+    <Compile Include="Queries\Regex\RegexSerializer.cs" />
+    <Compile Include="Queries\Scoring\BoostModeEnum.cs" />
+    <Compile Include="Queries\Scoring\FunctionScoreFilter.cs" />
+    <Compile Include="Queries\Scoring\FunctionScoreQuery.cs" />
+    <Compile Include="Queries\Scoring\FunctionScoreQueryBase.cs" />
+    <Compile Include="Queries\Scoring\FunctionScoreSerializer.cs" />
+    <Compile Include="Queries\Scoring\Functions\BoostFactorSerializer.cs" />
+    <Compile Include="Queries\Scoring\Functions\ScoreFunctionBase.cs" />
+    <Compile Include="Queries\Scoring\Functions\ScoreFunctionEnum.cs" />
+    <Compile Include="Queries\Scoring\Functions\ScoreFunctionSerializer.cs" />
+    <Compile Include="Queries\Scoring\ScoreModeEnum.cs" />
+    <Compile Include="Queries\GeoShape\GeoShapeQuery.cs" />
+    <Compile Include="Queries\Match\MatchQuery.cs" />
+    <Compile Include="Queries\Match\MatchPhrasePrefixQuery.cs" />
+    <Compile Include="Queries\Match\MatchQueryTypeEnum.cs" />
+    <Compile Include="OperatorEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Bool\BoolQuery.cs" />
+    <Compile Include="Queries\Boosting\BoostingQuery.cs" />
+    <Compile Include="Queries\Common\CommonQuery.cs" />
+    <Compile Include="Queries\DisMax\DisjunctionMaxQuery.cs" />
+    <Compile Include="Queries\Fuzzy\FuzzyDateQuery.cs" />
+    <Compile Include="Queries\FuzzyLikeThis\FuzzyLikeThisBase.cs" />
+    <Compile Include="Queries\FuzzyLikeThis\FuzzyLikeThisQuery.cs" />
+    <Compile Include="Queries\FuzzyLikeThis\FuzzyLikeThisFieldQuery.cs" />
+    <Compile Include="Queries\Fuzzy\FuzzyNumberQuery.cs" />
+    <Compile Include="Queries\Fuzzy\FuzzyStringQuery.cs" />
+    <Compile Include="Queries\Match\MatchQueryBase.cs" />
+    <Compile Include="Queries\Match\MatchPhraseQuery.cs" />
+    <Compile Include="Queries\Match\MultiMatchQuery.cs" />
+    <Compile Include="Queries\IQuery.cs" />
+    <Compile Include="Queries\QuerySerializer.cs" />
+    <Compile Include="Queries\Fuzzy\FuzzySerializer.cs" />
+    <Compile Include="Queries\GeoShape\GeoShapeSerializer.cs" />
+    <Compile Include="Queries\SimpleQueryString\ParsingFeatureEnum.cs" />
+    <Compile Include="Queries\Range\RangeQueryBase.cs" />
+    <Compile Include="Queries\SimpleQueryString\SimpleQueryStringQuery.cs" />
+    <Compile Include="Queries\SimpleQueryString\SimpleQueryStringSerializer.cs" />
+    <Compile Include="Queries\Span\ISpanQuery.cs" />
+    <Compile Include="Queries\Span\SpanFirstQuery.cs" />
+    <Compile Include="Queries\Span\SpanFirstSerializer.cs" />
+    <Compile Include="Queries\Span\SpanMultiTermQuery.cs" />
+    <Compile Include="Queries\Span\SpanMultiTermSerializer.cs" />
+    <Compile Include="Queries\Span\SpanNearQuery.cs" />
+    <Compile Include="Queries\Span\SpanNearSerializer.cs" />
+    <Compile Include="Queries\Span\SpanNotQuery.cs" />
+    <Compile Include="Queries\Span\SpanNotSerializer.cs" />
+    <Compile Include="Queries\Span\SpanOrQuery.cs" />
+    <Compile Include="Queries\Span\SpanOrSerializer.cs" />
+    <Compile Include="Queries\Span\SpanQuerySerializer.cs" />
+    <Compile Include="Queries\Span\SpanQueryTypeEnum.cs" />
+    <Compile Include="Queries\Span\SpanTermQuery.cs" />
+    <Compile Include="Queries\Span\SpanTermSerializer.cs" />
+    <Compile Include="Queries\Terms\TermsQuery.cs" />
+    <Compile Include="Queries\Terms\TermsSerializer.cs" />
+    <Compile Include="Queries\Term\TermQuery.cs" />
+    <Compile Include="Queries\Term\TermSerializer.cs" />
+    <Compile Include="Queries\QueryTypeEnum.cs" />
+    <Compile Include="Queries\TopChildren\ScoreTypeEnum.cs" />
+    <Compile Include="Queries\TopChildren\TopChildrenQuery.cs" />
+    <Compile Include="Queries\TopChildren\TopChildrenSerializer.cs" />
+    <Compile Include="Queries\Wildcard\WildcardQuery.cs" />
+    <Compile Include="Queries\Wildcard\WildcardSerializer.cs" />
+    <Compile Include="Rescoring\Rescore.cs" />
+    <Compile Include="Rescoring\RescoreQuery.cs" />
+    <Compile Include="Rescoring\RescoreSerializer.cs" />
+    <Compile Include="Rescoring\ScoreModeEnum.cs" />
+    <Compile Include="RewriteMethodsEnum.cs" />
+    <Compile Include="Queries\Scoring\Functions\BoostFactorFunction.cs" />
+    <Compile Include="Queries\Scoring\Functions\DecayFunction.cs" />
+    <Compile Include="Queries\Scoring\Functions\DecayFunctionsEnum.cs" />
+    <Compile Include="Queries\Scoring\Functions\RandomScoreFunction.cs" />
+    <Compile Include="Queries\Scoring\Functions\ScriptScoreFunction.cs" />
+    <Compile Include="Queries\Bool\BoolQuerySerializer.cs" />
+    <Compile Include="ScriptFields\ScriptField.cs" />
+    <Compile Include="ScriptFields\ScriptFieldRequest.cs" />
+    <Compile Include="ScriptFields\ScriptFieldsSerializer.cs" />
+    <Compile Include="Queries\Boosting\BoostingSerializer.cs" />
+    <Compile Include="Queries\Common\CommonSerializer.cs" />
+    <Compile Include="Queries\Scoring\Functions\DecayFunctionSerializer.cs" />
+    <Compile Include="Queries\Filtered\FilteredQuerySerializer.cs" />
+    <Compile Include="Queries\FuzzyLikeThis\FuzzyLikeThisSerializer.cs" />
+    <Compile Include="Queries\Match\MatchSerializer.cs" />
+    <Compile Include="Queries\Scoring\Functions\RandomScoreSerializer.cs" />
+    <Compile Include="Queries\Scoring\Functions\ScriptScoreSerializer.cs" />
+    <Compile Include="SearchPieceTypeEnum.cs" />
+    <Compile Include="Sorting\Field\FieldSerializer.cs" />
+    <Compile Include="Sorting\Field\FieldSort.cs" />
+    <Compile Include="Sorting\Field\MissingSerializer.cs" />
+    <Compile Include="Sorting\Field\MissingTypeEnum.cs" />
+    <Compile Include="Sorting\Field\MissingValue.cs" />
+    <Compile Include="Sorting\GeoDistance\GeoDistanceSerializer.cs" />
+    <Compile Include="Sorting\GeoDistance\GeoDistanceSort.cs" />
+    <Compile Include="Sorting\GeoDistance\SortModeEnum.cs" />
+    <Compile Include="Sorting\ISortClause.cs" />
+    <Compile Include="Sorting\Field\SortModeEnum.cs" />
+    <Compile Include="Sorting\Script\ScriptSortSerializer.cs" />
+    <Compile Include="Sorting\Script\ScriptSort.cs" />
+    <Compile Include="Sorting\SortClauseSerializer.cs" />
+    <Compile Include="SortOrderEnum.cs" />
+    <Compile Include="Sorting\SortTypeEnum.cs" />
+    <Compile Include="SourceFiltering\SourceFilter.cs" />
+    <Compile Include="SourceFiltering\SourceFilterSerializer.cs" />
+    <Compile Include="Suggesters\Completion\CompletionSerializer.cs" />
+    <Compile Include="Suggesters\Completion\CompletionSuggester.cs" />
+    <Compile Include="Suggesters\Completion\FuzzyCompletion.cs" />
+    <Compile Include="Suggesters\ISuggester.cs" />
+    <Compile Include="Suggesters\Phrase\DirectGenerator.cs" />
+    <Compile Include="Suggesters\Phrase\DirectGeneratorSerializer.cs" />
+    <Compile Include="Suggesters\Phrase\HighlightTags.cs" />
+    <Compile Include="Suggesters\Phrase\PhraseSerializer.cs" />
+    <Compile Include="Suggesters\Phrase\PhraseSuggester.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\Laplace\LaplaceSerializer.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\Laplace\LaplaceSmoothing.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\LinearInterpolation\LinearInterpolationSerializer.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\LinearInterpolation\LinearInterpolationSmoothing.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\SmoothingTypeEnum.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\ISmoothing.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\StupidBackoff\StupidBackoffSmoothing.cs" />
+    <Compile Include="Suggesters\Phrase\Smoothing\StupidBackoff\StupidSerializer.cs" />
+    <Compile Include="Suggesters\SuggesterBase.cs" />
+    <Compile Include="Suggesters\Suggestions\Suggestion.cs" />
+    <Compile Include="Suggesters\Suggestions\SuggestionCollection.cs" />
+    <Compile Include="Suggesters\Suggestions\SuggestionCollectionSerializer.cs" />
+    <Compile Include="Suggesters\Suggestions\TermOption.cs" />
+    <Compile Include="Suggesters\Suggestions\TermSuggestion.cs" />
+    <Compile Include="Suggesters\SuggestTypeEnum.cs" />
+    <Compile Include="Suggesters\Term\SortModeEnum.cs" />
+    <Compile Include="Suggesters\SuggestModeEnum.cs" />
+    <Compile Include="Suggesters\Term\TermSerializer.cs" />
+    <Compile Include="Suggesters\Term\TermSuggester.cs" />
+    <Compile Include="Suggesters\Suggest.cs" />
+    <Compile Include="Suggesters\SuggestSerializer.cs" />
+    <Compile Include="ZeroTermsEnum.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

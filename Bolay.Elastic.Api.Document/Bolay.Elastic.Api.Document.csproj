@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82FB7848-39D8-4CDF-B014-7732F16EEA09}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.Api.Document</RootNamespace>
+    <AssemblyName>Bolay.Elastic.Api.Document</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bulk\BulkResponse.cs" />
+    <Compile Include="Bulk\CreateBulkAction.cs" />
+    <Compile Include="Bulk\DeleteBulkAction.cs" />
+    <Compile Include="Bulk\UpdateBulkAction.cs" />
+    <Compile Include="DeleteByQuery\DeleteByQueryResponse.cs" />
+    <Compile Include="Delete\DeleteResponse.cs" />
+    <Compile Include="Index\IndexResponse.cs" />
+    <Compile Include="DeleteByQuery\DeleteByQueryDocumentRequest.cs" />
+    <Compile Include="DeleteByQuery\QueryStringSearch.cs" />
+    <Compile Include="Diagnostics\DocumentBatch.cs" />
+    <Compile Include="Diagnostics\DocumentReport.cs" />
+    <Compile Include="Diagnostics\TimeSplice.cs" />
+    <Compile Include="DocumentRepository.cs" />
+    <Compile Include="Exist\DoesExistResponse.cs" />
+    <Compile Include="Get\GetResponse.cs" />
+    <Compile Include="IDocumentRepository.cs" />
+    <Compile Include="Models\AdminElasticResponse.cs" />
+    <Compile Include="Bulk\BulkActionBase.cs" />
+    <Compile Include="Models\DocumentRequestBase.cs" />
+    <Compile Include="Models\ElasticDocument.cs" />
+    <Compile Include="Bulk\IndexBulkAction.cs" />
+    <Compile Include="Models\IndexShards.cs" />
+    <Compile Include="MultiGet\MultiGetRequestContent.cs" />
+    <Compile Include="MultiGet\MultiGetRequestedDocument.cs" />
+    <Compile Include="MultiGet\MultiGetResponse.cs" />
+    <Compile Include="Update\UpdateResponse.cs" />
+    <Compile Include="Update\UpdateContent.cs" />
+    <Compile Include="Bulk\BulkDocumentRequest.cs" />
+    <Compile Include="Delete\DeleteDocumentRequest.cs" />
+    <Compile Include="Exist\DoesExistDocumentRequest.cs" />
+    <Compile Include="Get\GetDocumentRequest.cs" />
+    <Compile Include="Models\Hits.cs" />
+    <Compile Include="Index\IndexDocumentRequest.cs" />
+    <Compile Include="Models\OperationTypeEnum.cs" />
+    <Compile Include="Models\SearchElasticResponse.cs" />
+    <Compile Include="Models\ShardPreferenceEnum.cs" />
+    <Compile Include="Models\Shards.cs" />
+    <Compile Include="Models\WriteConsistencyEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MultiGet\MultiGetDocumentRequest.cs" />
+    <Compile Include="Update\UpdateDocumentRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic.Api\Bolay.Elastic.Api.csproj">
+      <Project>{a13c96da-14b2-4059-a117-69afb3bba2bd}</Project>
+      <Name>Bolay.Elastic.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

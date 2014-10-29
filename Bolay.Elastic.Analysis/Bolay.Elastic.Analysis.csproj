@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37C4538C-1B07-4628-99B7-014C3E5A2301}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.Analysis</RootNamespace>
+    <AssemblyName>Bolay.Elastic.Analysis</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalysisSettingsSerializer.cs" />
+    <Compile Include="Analyzers\AnalyzerBase.cs" />
+    <Compile Include="Analyzers\AnalyzerCollection.cs" />
+    <Compile Include="Analyzers\AnalyzerCollectionSerializer.cs" />
+    <Compile Include="Analyzers\AnalyzerTypeEnum.cs" />
+    <Compile Include="Analyzers\Custom\CustomAnalyzer.cs" />
+    <Compile Include="Analyzers\Custom\CustomAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\IAnalyzer.cs" />
+    <Compile Include="Analyzers\Keyword\KeywordAnalyzer.cs" />
+    <Compile Include="Analyzers\Keyword\KeywordAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\Language\ArabicAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\ArmenianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\BasqueAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\BrazilianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\BulgarianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\CatalanAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\ChineseAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\CJKAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\CzechAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\DanishAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\DutchAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\EnglishAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\FinnishAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\FrenchAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\GalicianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\GermanAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\GreekAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\HindiAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\HungarianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\IndonesianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\ItalianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\LanguageAnalyzerBase.cs" />
+    <Compile Include="Analyzers\Language\LanguageAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\Language\NorwegianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\PersianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\PortugueseAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\RomanianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\RussianAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\SpanishAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\StemExclusionLanguageAnalyzerBase.cs" />
+    <Compile Include="Analyzers\Language\SwedishAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\ThaiAnalyzer.cs" />
+    <Compile Include="Analyzers\Language\TurkishAnalyzer.cs" />
+    <Compile Include="Analyzers\Pattern\CommonTokenizerPatternEnum.cs" />
+    <Compile Include="Analyzers\Pattern\PatternAnalyzer.cs" />
+    <Compile Include="Analyzers\Pattern\PatternAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\Simple\SimpleAnalyzer.cs" />
+    <Compile Include="Analyzers\Simple\SimpleAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\Snowball\SnowballAnalyzer.cs" />
+    <Compile Include="Analyzers\Snowball\SnowballAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\Standard\StandardAnalyzer.cs" />
+    <Compile Include="Analyzers\Standard\StandardAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\Stop\StopAnalyzer.cs" />
+    <Compile Include="Analyzers\Stop\StopAnalyzerSerializer.cs" />
+    <Compile Include="Analyzers\Whitespace\WhitespaceAnalyzer.cs" />
+    <Compile Include="Analyzers\Whitespace\WhitespaceAnalyzerSerializer.cs" />
+    <Compile Include="Exceptions\AnalysisNotDefinedException.cs" />
+    <Compile Include="Exceptions\AnalyzerNotDefinedException.cs" />
+    <Compile Include="Exceptions\CharacterFilterNotDefinedException.cs" />
+    <Compile Include="Exceptions\TokenFilterNotDefinedException.cs" />
+    <Compile Include="Exceptions\TokenizerNotDefinedException.cs" />
+    <Compile Include="Filters\Characters\CharacterFilterCollection.cs" />
+    <Compile Include="Filters\Characters\CharacterFilterBase.cs" />
+    <Compile Include="Filters\Characters\CharacterFilterCollectionSerializer.cs" />
+    <Compile Include="Filters\Characters\CharacterFilterTypeEnum.cs" />
+    <Compile Include="Filters\Characters\HtmlStrip\HtmlStripCharacterFilter.cs" />
+    <Compile Include="Filters\Characters\HtmlStrip\HtmlStripCharacterFilterSerializer.cs" />
+    <Compile Include="Filters\Characters\ICharacterFilter.cs" />
+    <Compile Include="Filters\Characters\Mapping\CharacterMapping.cs" />
+    <Compile Include="Filters\Characters\Mapping\CharacterMappingSerializer.cs" />
+    <Compile Include="Filters\Characters\Mapping\MappingCharacterFilter.cs" />
+    <Compile Include="Filters\Characters\Mapping\MappingCharacterFilterSerializer.cs" />
+    <Compile Include="Filters\Characters\PatternReplace\PatternReplaceCharacterFilter.cs" />
+    <Compile Include="Filters\Characters\PatternReplace\PatternReplaceCharacterFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\AsciiFolding\AsciiFoldingTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\AsciiFolding\AsciiFoldingTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\CommonGrams\CommonGramsTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\CommonGrams\CommonGramsTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\CompoundWord\CompoundWordTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\CompoundWord\CompoundWordTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\CompoundWord\DictionaryDecompounderTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\CompoundWord\HyphenationDecompounderTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\DelimitedPayload\DelimitedPayloadTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\DelimitedPayload\DelimitedPayloadTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\DelimitedPayload\EncodingTypeEnum.cs" />
+    <Compile Include="Filters\Tokens\EdgeNGram\EdgeNGramTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\EdgeNGram\EdgeNGramTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Elision\ElisionTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Elision\ElisionTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Hunspell\HunspellTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Hunspell\HunspellTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\IcuCollation\IcuCollationTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\IcuCollation\IcuCollationTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\IcuFolding\IcuFoldingTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\IcuFolding\IcuFoldingTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\ITokenFilter.cs" />
+    <Compile Include="Filters\Tokens\KeepWords\KeepWordsTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\KeepWords\KeepWordsTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\KeywordMarker\KeywordMarkerTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\KeywordMarker\KeywordMarkerTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\KeywordRepeat\KeywordRepeatTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\KeywordRepeat\KeywordRepeatTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\KStem\KStemTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\KStem\KStemTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Length\LengthTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Length\LengthTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\LimitTokenCount\LimitTokenCountTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\LimitTokenCount\LimitTokenCountTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Lowercase\LowercaseTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Lowercase\LowercaseSupportedLanguageEnum.cs" />
+    <Compile Include="Filters\Tokens\Lowercase\LowercaseTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\NGram\NGramTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\NGram\NGramTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Normalization\ArabicNormalizationTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Normalization\NormalizationTokenFilterBase.cs" />
+    <Compile Include="Filters\Tokens\Normalization\NormalizationTokenFilterBaseSerializer.cs" />
+    <Compile Include="Filters\Tokens\Normalization\PersianNormalizationTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\PatternCapture\PatternCaptureTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\PatternCapture\PatternCaptureTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\PatternReplace\PatternReplaceTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\PatternReplace\PatternReplaceTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Phonetic\PhoneticTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Phonetic\PhoneticTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\PorterStem\PorterStemTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\PorterStem\PorterStemTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Reverse\ReverseTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Reverse\ReverseTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Shingle\ShingleTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Shingle\ShingleTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\EdgeNGram\SideEnum.cs" />
+    <Compile Include="Filters\Tokens\Snowball\SnowballTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Snowball\SnowballTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Standard\StandardTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Standard\StandardTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\StemmerOverride\StemmerOverrideTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Stemmer\StemmerTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Stemmer\StemmerLanguageEnum.cs" />
+    <Compile Include="Filters\Tokens\StemmerOverride\StemmerOverrideTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Stemmer\StemmerTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Stop\StopTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Stop\StopTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Synonym\SynonymTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Synonym\SynonymTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\TokenFilterBase.cs" />
+    <Compile Include="Filters\Tokens\TokenFilterCollection.cs" />
+    <Compile Include="Filters\Tokens\TokenFilterCollectionSerializer.cs" />
+    <Compile Include="Filters\Tokens\TokenFilterTypeEnum.cs" />
+    <Compile Include="Filters\Tokens\Trim\TrimTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Trim\TrimTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Truncate\TruncateTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Truncate\TruncateTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\Unique\UniqueTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\Unique\UniqueTokenFilterSerializer.cs" />
+    <Compile Include="Filters\Tokens\WordDelimiter\WordDelimiterTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\WordDelimiter\WordDelimiterTokenFilterSerializer.cs" />
+    <Compile Include="AnalysisSettings.cs" />
+    <Compile Include="IAnalysisVersion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SnowballLanguageEnum.cs" />
+    <Compile Include="Tokenizers\CharacterClassEnum.cs" />
+    <Compile Include="Tokenizers\EdgeNGram\EdgeNGramTokenizer.cs" />
+    <Compile Include="Tokenizers\EdgeNGram\EdgeNGramTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\Icu\IcuTokenizer.cs" />
+    <Compile Include="Tokenizers\Icu\IcuTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\ITokenizer.cs" />
+    <Compile Include="Tokenizers\Keyword\KeywordTokenizer.cs" />
+    <Compile Include="Tokenizers\Keyword\KeywordTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\Letter\LetterTokenizer.cs" />
+    <Compile Include="Tokenizers\Letter\LetterTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\Lowercase\LowercaseTokenizer.cs" />
+    <Compile Include="Tokenizers\Lowercase\LowercaseTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\NGram\NGramTokenizer.cs" />
+    <Compile Include="Tokenizers\NGram\NGramTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\PathHierarchy\PathHierarchyTokenizer.cs" />
+    <Compile Include="Tokenizers\PathHierarchy\PathHierarchyTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\Pattern\PatternTokenizer.cs" />
+    <Compile Include="Tokenizers\Pattern\PatternTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\Standard\StandardTokenizer.cs" />
+    <Compile Include="Tokenizers\Standard\StandardTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\TokenizerBase.cs" />
+    <Compile Include="Tokenizers\TokenizerCollection.cs" />
+    <Compile Include="Tokenizers\TokenizerCollectionSerializer.cs" />
+    <Compile Include="Tokenizers\TokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\TokenizerTypeEnum.cs" />
+    <Compile Include="Tokenizers\UaxEmailUrl\UaxEmailUrlTokenizer.cs" />
+    <Compile Include="Tokenizers\UaxEmailUrl\UaxEmailUrlTokenizerSerializer.cs" />
+    <Compile Include="Tokenizers\Whitespace\WhitespaceTokenizer.cs" />
+    <Compile Include="Tokenizers\Whitespace\WhitespaceTokenizerSerializer.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF1AA667-A249-4202-BFB4-D1134638369F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bolay.Elastic.Analysis.Tests</RootNamespace>
+    <AssemblyName>Bolay.Elastic.Analysis.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Analyzers\UnitTests_CustomAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_SnowballAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_LanguageAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_PatternAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_KeywordAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_StopAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_WhitespaceAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_SimpleAnalyzer.cs" />
+    <Compile Include="Analyzers\UnitTests_StandardAnalyzer.cs" />
+    <Compile Include="Filters\Characters\UnitTests_PatternReplaceCharacterFilter.cs" />
+    <Compile Include="Filters\Characters\UnitTests_HtmlStripCharacterFilter.cs" />
+    <Compile Include="Filters\Characters\UnitTests_MappingCharacterFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_KeepWordsTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_DelimitedPayloadTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_NormalizationTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_CommonGramstokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_HunspellTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_LimitTokenCountTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_TrimTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_PatternReplaceTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_PatternCaptureTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_UniqueTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_TruncateFilterToken.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_ElisionTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_ReverseTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_CompoundWordFilterToken.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_SynonymTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_PhoneticTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_SnowballTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_KStemFilterToken.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_KeywordRepeatTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_KeywordMarkerTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_StemmerOverrideTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_StemmerTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_WordDelimiterTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_StopTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_ShingleTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_PorterStemTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_EdgeNGramTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_NGramTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_LowercaseTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_LengthTokenFilter.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_AsciiFoldingTokenFilter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Filters\Tokens\UnitTests_StandardTokenFilter.cs" />
+    <Compile Include="Tokenizers\UnitTests_PathHierarchyTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_UaxEmailUrlTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_PatternTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_WhitespaceTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTest_NGramTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_LowercaseTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_LetterTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_KeywordTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_EdgeNGramTokenizer.cs" />
+    <Compile Include="Tokenizers\UnitTests_StandardTokenizer.cs" />
+    <Compile Include="UnitTests_AnalysisSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bolay.Elastic.Analysis\Bolay.Elastic.Analysis.csproj">
+      <Project>{37c4538c-1b07-4628-99b7-014c3e5a2301}</Project>
+      <Name>Bolay.Elastic.Analysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bolay.Elastic\Bolay.Elastic.csproj">
+      <Project>{d7844ddd-0bf8-4799-8d4b-ec1ca7624270}</Project>
+      <Name>Bolay.Elastic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\AnalysisV1.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

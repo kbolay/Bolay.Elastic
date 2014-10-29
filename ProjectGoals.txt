@@ -1,0 +1,13 @@
+The goal is of this project is to ElasticSearch's API to make it .NET friendly.
+
+These assemblies should lend themselves as the foundation for 
+tools for the analysis, use, or abstraction of elastic search.
+These should promote ElasticSearch as a valid tool for .NET users with minimal 
+work needed to actually understand the internal workings of ElasticSearch.
+
+All IUriProvider constructor injections will expect the ES cluster URI: http://{cluster}:9200/
+
+
+Eventually i would like to stop people from building a request that can't work
+	- a geo_distance filter requires the field it searches against to be a geo_point
+		- i can check the mapping to make sure the field really is a geo_point

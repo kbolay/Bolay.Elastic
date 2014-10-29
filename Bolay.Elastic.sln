@@ -1,0 +1,290 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic", "Bolay.Elastic\Bolay.Elastic.csproj", "{D7844DDD-0BF8-4799-8D4B-EC1CA7624270}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Mapping", "Bolay.Elastic.Api.Mapping\Bolay.Elastic.Api.Mapping.csproj", "{754C74D8-E632-47F5-9F1E-A72AA93FE459}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D0B83BF8-681C-4C95-88BB-175C6F1195CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Tests", "Bolay.Elastic.Tests\Bolay.Elastic.Tests.csproj", "{722340DD-301B-4601-AEC4-E03B12338053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Mapping.Tests", "Bolay.Elastic.Api.Mapping.Tests\Bolay.Elastic.Api.Mapping.Tests.csproj", "{B87BE53F-0476-48B7-95A0-2A454A53695D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api", "Bolay.Elastic.Api\Bolay.Elastic.Api.csproj", "{A13C96DA-14B2-4059-A117-69AFB3BBA2BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Document", "Bolay.Elastic.Api.Document\Bolay.Elastic.Api.Document.csproj", "{82FB7848-39D8-4CDF-B014-7732F16EEA09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Document.Tests", "Bolay.Elastic.Api.Document.Tests\Bolay.Elastic.Api.Document.Tests.csproj", "{715C1508-63A0-4E23-8C8B-E4599BFEB5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Plugin", "Bolay.Elastic.Plugin\Bolay.Elastic.Plugin.csproj", "{0BD00835-B7EA-45E1-9B0B-ECAFCB76D0FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Tests", "Bolay.Elastic.Api.Tests\Bolay.Elastic.Api.Tests.csproj", "{04FF4E00-89B4-459C-8BF0-7242AFA00C54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Basic", "Bolay.Elastic.Api.Version\Bolay.Elastic.Api.Basic.csproj", "{15F7C01B-2180-49C9-8559-9268345698DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Health", "Bolay.Elastic.Api.Health\Bolay.Elastic.Api.Health.csproj", "{6B6456DB-EB65-4322-B0A2-BCDF6AC9A5D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.ClusterState", "Bolay.Elastic.Api.ClusterState\Bolay.Elastic.Api.ClusterState.csproj", "{49B356D0-A0CE-428F-8839-D39B8A5C9CF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Alias", "Bolay.Elastic.Api.Alias\Bolay.Elastic.Api.Alias.csproj", "{B78409DE-AC52-4E58-A013-678CCA340417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Linq", "Bolay.Elastic.Linq\Bolay.Elastic.Linq.csproj", "{8A6E32D6-10CE-4F57-8C84-74E11F6E17B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Mvc4", "Bolay.Elastic.Mvc4\Bolay.Elastic.Mvc4.csproj", "{EF7B80D7-14A3-45C0-9153-A78D75046F1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.QueryDSL", "Bolay.Elastic.QueryDSL\Bolay.Elastic.QueryDSL.csproj", "{45A4CDD6-A184-494D-B720-B98666CF5CB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Analyze", "Bolay.Elastic.Api.Analyze\Bolay.Elastic.Api.Analyze.csproj", "{61B46195-F102-4975-BA41-105225038DB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{E6272A7A-DC95-48C4-8827-637E03A0D9B0}"
+	ProjectSection(SolutionItems) = preProject
+		ProjectGoals.txt = ProjectGoals.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.QueryDSL.Tests", "Bolay.Elastic.QueryDSL.Tests\Bolay.Elastic.QueryDSL.Tests.csproj", "{9B71FCB9-05A0-43A7-8A7A-F7E72BCF1410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Search", "Bolay.Elastic.Api.Search\Bolay.Elastic.Api.Search.csproj", "{02E93C91-270D-48E1-BF3C-8A93E38698FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Mapping", "Bolay.Elastic.Mapping\Bolay.Elastic.Mapping.csproj", "{3C061068-8F6D-489F-8C6F-F6A9008F308E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Mapping.Tests", "Bolay.Elastic.Mapping.Tests\Bolay.Elastic.Mapping.Tests.csproj", "{68B87CB6-6883-422B-9682-BE4D7F6C5E81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Analysis", "Bolay.Elastic.Analysis\Bolay.Elastic.Analysis.csproj", "{37C4538C-1B07-4628-99B7-014C3E5A2301}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Analysis.Tests", "Bolay.Elastic.Analysis.Tests\Bolay.Elastic.Analysis.Tests.csproj", "{BF1AA667-A249-4202-BFB4-D1134638369F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Settings", "Bolay.Elastic.Api.Settings\Bolay.Elastic.Api.Settings.csproj", "{A31F1DC1-E379-494A-A202-6063DA427F3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Settings.Tests", "Bolay.Elastic.Api.Settings.Tests\Bolay.Elastic.Api.Settings.Tests.csproj", "{4FB17945-A8E8-48DD-A2D4-24A4EB4F1DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq2ElasticSearch", "Linq2ElasticSearch\Linq2ElasticSearch.csproj", "{D3358520-1F42-469B-BF30-9278916A6A81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.QueryBuilding", "Bolay.Elastic.QueryBuilding\Bolay.Elastic.QueryBuilding.csproj", "{6854B371-3E41-4BB8-B20A-2481ED274FCF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 28
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://bolay.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Bolay.Elastic.Api.Alias\\Bolay.Elastic.Api.Alias.csproj
+		SccProjectName1 = Bolay.Elastic.Api.Alias
+		SccLocalPath1 = Bolay.Elastic.Api.Alias
+		SccProjectUniqueName2 = Bolay.Elastic.Api.ClusterState\\Bolay.Elastic.Api.ClusterState.csproj
+		SccProjectName2 = Bolay.Elastic.Api.ClusterState
+		SccLocalPath2 = Bolay.Elastic.Api.ClusterState
+		SccProjectUniqueName3 = Bolay.Elastic.Api.Document.Tests\\Bolay.Elastic.Api.Document.Tests.csproj
+		SccProjectTopLevelParentUniqueName3 = Bolay.Elastic.sln
+		SccProjectName3 = Bolay.Elastic.Api.Document.Tests
+		SccLocalPath3 = Bolay.Elastic.Api.Document.Tests
+		SccProjectUniqueName4 = Bolay.Elastic.Api.Document\\Bolay.Elastic.Api.Document.csproj
+		SccProjectName4 = Bolay.Elastic.Api.Document
+		SccLocalPath4 = Bolay.Elastic.Api.Document
+		SccProjectUniqueName5 = Bolay.Elastic.Api.Health\\Bolay.Elastic.Api.Health.csproj
+		SccProjectName5 = Bolay.Elastic.Api.Health
+		SccLocalPath5 = Bolay.Elastic.Api.Health
+		SccProjectUniqueName6 = Bolay.Elastic.Api.Mapping.Tests\\Bolay.Elastic.Api.Mapping.Tests.csproj
+		SccProjectTopLevelParentUniqueName6 = Bolay.Elastic.sln
+		SccProjectName6 = Bolay.Elastic.Api.Mapping.Tests
+		SccLocalPath6 = Bolay.Elastic.Api.Mapping.Tests
+		SccProjectUniqueName7 = Bolay.Elastic.Api.Mapping\\Bolay.Elastic.Api.Mapping.csproj
+		SccProjectName7 = Bolay.Elastic.Api.Mapping
+		SccLocalPath7 = Bolay.Elastic.Api.Mapping
+		SccProjectUniqueName8 = Bolay.Elastic.Api.Tests\\Bolay.Elastic.Api.Tests.csproj
+		SccProjectTopLevelParentUniqueName8 = Bolay.Elastic.sln
+		SccProjectName8 = Bolay.Elastic.Api.Tests
+		SccLocalPath8 = Bolay.Elastic.Api.Tests
+		SccProjectUniqueName9 = Bolay.Elastic.Api.Version\\Bolay.Elastic.Api.Basic.csproj
+		SccProjectName9 = Bolay.Elastic.Api.Version
+		SccLocalPath9 = Bolay.Elastic.Api.Version
+		SccProjectUniqueName10 = Bolay.Elastic.Api\\Bolay.Elastic.Api.csproj
+		SccProjectName10 = Bolay.Elastic.Api
+		SccLocalPath10 = Bolay.Elastic.Api
+		SccProjectUniqueName11 = Bolay.Elastic.Linq\\Bolay.Elastic.Linq.csproj
+		SccProjectName11 = Bolay.Elastic.Linq
+		SccLocalPath11 = Bolay.Elastic.Linq
+		SccProjectUniqueName12 = Bolay.Elastic.Mvc4\\Bolay.Elastic.Mvc4.csproj
+		SccProjectName12 = Bolay.Elastic.Mvc4
+		SccLocalPath12 = Bolay.Elastic.Mvc4
+		SccProjectUniqueName13 = Bolay.Elastic.Plugin\\Bolay.Elastic.Plugin.csproj
+		SccProjectName13 = Bolay.Elastic.Plugin
+		SccLocalPath13 = Bolay.Elastic.Plugin
+		SccProjectUniqueName14 = Bolay.Elastic.QueryDSL\\Bolay.Elastic.QueryDSL.csproj
+		SccProjectName14 = Bolay.Elastic.QueryDSL
+		SccLocalPath14 = Bolay.Elastic.QueryDSL
+		SccProjectUniqueName15 = Bolay.Elastic.Tests\\Bolay.Elastic.Tests.csproj
+		SccProjectTopLevelParentUniqueName15 = Bolay.Elastic.sln
+		SccProjectName15 = Bolay.Elastic.Tests
+		SccLocalPath15 = Bolay.Elastic.Tests
+		SccProjectUniqueName16 = Bolay.Elastic\\Bolay.Elastic.csproj
+		SccProjectName16 = Bolay.Elastic
+		SccLocalPath16 = Bolay.Elastic
+		SccProjectUniqueName17 = Bolay.Elastic.Api.Analyze\\Bolay.Elastic.Api.Analyze.csproj
+		SccProjectName17 = Bolay.Elastic.Api.Analyze
+		SccLocalPath17 = Bolay.Elastic.Api.Analyze
+		SccProjectUniqueName18 = Bolay.Elastic.QueryDSL.Tests\\Bolay.Elastic.QueryDSL.Tests.csproj
+		SccProjectTopLevelParentUniqueName18 = Bolay.Elastic.sln
+		SccProjectName18 = Bolay.Elastic.QueryDSL.Tests
+		SccLocalPath18 = Bolay.Elastic.QueryDSL.Tests
+		SccProjectUniqueName19 = Bolay.Elastic.Api.Search\\Bolay.Elastic.Api.Search.csproj
+		SccProjectName19 = Bolay.Elastic.Api.Search
+		SccLocalPath19 = Bolay.Elastic.Api.Search
+		SccProjectUniqueName20 = Bolay.Elastic.Mapping\\Bolay.Elastic.Mapping.csproj
+		SccProjectName20 = Bolay.Elastic.Mapping
+		SccLocalPath20 = Bolay.Elastic.Mapping
+		SccProjectUniqueName21 = Bolay.Elastic.Mapping.Tests\\Bolay.Elastic.Mapping.Tests.csproj
+		SccProjectTopLevelParentUniqueName21 = Bolay.Elastic.sln
+		SccProjectName21 = Bolay.Elastic.Mapping.Tests
+		SccLocalPath21 = Bolay.Elastic.Mapping.Tests
+		SccProjectUniqueName22 = Bolay.Elastic.Analysis\\Bolay.Elastic.Analysis.csproj
+		SccProjectName22 = Bolay.Elastic.Analysis
+		SccLocalPath22 = Bolay.Elastic.Analysis
+		SccProjectUniqueName23 = Bolay.Elastic.Analysis.Tests\\Bolay.Elastic.Analysis.Tests.csproj
+		SccProjectTopLevelParentUniqueName23 = Bolay.Elastic.sln
+		SccProjectName23 = Bolay.Elastic.Analysis.Tests
+		SccLocalPath23 = Bolay.Elastic.Analysis.Tests
+		SccProjectUniqueName24 = Bolay.Elastic.Api.Settings\\Bolay.Elastic.Api.Settings.csproj
+		SccProjectName24 = Bolay.Elastic.Api.Settings
+		SccLocalPath24 = Bolay.Elastic.Api.Settings
+		SccProjectUniqueName25 = Bolay.Elastic.Api.Settings.Tests\\Bolay.Elastic.Api.Settings.Tests.csproj
+		SccProjectTopLevelParentUniqueName25 = Bolay.Elastic.sln
+		SccProjectName25 = Bolay.Elastic.Api.Settings.Tests
+		SccLocalPath25 = Bolay.Elastic.Api.Settings.Tests
+		SccProjectUniqueName26 = Linq2ElasticSearch\\Linq2ElasticSearch.csproj
+		SccProjectName26 = Linq2ElasticSearch
+		SccLocalPath26 = Linq2ElasticSearch
+		SccProjectUniqueName27 = Bolay.Elastic.QueryBuilding\\Bolay.Elastic.QueryBuilding.csproj
+		SccProjectName27 = Bolay.Elastic.QueryBuilding
+		SccLocalPath27 = Bolay.Elastic.QueryBuilding
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7844DDD-0BF8-4799-8D4B-EC1CA7624270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7844DDD-0BF8-4799-8D4B-EC1CA7624270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7844DDD-0BF8-4799-8D4B-EC1CA7624270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7844DDD-0BF8-4799-8D4B-EC1CA7624270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754C74D8-E632-47F5-9F1E-A72AA93FE459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754C74D8-E632-47F5-9F1E-A72AA93FE459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754C74D8-E632-47F5-9F1E-A72AA93FE459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754C74D8-E632-47F5-9F1E-A72AA93FE459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{722340DD-301B-4601-AEC4-E03B12338053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722340DD-301B-4601-AEC4-E03B12338053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722340DD-301B-4601-AEC4-E03B12338053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722340DD-301B-4601-AEC4-E03B12338053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87BE53F-0476-48B7-95A0-2A454A53695D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87BE53F-0476-48B7-95A0-2A454A53695D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87BE53F-0476-48B7-95A0-2A454A53695D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87BE53F-0476-48B7-95A0-2A454A53695D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13C96DA-14B2-4059-A117-69AFB3BBA2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13C96DA-14B2-4059-A117-69AFB3BBA2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13C96DA-14B2-4059-A117-69AFB3BBA2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13C96DA-14B2-4059-A117-69AFB3BBA2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82FB7848-39D8-4CDF-B014-7732F16EEA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82FB7848-39D8-4CDF-B014-7732F16EEA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82FB7848-39D8-4CDF-B014-7732F16EEA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82FB7848-39D8-4CDF-B014-7732F16EEA09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{715C1508-63A0-4E23-8C8B-E4599BFEB5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{715C1508-63A0-4E23-8C8B-E4599BFEB5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{715C1508-63A0-4E23-8C8B-E4599BFEB5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{715C1508-63A0-4E23-8C8B-E4599BFEB5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD00835-B7EA-45E1-9B0B-ECAFCB76D0FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BD00835-B7EA-45E1-9B0B-ECAFCB76D0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BD00835-B7EA-45E1-9B0B-ECAFCB76D0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BD00835-B7EA-45E1-9B0B-ECAFCB76D0FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04FF4E00-89B4-459C-8BF0-7242AFA00C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04FF4E00-89B4-459C-8BF0-7242AFA00C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04FF4E00-89B4-459C-8BF0-7242AFA00C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04FF4E00-89B4-459C-8BF0-7242AFA00C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15F7C01B-2180-49C9-8559-9268345698DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15F7C01B-2180-49C9-8559-9268345698DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15F7C01B-2180-49C9-8559-9268345698DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15F7C01B-2180-49C9-8559-9268345698DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B6456DB-EB65-4322-B0A2-BCDF6AC9A5D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B6456DB-EB65-4322-B0A2-BCDF6AC9A5D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B6456DB-EB65-4322-B0A2-BCDF6AC9A5D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B6456DB-EB65-4322-B0A2-BCDF6AC9A5D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B356D0-A0CE-428F-8839-D39B8A5C9CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B356D0-A0CE-428F-8839-D39B8A5C9CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B356D0-A0CE-428F-8839-D39B8A5C9CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B356D0-A0CE-428F-8839-D39B8A5C9CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78409DE-AC52-4E58-A013-678CCA340417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78409DE-AC52-4E58-A013-678CCA340417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78409DE-AC52-4E58-A013-678CCA340417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78409DE-AC52-4E58-A013-678CCA340417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A6E32D6-10CE-4F57-8C84-74E11F6E17B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A6E32D6-10CE-4F57-8C84-74E11F6E17B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A6E32D6-10CE-4F57-8C84-74E11F6E17B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A6E32D6-10CE-4F57-8C84-74E11F6E17B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7B80D7-14A3-45C0-9153-A78D75046F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7B80D7-14A3-45C0-9153-A78D75046F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7B80D7-14A3-45C0-9153-A78D75046F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7B80D7-14A3-45C0-9153-A78D75046F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A4CDD6-A184-494D-B720-B98666CF5CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A4CDD6-A184-494D-B720-B98666CF5CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A4CDD6-A184-494D-B720-B98666CF5CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A4CDD6-A184-494D-B720-B98666CF5CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B46195-F102-4975-BA41-105225038DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B46195-F102-4975-BA41-105225038DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B46195-F102-4975-BA41-105225038DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B46195-F102-4975-BA41-105225038DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B71FCB9-05A0-43A7-8A7A-F7E72BCF1410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B71FCB9-05A0-43A7-8A7A-F7E72BCF1410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B71FCB9-05A0-43A7-8A7A-F7E72BCF1410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B71FCB9-05A0-43A7-8A7A-F7E72BCF1410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02E93C91-270D-48E1-BF3C-8A93E38698FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E93C91-270D-48E1-BF3C-8A93E38698FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E93C91-270D-48E1-BF3C-8A93E38698FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E93C91-270D-48E1-BF3C-8A93E38698FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C061068-8F6D-489F-8C6F-F6A9008F308E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C061068-8F6D-489F-8C6F-F6A9008F308E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C061068-8F6D-489F-8C6F-F6A9008F308E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C061068-8F6D-489F-8C6F-F6A9008F308E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B87CB6-6883-422B-9682-BE4D7F6C5E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B87CB6-6883-422B-9682-BE4D7F6C5E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B87CB6-6883-422B-9682-BE4D7F6C5E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B87CB6-6883-422B-9682-BE4D7F6C5E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C4538C-1B07-4628-99B7-014C3E5A2301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C4538C-1B07-4628-99B7-014C3E5A2301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C4538C-1B07-4628-99B7-014C3E5A2301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C4538C-1B07-4628-99B7-014C3E5A2301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1AA667-A249-4202-BFB4-D1134638369F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1AA667-A249-4202-BFB4-D1134638369F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1AA667-A249-4202-BFB4-D1134638369F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1AA667-A249-4202-BFB4-D1134638369F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A31F1DC1-E379-494A-A202-6063DA427F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A31F1DC1-E379-494A-A202-6063DA427F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A31F1DC1-E379-494A-A202-6063DA427F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A31F1DC1-E379-494A-A202-6063DA427F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB17945-A8E8-48DD-A2D4-24A4EB4F1DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB17945-A8E8-48DD-A2D4-24A4EB4F1DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB17945-A8E8-48DD-A2D4-24A4EB4F1DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB17945-A8E8-48DD-A2D4-24A4EB4F1DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3358520-1F42-469B-BF30-9278916A6A81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3358520-1F42-469B-BF30-9278916A6A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3358520-1F42-469B-BF30-9278916A6A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3358520-1F42-469B-BF30-9278916A6A81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6854B371-3E41-4BB8-B20A-2481ED274FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6854B371-3E41-4BB8-B20A-2481ED274FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6854B371-3E41-4BB8-B20A-2481ED274FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6854B371-3E41-4BB8-B20A-2481ED274FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{722340DD-301B-4601-AEC4-E03B12338053} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{B87BE53F-0476-48B7-95A0-2A454A53695D} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{715C1508-63A0-4E23-8C8B-E4599BFEB5AA} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{04FF4E00-89B4-459C-8BF0-7242AFA00C54} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{9B71FCB9-05A0-43A7-8A7A-F7E72BCF1410} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{68B87CB6-6883-422B-9682-BE4D7F6C5E81} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{BF1AA667-A249-4202-BFB4-D1134638369F} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{4FB17945-A8E8-48DD-A2D4-24A4EB4F1DB0} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+	EndGlobalSection
+EndGlobal
