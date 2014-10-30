@@ -12,9 +12,10 @@ namespace Bolay.Elastic.Api.Bulk.Request
     /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html#bulk-update
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    [JsonConverter(typeof(UpdateBulkRequestSerializer))]
-    public class UpdateBulkAction<T> : UpdateBulkActionBase
+    [JsonConverter(typeof(UpdateBulkActionSerializer))]
+    public class UpdateBulkAction<T> : BulkActionBase
     {
+        internal const string RETRY_ON_CONFLICT = "_retry_on_conflict";
         internal const string PARTIAL_DOCUMENT = "doc";
         internal const string UPSERT = "upsert";
         internal const string DOC_AS_UPSERT = "doc_as_upsert";
@@ -26,6 +27,11 @@ namespace Bolay.Elastic.Api.Bulk.Request
         {
             get { return "update"; }
         }
+
+        /// <summary>
+        /// Gets or sets the number of attempts allowed to update the document in the case of a version conflict.
+        /// </summary>
+        public int? RetriesOnConflict { get; set; }
 
         /// <summary>
         /// Gets the document.
@@ -76,7 +82,7 @@ namespace Bolay.Elastic.Api.Bulk.Request
         /// <param name="document">Sets the document.</param>
         /// <param name="upsertDocument">Sets the upsert document.</param>
         public UpdateBulkAction(string index, string type, string documentId, T document, T upsertDocument)
-            : this(index, type, documentId, document, true)
+            : this(index, type, documentId, document)
         {
             if (upsertDocument == null)
             {
@@ -127,8 +133,15 @@ namespace Bolay.Elastic.Api.Bulk.Request
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(base.ToString());
-            builder.AppendLine(JsonConvert.SerializeObject(this));
-            return base.ToString();
+
+            Dictionary<string, object> fieldDict = new Dictionary<string, object>();
+            fieldDict.AddObject(PARTIAL_DOCUMENT, Document);
+            UpdateScript.Serialize(fieldDict);
+            fieldDict.AddObject(UPSERT, UpsertDocument);
+            fieldDict.AddObject(DOC_AS_UPSERT, IsUpsert, false);
+
+            builder.AppendLine(JsonConvert.SerializeObject(fieldDict));
+            return builder.ToString();
         }
     }
 }

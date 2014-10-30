@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Bolay.Elastic.Api.Document.Models;
 using Bolay.Elastic.Api.Document.Index;
 using Bolay.Elastic.Api.ShardPreference;
+using System.Threading;
 
 namespace Bolay.Elastic.Api.Document.Tests.Get
 {
@@ -24,13 +25,13 @@ namespace Bolay.Elastic.Api.Document.Tests.Get
         public void Init()
         {
             tweetRepo = new DocumentRepository<Tweet>(clusterUri, new HttpLayer());
-            tweetRepo.Index(
-                new IndexDocumentRequest<Tweet>(
-                    _Index,
-                    _DocumentType,
-                    new Tweet() { Author = "tester", Text = "my test tweet" },
-                    _Id));
+            IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _DocumentType, new Tweet() { Author = "tester", Text = "my test tweet" }, _Id)
+            {
+                Refresh = true
+            };
 
+            tweetRepo.Index(request);
+            Thread.Sleep(1000);
         }
 
         [TestCleanup]

@@ -56,9 +56,7 @@
     <Compile Include="Request\DeleteBulkAction.cs" />
     <Compile Include="Request\IndexBulkAction.cs" />
     <Compile Include="Request\UpdateBulkAction.cs" />
-    <Compile Include="Request\UpdateBulkActionBase.cs" />
-    <Compile Include="Request\UpdateBulkActionBaseSerializer.cs" />
-    <Compile Include="Request\UpdateBulkRequestSerializer.cs" />
+    <Compile Include="Request\UpdateBulkActionSerializer.cs" />
     <Compile Include="Response\ActionResponse.cs" />
     <Compile Include="Response\ActionResponseSerializer.cs" />
     <Compile Include="Response\BulkResponse.cs" />

@@ -65,6 +65,19 @@ namespace Bolay.Elastic.Api.Bulk.Request
         /// </summary>
         public DateTime? TimeStamp { get; set; }
 
+        internal string TimeStampStr
+        {
+            get
+            {
+                if (TimeStamp.HasValue)
+                {
+                    return TimeStamp.Value.ToString(Bolay.Elastic.Time.DateTimeFormatEnum.Date.Format);
+                }
+
+                return null;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the time to live of the document.
         /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html#bulk-ttl

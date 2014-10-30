@@ -35,7 +35,7 @@ namespace Bolay.Elastic.Api.Bulk.Request
             actionFieldsDict.AddObject(BulkActionBase.VERSION, action.Version);
             actionFieldsDict.AddObject(BulkActionBase.ROUTING, action.Routing);
             actionFieldsDict.AddObject(BulkActionBase.PARENT, action.Parent);
-            actionFieldsDict.AddObject(BulkActionBase.TIMESTAMP, action.TimeStamp);
+            actionFieldsDict.AddObject(BulkActionBase.TIMESTAMP, action.TimeStampStr);
             actionFieldsDict.AddObject(BulkActionBase.TIME_TO_LIVE, action.TimeToLive);
 
             Dictionary<string, object> actionDict = new Dictionary<string, object>();
