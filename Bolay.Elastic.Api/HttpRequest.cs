@@ -8,7 +8,7 @@ namespace Bolay.Elastic.Api
 {
     public class HttpRequest
     {
-        public Uri RequestUri { get; private set; }
+        public Uri Uri { get; private set; }
         public object Content { get; private set; }
         public Dictionary<string, string> Headers { get; private set; }
 
@@ -21,7 +21,7 @@ namespace Bolay.Elastic.Api
             if (uri == null)
                 throw new ArgumentNullException("uri", "Http Request requires a uri.");
 
-            this.RequestUri = uri;
+            this.Uri = uri;
             this.Content = content;
             this.Headers = headers;
         }

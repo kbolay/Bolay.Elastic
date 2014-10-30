@@ -66,6 +66,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.QueryBuilding
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Bulk", "Bolay.Elastic.Api.Bulk\Bolay.Elastic.Api.Bulk.csproj", "{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolay.Elastic.Api.Bulk.Tests", "Bolay.Elastic.Api.Bulk.Tests\Bolay.Elastic.Api.Bulk.Tests.csproj", "{329D7487-E749-47EB-B303-4A3354950930}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -184,6 +186,10 @@ Global
 		{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8D9C5AA-FE5D-4B8B-B8B2-00076D1F5C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{329D7487-E749-47EB-B303-4A3354950930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329D7487-E749-47EB-B303-4A3354950930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329D7487-E749-47EB-B303-4A3354950930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329D7487-E749-47EB-B303-4A3354950930}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -197,5 +203,6 @@ Global
 		{68B87CB6-6883-422B-9682-BE4D7F6C5E81} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
 		{BF1AA667-A249-4202-BFB4-D1134638369F} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
 		{4FB17945-A8E8-48DD-A2D4-24A4EB4F1DB0} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
+		{329D7487-E749-47EB-B303-4A3354950930} = {D0B83BF8-681C-4C95-88BB-175C6F1195CF}
 	EndGlobalSection
 EndGlobal

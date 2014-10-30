@@ -1,3 +1,4 @@
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\obj\Debug\Bolay.Elastic.Api.Health.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\bin\Debug\Bolay.Elastic.Api.Health.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\bin\Debug\Bolay.Elastic.Api.Health.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\bin\Debug\Bolay.Elastic.Api.dll
@@ -6,6 +7,5 @@ E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\bin\Debug\Newtonsoft.Json.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\bin\Debug\Bolay.Elastic.Api.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\bin\Debug\Bolay.Elastic.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\bin\Debug\Newtonsoft.Json.xml
-E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\obj\Debug\Bolay.Elastic.Api.Health.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\obj\Debug\Bolay.Elastic.Api.Health.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Health\obj\Debug\Bolay.Elastic.Api.Health.pdb

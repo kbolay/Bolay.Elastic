@@ -1,3 +1,4 @@
+E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\obj\Debug\Bolay.Elastic.Linq.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\bin\Debug\Bolay.Elastic.Linq.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\bin\Debug\Bolay.Elastic.Linq.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\bin\Debug\Bolay.Elastic.Api.dll
@@ -16,6 +17,5 @@ E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\bin\Debug\Bolay.Elastic.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\bin\Debug\Newtonsoft.Json.xml
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\bin\Debug\Bolay.Elastic.Api.Settings.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\bin\Debug\Bolay.Elastic.Analysis.pdb
-E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\obj\Debug\Bolay.Elastic.Linq.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\obj\Debug\Bolay.Elastic.Linq.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Linq\obj\Debug\Bolay.Elastic.Linq.pdb

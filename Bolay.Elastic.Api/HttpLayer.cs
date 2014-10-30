@@ -17,7 +17,7 @@ namespace Bolay.Elastic.Api
             if (request == null)
                 throw new ArgumentNullException("request", "HttpRequest is required for GET.");
 
-            if (request.RequestUri == null)
+            if (request.Uri == null)
                 throw new ArgumentNullException("uri", "GET http request requires uri.");
 
             HttpClient client = new HttpClient();
@@ -25,7 +25,7 @@ namespace Bolay.Elastic.Api
 
             try
             {
-                HttpResponseMessage response = client.GetAsync(request.RequestUri).Result;
+                HttpResponseMessage response = client.GetAsync(request.Uri).Result;
                 return new HttpResponse(response);
             }
             catch (HttpRequestException ex)
@@ -55,7 +55,7 @@ namespace Bolay.Elastic.Api
                 using(HttpClient client = new HttpClient())
                 {
                     client.AddHeaders(request.Headers);
-                    httpResponseMsg = client.GetAsync(request.RequestUri).Result;
+                    httpResponseMsg = client.GetAsync(request.Uri).Result;
                 }
 
                 return new HttpResponse(httpResponseMsg);
@@ -79,7 +79,7 @@ namespace Bolay.Elastic.Api
             if (request == null)
                 throw new ArgumentNullException("request", "HttpRequest is required for POST.");
 
-            if (request.RequestUri == null)
+            if (request.Uri == null)
                 throw new ArgumentNullException("uri", "POST http request requires uri.");
 
             HttpClient client = new HttpClient();
@@ -87,7 +87,7 @@ namespace Bolay.Elastic.Api
 
             string contentStr = Serialize(request.Content);
             StringContent stringContent = new StringContent(contentStr);
-            HttpResponseMessage response = client.PostAsync(request.RequestUri, stringContent).Result;
+            HttpResponseMessage response = client.PostAsync(request.Uri, stringContent).Result;
             return new HttpResponse(response);
         }
 
@@ -96,7 +96,7 @@ namespace Bolay.Elastic.Api
             if (request == null)
                 throw new ArgumentNullException("request", "HttpRequest is required for PUT.");
 
-            if (request.RequestUri == null)
+            if (request.Uri == null)
                 throw new ArgumentNullException("uri", "PUT http request requires uri.");
 
             HttpClient client = new HttpClient();
@@ -104,7 +104,7 @@ namespace Bolay.Elastic.Api
 
             string contentStr = Serialize(request.Content);
             StringContent stringContent = new StringContent(contentStr);
-            HttpResponseMessage response = client.PutAsync(request.RequestUri, stringContent).Result;
+            HttpResponseMessage response = client.PutAsync(request.Uri, stringContent).Result;
             return new HttpResponse(response);
         }
 
@@ -113,13 +113,13 @@ namespace Bolay.Elastic.Api
             if (request == null)
                 throw new ArgumentNullException("request", "HttpRequest is required for DELETE.");
 
-            if (request.RequestUri == null)
+            if (request.Uri == null)
                 throw new ArgumentNullException("uri", "DELETE http request requires uri.");
 
             HttpClient client = new HttpClient();
             client.AddHeaders(request.Headers);
 
-            HttpResponseMessage response = client.DeleteAsync(request.RequestUri).Result;
+            HttpResponseMessage response = client.DeleteAsync(request.Uri).Result;
             return new HttpResponse(response);
         }
 
@@ -128,13 +128,13 @@ namespace Bolay.Elastic.Api
             if (request == null)
                 throw new ArgumentNullException("request", "HttpRequest is required for GET.");
 
-            if (request.RequestUri == null)
+            if (request.Uri == null)
                 throw new ArgumentNullException("uri", "GET http request requires uri.");
 
             HttpClient client = new HttpClient();
             client.AddHeaders(request.Headers);
 
-            HttpResponseMessage response = client.SendAsync(new HttpRequestMessage(HttpMethod.Head, request.RequestUri)).Result;
+            HttpResponseMessage response = client.SendAsync(new HttpRequestMessage(HttpMethod.Head, request.Uri)).Result;
             return new HttpResponse(response);
         }
 
