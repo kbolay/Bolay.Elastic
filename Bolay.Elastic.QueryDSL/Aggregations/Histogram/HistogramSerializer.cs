@@ -33,7 +33,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Histogram
 
             string aggName = wholeDict.First().Key;
             string field = fieldDict.GetStringOrDefault(_FIELD);
-            Script script = ScriptSerializer.Deserialize(fieldDict);
+            Script script = fieldDict.DeserializeObject<Script>();
             Double interval = fieldDict.GetDouble(_INTERVAL);
 
             HistogramAggregate agg = new HistogramAggregate(
@@ -48,7 +48,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Histogram
             else if (script != null)
                 agg = new HistogramAggregate(aggName, script, interval);
             else
-                throw new RequiredPropertyMissingException(_FIELD + "/" + ScriptSerializer._SCRIPT); 
+                throw new RequiredPropertyMissingException(_FIELD + "/" + Script.SCRIPT); 
 
             agg.MinimumDocumentCount = fieldDict.GetInt32(_MINIMUM_DOCUMENT_COUNT, _MINIMUM_DOCUMENT_COUNT_DEFAULT);
             if (fieldDict.ContainsKey(_ORDER))
@@ -74,7 +74,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Histogram
 
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
             fieldDict.AddObject(_FIELD, agg.Field);
-            ScriptSerializer.Serialize(agg.Script, fieldDict);
+            agg.Script.Serialize(fieldDict);
             fieldDict.AddObject(_INTERVAL, agg.Interval);
             fieldDict.AddObject(_MINIMUM_DOCUMENT_COUNT, agg.MinimumDocumentCount, _MINIMUM_DOCUMENT_COUNT_DEFAULT);
             fieldDict.AddObject(_KEYED, agg.AreBucketsKeyed, _KEYED_DEFAULT);

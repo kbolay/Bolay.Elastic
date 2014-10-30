@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Api.Document.Models
+namespace Bolay.Elastic.Models
 {
     public sealed class WriteConsistencyEnum : TypeSafeEnumBase<WriteConsistencyEnum>
     {

@@ -44,7 +44,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Histogram.Date
 
             string aggName = wholeDict.First().Key;
             string field = histoDict.GetStringOrDefault(_FIELD);
-            Script script = ScriptSerializer.Deserialize(histoDict);
+            Script script = histoDict.DeserializeObject<Script>();
 
             DateIntervalEnum intervalType = DateIntervalEnum.Day;
             string intervalValue = histoDict.GetString(_INTERVAL);
@@ -70,7 +70,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Histogram.Date
             }
 
             if (agg == null)
-                throw new RequiredPropertyMissingException(_FIELD + "/" + ScriptSerializer._SCRIPT);
+                throw new RequiredPropertyMissingException(_FIELD + "/" + Script.SCRIPT);
 
             if (histoDict.ContainsKey(_POST_OFFSET))
                 agg.PostOffset = JsonConvert.DeserializeObject<TimeValue>(histoDict.GetString(_POST_OFFSET));
@@ -103,7 +103,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Histogram.Date
 
             Dictionary<string, object> histoDict = new Dictionary<string, object>();
             histoDict.AddObject(_FIELD, agg.Field);
-            ScriptSerializer.Serialize(agg.Script, histoDict);
+            agg.Script.Serialize(histoDict);
             histoDict.AddObject(_FACTOR, agg.Factor);
             if (agg.ConstantInterval != null)
                 histoDict.AddObject(_INTERVAL, agg.ConstantInterval.ToString());

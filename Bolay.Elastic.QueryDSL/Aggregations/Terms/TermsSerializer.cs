@@ -42,7 +42,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Terms
 
             string aggName = wholeDict.First().Key;
             string field = fieldDict.GetStringOrDefault(_FIELD);
-            Script script = ScriptSerializer.Deserialize(fieldDict);
+            Script script = fieldDict.DeserializeObject<Script>();
 
             TermsAggregate agg = null;
             if (!string.IsNullOrWhiteSpace(field) && script != null)
@@ -52,7 +52,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Terms
             else if (script != null)
                 agg = new TermsAggregate(aggName, script);
             else
-                throw new RequiredPropertyMissingException(_FIELD + "/" + ScriptSerializer._SCRIPT);
+                throw new RequiredPropertyMissingException(_FIELD + "/" + Script.SCRIPT);
 
             if(fieldDict.ContainsKey(_EXECUTION_HINT))
             {
@@ -96,7 +96,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Terms
 
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
             fieldDict.AddObject(_FIELD, agg.Field);
-            ScriptSerializer.Serialize(agg.Script, fieldDict);
+            agg.Script.Serialize(fieldDict);
             fieldDict.AddObject(_SIZE, agg.Size, _SIZE_DEFAULT);
             fieldDict.AddObject(_SHARD_SIZE, agg.ShardSize, agg.Size);
             fieldDict.AddObject(_MINIMUM_DOCUMENT_COUNT, agg.MinimumDocumentCount, _MINIMUM_DOCUMENT_COUNT_DEFAULT);

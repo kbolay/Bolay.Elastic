@@ -9,13 +9,25 @@ namespace Bolay.Elastic.Api.Bulk.Request
 {
     public class CreateBulkAction<T>  : BulkActionBase where T : class
     {
+        /// <summary>
+        /// Gets the action.
+        /// </summary>
         public override string Action
         {
-            get { return "index"; }
+            get { return "create"; }
         }
 
+        /// <summary>
+        /// Gets the document.
+        /// </summary>
         public readonly T Document;
 
+        /// <summary>
+        /// Create a create bulk action request.
+        /// </summary>
+        /// <param name="index">Sets the index.</param>
+        /// <param name="type">Sets the type.</param>
+        /// <param name="document">Sets the document.</param>
         public CreateBulkAction(string index, string type, T document)
             : base(index, type)
         {
@@ -27,6 +39,13 @@ namespace Bolay.Elastic.Api.Bulk.Request
             Document = document;
         }
 
+        /// <summary>
+        /// Create a create bulk action request.
+        /// </summary>
+        /// <param name="index">Sets the index.</param>
+        /// <param name="type">Sets the type.</param>
+        /// <param name="documentId">Sets the document id.</param>
+        /// <param name="document">Sets the document.</param>
         public CreateBulkAction(string index, string type, string documentId, T document)
             : base(index, type, documentId)
         {
@@ -42,7 +61,7 @@ namespace Bolay.Elastic.Api.Bulk.Request
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(base.ToString());
-            builder.Append(JsonConvert.SerializeObject(Document));
+            builder.AppendLine(JsonConvert.SerializeObject(Document));
 
             return builder.ToString();
         }

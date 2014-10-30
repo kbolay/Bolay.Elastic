@@ -29,8 +29,8 @@ namespace Bolay.Elastic.QueryDSL.ScriptFields
             foreach (KeyValuePair<string, object> scriptKvp in fieldDict)
             {
                 Dictionary<string, object> scriptFieldDict = JsonConvert.DeserializeObject<Dictionary<string, object>>(scriptKvp.Value.ToString());
-                
-                scriptFields.Add(new ScriptField(scriptKvp.Key, ScriptSerializer.Deserialize(scriptFieldDict)));                
+
+                scriptFields.Add(new ScriptField(scriptKvp.Key, scriptFieldDict.DeserializeObject<Script>()));                
             }
 
             return new ScriptFieldRequest(scriptFields);
@@ -47,7 +47,7 @@ namespace Bolay.Elastic.QueryDSL.ScriptFields
             foreach (ScriptField scriptField in scriptFields.Fields)
             {
                 Dictionary<string, object> scriptDict = new Dictionary<string, object>();
-                ScriptSerializer.Serialize(scriptField.Script, scriptDict);
+                scriptField.Script.Serialize(scriptDict);
                 scriptFieldDict.Add(scriptField.Field, scriptDict);
             }
 

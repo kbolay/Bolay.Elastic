@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bolay.Elastic.Api.Document.Delete;
 using Bolay.Elastic.Api.Document.Models;
+using Bolay.Elastic.Models;
 
 namespace Bolay.Elastic.Api.Document.Tests.Delete
 {

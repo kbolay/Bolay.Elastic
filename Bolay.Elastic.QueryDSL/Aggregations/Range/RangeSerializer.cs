@@ -35,7 +35,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Range
 
             string aggName = wholeDict.First().Key;
             string field = fieldDict.GetStringOrDefault(_FIELD);
-            Script script = ScriptSerializer.Deserialize(fieldDict);
+            Script script = fieldDict.DeserializeObject<Script>();
 
             List<RangeBucket> buckets = new List<RangeBucket>();
             List<Dictionary<string, object>> bucketDictList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(fieldDict.GetString(_RANGES));
@@ -53,7 +53,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Range
             else if (script != null)
                 agg = new RangeAggregate(aggName, script, buckets);
             else
-                throw new RequiredPropertyMissingException(_FIELD + "/" + ScriptSerializer._SCRIPT);
+                throw new RequiredPropertyMissingException(_FIELD + "/" + Script.SCRIPT);
 
             agg.SubAggregations = BucketAggregationBase.DeserializeSubAggregations(aggDict);
             return agg;
@@ -68,7 +68,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Range
 
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
             fieldDict.AddObject(_FIELD, agg.Field);
-            ScriptSerializer.Serialize(agg.Script, fieldDict);
+            agg.Script.Serialize(fieldDict);
             fieldDict.AddObject(_KEYED, agg.AreRangesKeyed, _KEYED_DEFAULT);
             fieldDict.AddObject(_RANGES, agg.Ranges.Select(x => SerializeRangeBucket(x)));
             Dictionary<string, object> aggDict = new Dictionary<string, object>();

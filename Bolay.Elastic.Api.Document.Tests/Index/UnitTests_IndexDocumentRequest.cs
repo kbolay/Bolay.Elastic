@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bolay.Elastic.Api.Document.Index;
 using Bolay.Elastic.Api.Document.Models;
+using Bolay.Elastic.Models;
 
 namespace Bolay.Elastic.Api.Document.Tests.Index
 {

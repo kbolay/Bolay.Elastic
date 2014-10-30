@@ -34,7 +34,7 @@ namespace Bolay.Elastic.QueryDSL.Filters.Script
                 catch { }
             }
 
-            ScriptFilter filter = new ScriptFilter(ScriptSerializer.Deserialize(fieldDict));
+            ScriptFilter filter = new ScriptFilter(fieldDict.DeserializeObject<Bolay.Elastic.Scripts.Script>());
 
             FilterSerializer.DeserializeBaseValues(filter, _CACHE_DEFAULT, fieldDict);
             return filter;
@@ -47,7 +47,7 @@ namespace Bolay.Elastic.QueryDSL.Filters.Script
 
             ScriptFilter filter = value as ScriptFilter;
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
-            ScriptSerializer.Serialize(filter.Script, fieldDict);            
+            ScriptExtensions.Serialize(filter.Script, fieldDict);            
             FilterSerializer.SerializeBaseValues(filter, _CACHE_DEFAULT, fieldDict);
 
             Dictionary<string, object> filterDict = new Dictionary<string, object>();

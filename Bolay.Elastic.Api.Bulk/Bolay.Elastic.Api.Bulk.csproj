@@ -50,11 +50,15 @@
     <Compile Include="IBulkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\BulkActionBase.cs" />
+    <Compile Include="Request\BulkActionBaseSerializer.cs" />
     <Compile Include="Request\BulkRequest.cs" />
     <Compile Include="Request\CreateBulkAction.cs" />
     <Compile Include="Request\DeleteBulkAction.cs" />
     <Compile Include="Request\IndexBulkAction.cs" />
     <Compile Include="Request\UpdateBulkAction.cs" />
+    <Compile Include="Request\UpdateBulkActionBase.cs" />
+    <Compile Include="Request\UpdateBulkActionBaseSerializer.cs" />
+    <Compile Include="Request\UpdateBulkRequestSerializer.cs" />
     <Compile Include="Response\ActionResponse.cs" />
     <Compile Include="Response\ActionResponseSerializer.cs" />
     <Compile Include="Response\BulkResponse.cs" />

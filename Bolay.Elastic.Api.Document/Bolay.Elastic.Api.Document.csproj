@@ -84,7 +84,6 @@
     <Compile Include="Models\SearchElasticResponse.cs" />
     <Compile Include="Models\ShardPreferenceEnum.cs" />
     <Compile Include="Models\Shards.cs" />
-    <Compile Include="Models\WriteConsistencyEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MultiGet\MultiGetDocumentRequest.cs" />
     <Compile Include="Update\UpdateDocumentRequest.cs" />

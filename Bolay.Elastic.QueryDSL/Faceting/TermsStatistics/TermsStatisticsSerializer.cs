@@ -40,7 +40,7 @@ namespace Bolay.Elastic.QueryDSL.Faceting.TermsStatistics
             }
             else
             {
-                facet = new TermsStatisticsFacet(facetName, keyField, ScriptSerializer.Deserialize(termDict, _VALUE_SCRIPT));
+                facet = new TermsStatisticsFacet(facetName, keyField, termDict.DeserializeObject<Script>(new Dictionary<string,string>(){ {_VALUE_SCRIPT, Script.SCRIPT} }));
             }
 
             FacetSerializer.DeserializeFacetInfo(facet, termDict);
@@ -61,7 +61,7 @@ namespace Bolay.Elastic.QueryDSL.Faceting.TermsStatistics
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
             fieldDict.Add(_KEY_FIELD, facet.KeyField);
             fieldDict.AddObject(_VALUE_FIELD, facet.ValueField);
-            ScriptSerializer.Serialize(facet.ValueScript, fieldDict, _VALUE_SCRIPT);
+            facet.ValueScript.Serialize(fieldDict, _VALUE_SCRIPT);
             fieldDict.AddObject(_SIZE, facet.Size, TermsStatisticsFacet._SIZE_DEFAULT);
             fieldDict.AddObject(_SHARD_SIZE, facet.ShardSize, facet.Size);
             fieldDict.AddObject(_ORDER, facet.Order.ToString(), TermsStatisticsFacet._ORDER_DEFAULT.ToString());

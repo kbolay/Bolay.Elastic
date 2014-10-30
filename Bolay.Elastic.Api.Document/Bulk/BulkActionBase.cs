@@ -1,4 +1,5 @@
 ﻿using Bolay.Elastic.Api.Document.Models;
+using Bolay.Elastic.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,8 @@ namespace Bolay.Elastic.Api.Document.Bulk
         public object Document { get; set; }
 
         /// <summary>
-        /// The _version of the document.
+        /// The version of the document.
+        /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html#bulk-versioning
         /// </summary>
         [JsonProperty("version")]
         public Int64? Version { get; set; }

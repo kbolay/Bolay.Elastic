@@ -28,7 +28,7 @@ namespace Bolay.Elastic.QueryDSL.Sorting.Script
             if (fieldDict.ContainsKey(SortTypeEnum.Script.ToString()))
                 fieldDict = JsonConvert.DeserializeObject<Dictionary<string, object>>(fieldDict.First().Value.ToString());
 
-            ScriptSort sort = new ScriptSort(ScriptSerializer.Deserialize(fieldDict), fieldDict.GetString(_TYPE));
+            ScriptSort sort = new ScriptSort(fieldDict.DeserializeObject<Bolay.Elastic.Scripts.Script>(), fieldDict.GetString(_TYPE));
 
             sort.Reverse = fieldDict.GetBool(SortClauseSerializer._REVERSE, SortClauseSerializer._REVERSE_DEFAULT);
             if (fieldDict.ContainsKey(_MODE))
@@ -48,7 +48,7 @@ namespace Bolay.Elastic.QueryDSL.Sorting.Script
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
             fieldDict.Add(_TYPE, sort.Type);
 
-            ScriptSerializer.Serialize(sort.Script, fieldDict);
+            sort.Script.Serialize(fieldDict);
 
             fieldDict.AddObject(SortClauseSerializer._ORDER, sort.SortOrder, SortClauseSerializer._ORDER_DEFAULT);
             if (sort.SortMode != null)

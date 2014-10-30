@@ -26,7 +26,7 @@ namespace Bolay.Elastic.QueryDSL.Queries.Scoring.Functions
             if (scriptDict.ContainsKey(ScoreFunctionEnum.Script.ToString()))
                 scriptDict = JsonConvert.DeserializeObject<Dictionary<string, object>>(scriptDict.First().Value.ToString());
 
-            ScriptScoreFunction scriptFunction = new ScriptScoreFunction(ScriptSerializer.Deserialize(scriptDict));
+            ScriptScoreFunction scriptFunction = new ScriptScoreFunction(scriptDict.DeserializeObject<Script>());
 
             return scriptFunction;                
         }
@@ -38,7 +38,7 @@ namespace Bolay.Elastic.QueryDSL.Queries.Scoring.Functions
 
             ScriptScoreFunction scriptFunction = value as ScriptScoreFunction;
             Dictionary<string, object> scriptDict = new Dictionary<string, object>();
-            ScriptSerializer.Serialize(scriptFunction.Script, scriptDict);
+            scriptFunction.Script.Serialize(scriptDict);
             
             serializer.Serialize(writer, scriptDict);
         }

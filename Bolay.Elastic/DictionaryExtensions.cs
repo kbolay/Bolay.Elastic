@@ -1,4 +1,5 @@
 ﻿using Bolay.Elastic.Exceptions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -566,6 +567,24 @@ namespace Bolay.Elastic
             }
                 
             dict.Add(key, value);
+        }
+
+        public static T DeserializeObject<T>(this Dictionary<string, object> dict, Dictionary<string, string> replaceKeys = null)
+        {
+            if(replaceKeys != null && replaceKeys.Any())
+            {
+                foreach (KeyValuePair<string, string> replaceKvp in replaceKeys)
+                {
+                    if (dict.ContainsKey(replaceKvp.Key))
+                    {
+                        dict.Add(replaceKvp.Value, dict[replaceKvp.Key]);
+                        dict.Remove(replaceKvp.Key);
+                    }
+                }
+            }            
+
+            string dictJson = JsonConvert.SerializeObject(dict);
+            return JsonConvert.DeserializeObject<T>(dictJson);
         }
     }
 }

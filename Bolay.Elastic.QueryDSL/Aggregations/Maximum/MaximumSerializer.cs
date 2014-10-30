@@ -26,7 +26,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Maximum
 
             string aggName = wholeDict.First().Key;
             string field = fieldDict.GetStringOrDefault(_FIELD);
-            Script script = ScriptSerializer.Deserialize(fieldDict);
+            Script script = fieldDict.DeserializeObject<Script>();
 
             return MetricAggregationBase.Deserialize<MaximumAggregate>(wholeDict.First().Key, fieldDict);
         }

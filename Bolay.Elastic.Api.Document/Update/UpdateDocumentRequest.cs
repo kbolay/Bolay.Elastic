@@ -1,5 +1,6 @@
 ﻿using Bolay.Elastic.Api.Document.Models;
 using Bolay.Elastic.Interfaces;
+using Bolay.Elastic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

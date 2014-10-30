@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Bolay.Elastic.Exceptions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,7 @@ using System.Threading.Tasks;
 namespace Bolay.Elastic.Scripts
 {
     public class ScriptSerializer : JsonConverter
-    {
-        public const string _SCRIPT = "script";
-        internal const string _SCRIPT_LANGUAGE = "lang";
-        internal const string _PARAMETERS = "params";
-
+    {       
         public override bool CanConvert(Type objectType)
         {
             throw new NotImplementedException();
@@ -20,37 +17,37 @@ namespace Bolay.Elastic.Scripts
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            Dictionary<string, object> fieldDict = serializer.Deserialize<Dictionary<string, object>>(reader);
+
+            Script script = null;
+            if (fieldDict.ContainsKey(Script.SCRIPT))
+            {
+                script = new Script(fieldDict.GetString(Script.SCRIPT));
+                script.Language = fieldDict.GetStringOrDefault(Script.LANGUAGE);
+
+                if (fieldDict.ContainsKey(Script.PARAMETERS))
+                    script.Parameters = JsonConvert.DeserializeObject<ScriptParameterCollection>(fieldDict.GetString(Script.PARAMETERS));
+            }
+
+            return script;
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
-        }
+            if (!(value is Script))
+                throw new SerializeTypeException<Script>();
 
-        public static void Serialize(Script script, Dictionary<string, object> fieldDict, string scriptKey = _SCRIPT)
-        {
-            if (script == null || string.IsNullOrWhiteSpace(script.ScriptText))
-                return;
+            Script script = value as Script;
 
-            fieldDict.AddObject(_SCRIPT_LANGUAGE, script.Language);
-            fieldDict.AddObject(scriptKey, script.ScriptText);
-            if(script.Parameters != null && script.Parameters.Any(x => x != null))
-                fieldDict.AddObject(_PARAMETERS, new ScriptParameterCollection(script.Parameters));
-        }
+            Dictionary<string, object> fieldDict = new Dictionary<string, object>();
+            fieldDict.AddObject(Script.LANGUAGE, script.Language);
+            fieldDict.AddObject(Script.SCRIPT, script.ScriptText);
+            if (script.Parameters != null && script.Parameters.Any())
+            {
+                fieldDict.AddObject(Script.PARAMETERS, new ScriptParameterCollection(script.Parameters));
+            }            
 
-        public static Script Deserialize(Dictionary<string, object> fieldDict, string scriptKey = _SCRIPT)
-        {
-            if (!fieldDict.ContainsKey(scriptKey))
-                return null;
-
-            Script script = new Script(fieldDict.GetString(scriptKey));
-            script.Language = fieldDict.GetStringOrDefault(_SCRIPT_LANGUAGE);
-
-            if (fieldDict.ContainsKey(_PARAMETERS))
-                script.Parameters = JsonConvert.DeserializeObject<ScriptParameterCollection>(fieldDict.GetString(_PARAMETERS));
-
-            return script;
+            serializer.Serialize(writer, fieldDict);
         }
     }
 }

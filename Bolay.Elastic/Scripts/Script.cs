@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace Bolay.Elastic.Scripts
 {
+    [JsonConverter(typeof(ScriptSerializer))]
     public class Script
     {
+        public const string SCRIPT = "script";
+        internal const string LANGUAGE = "lang";
+        internal const string PARAMETERS = "params";
+
         /// <summary>
         /// Gets the text of the script.
         /// </summary>

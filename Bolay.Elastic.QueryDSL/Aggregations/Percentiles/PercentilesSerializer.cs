@@ -31,14 +31,14 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Percentiles
             {
                 agg = new PercentilesAggregate(wholeDict.First().Key, percentDict.GetString(_FIELD));
             }
-            else if (percentDict.ContainsKey(ScriptSerializer._SCRIPT))
+            else if (percentDict.ContainsKey(Script.SCRIPT))
             {
-                Script script = ScriptSerializer.Deserialize(percentDict);
+                Script script = percentDict.DeserializeObject<Script>();
                 agg = new PercentilesAggregate(wholeDict.First().Key, script);
             }
             else
             {
-                throw new RequiredPropertyMissingException(_FIELD + "/" + ScriptSerializer._SCRIPT);
+                throw new RequiredPropertyMissingException(_FIELD + "/" + Script.SCRIPT);
             }
 
             if (percentDict.ContainsKey(_PERCENTS))
@@ -60,7 +60,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations.Percentiles
 
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
             fieldDict.AddObject(_FIELD, agg.Field);
-            ScriptSerializer.Serialize(agg.Script, fieldDict);
+            agg.Script.Serialize(fieldDict);
 
             string defaultPercents = JsonConvert.SerializeObject(PercentilesAggregate._PERCENT_BUCKETS_DEFAULT);
             string actualPercents = JsonConvert.SerializeObject(agg.PercentBuckets);

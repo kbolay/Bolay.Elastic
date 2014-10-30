@@ -91,7 +91,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
             dict.AddObject(_FIELD, this.Field);
-            ScriptSerializer.Serialize(this.Script, dict);
+            this.Script.Serialize(dict);
             dict.AddObject(_SCRIPT_VALUES_SORTED, this.ScriptValuesSorted, _SCRIPT_VALUES_SORTED_DEFAULT);
 
             return dict;
@@ -100,7 +100,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations
         internal static T Deserialize<T>(string name, Dictionary<string, object> fieldDict) where T : MetricAggregationBase
         {
             string field = fieldDict.GetStringOrDefault(_FIELD);
-            Script script = ScriptSerializer.Deserialize(fieldDict);
+            Script script = fieldDict.DeserializeObject<Script>();
 
             List<object> constructorArgs = new List<object>() { name };
             if (!string.IsNullOrWhiteSpace(field))
@@ -109,7 +109,7 @@ namespace Bolay.Elastic.QueryDSL.Aggregations
                 constructorArgs.Add(script);
 
             if(constructorArgs.Count == 1)
-                throw new RequiredPropertyMissingException(_FIELD + "/" + ScriptSerializer._SCRIPT);
+                throw new RequiredPropertyMissingException(_FIELD + "/" + Script.SCRIPT);
 
             MetricAggregationBase agg = Activator.CreateInstance(typeof(T), constructorArgs.ToArray()) as MetricAggregationBase;
             agg.ScriptValuesSorted = fieldDict.GetBool(_SCRIPT_VALUES_SORTED, _SCRIPT_VALUES_SORTED_DEFAULT);

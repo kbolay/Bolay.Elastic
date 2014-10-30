@@ -34,7 +34,7 @@ namespace Bolay.Elastic.QueryDSL.Faceting.Statistics
             }
             else if (scriptDict.ContainsKey(_SCRIPT))
             {
-                facet = new StatisticsFacet(facetName, ScriptSerializer.Deserialize(scriptDict));
+                facet = new StatisticsFacet(facetName, scriptDict.DeserializeObject<Script>());
             }
             else
                 throw new RequiredPropertyMissingException(_FIELD + "/" + _SCRIPT);
@@ -51,7 +51,7 @@ namespace Bolay.Elastic.QueryDSL.Faceting.Statistics
 
             Dictionary<string, object> fieldDict = new Dictionary<string, object>();
             fieldDict.AddObject(_FIELD, facet.Field);
-            ScriptSerializer.Serialize(facet.Script, fieldDict);            
+            facet.Script.Serialize(fieldDict);            
 
             Dictionary<string, object> statDict = new Dictionary<string, object>();
             statDict.Add(FacetTypeEnum.Statistical.ToString(), fieldDict);
