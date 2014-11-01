@@ -1,5 +1,4 @@
-﻿using Bolay.Elastic.Api.Document.Bulk;
-using Bolay.Elastic.Api.Document.Delete;
+﻿using Bolay.Elastic.Api.Document.Delete;
 using Bolay.Elastic.Api.Document.DeleteByQuery;
 using Bolay.Elastic.Api.Document.Exist;
 using Bolay.Elastic.Api.Document.Get;
@@ -20,7 +19,6 @@ namespace Bolay.Elastic.Api.Document
         MultiGetResponse<T> MultiGet(MultiGetDocumentRequest request);
         GetResponse<T> Get(GetDocumentRequest request);
         DoesExistResponse DoesExist(DoesExistDocumentRequest request);
-        BulkResponse BulkRequest(BulkDocumentRequest request);
         IndexResponse Index(IndexDocumentRequest<T> request);
         UpdateResponse Update(UpdateDocumentRequest request);
         DeleteResponse Delete(DeleteDocumentRequest request);

@@ -1,4 +1,3 @@
-E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\obj\Debug\Bolay.Elastic.Api.Document.Tests.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\bin\Debug\Bolay.Elastic.Api.Document.Tests.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\bin\Debug\Bolay.Elastic.Api.Document.Tests.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\bin\Debug\Bolay.Elastic.Api.dll
@@ -17,5 +16,6 @@ E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\bin\Debug\Newtonsoft.Js
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\bin\Debug\Bolay.Elastic.Mapping.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\bin\Debug\Bolay.Elastic.Api.Settings.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\bin\Debug\Bolay.Elastic.Analysis.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\obj\Debug\Bolay.Elastic.Api.Document.Tests.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\obj\Debug\Bolay.Elastic.Api.Document.Tests.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Api.Document.Tests\obj\Debug\Bolay.Elastic.Api.Document.Tests.pdb

@@ -12,7 +12,7 @@ namespace Bolay.Elastic.Api.Document.Exist
     /// </summary>
     public class DoesExistDocumentRequest : DocumentRequestBase
     {
-        private const string _EXCLUDE_METADATA_VALUE = "_source";
+        internal const string EXCLUDE_METADATA_VALUE = "_source";
 
         /// <summary>
         /// Exclude metadata that normally surrounds the _source document.
@@ -40,31 +40,6 @@ namespace Bolay.Elastic.Api.Document.Exist
             Index = index;
             DocumentId = documentId;
             DocumentType = documentType;
-        }
-
-        public override Uri BuildUri(Interfaces.IElasticUriProvider clusterUriProvider)
-        {
-            StringBuilder pathBuilder = new StringBuilder();
-            pathBuilder.Append(Index);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentType);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentId);
-
-            if (ExcludeMetaData)
-            {
-                pathBuilder.Append("/");
-                pathBuilder.Append(_EXCLUDE_METADATA_VALUE);
-            }
-
-            //pathBuilder.Append(BuildQueryString());
-
-            return new Uri(clusterUriProvider.ClusterUri, pathBuilder.ToString());
-        }
-
-        public override string BuildQueryString()
-        {
-            return null;
         }
     }
 }

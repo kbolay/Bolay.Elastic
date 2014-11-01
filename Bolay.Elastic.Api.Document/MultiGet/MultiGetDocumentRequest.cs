@@ -13,10 +13,11 @@ namespace Bolay.Elastic.Api.Document.MultiGet
     /// </summary>
     public class MultiGetDocumentRequest : DocumentRequestBase
     {
-        private const string _MULTI_GET_VALUE = "_mget";
-        private const string _ROUTING_KEY = "routing";
+        internal const string MULTI_GET_VALUE = "_mget";
+        internal const string ROUTING_KEY = "routing";
 
         public MultiGetRequestContent Content { get; set; }
+
         public string Routing { get; set; }
 
         public MultiGetDocumentRequest(MultiGetRequestContent content, string index = null, string documentType = null)
@@ -61,42 +62,6 @@ namespace Bolay.Elastic.Api.Document.MultiGet
             Index = index;
             DocumentType = documentType;
             Content = content;
-        }
-
-        public override Uri BuildUri(IElasticUriProvider clusterUriProvider)
-        {
-            StringBuilder pathBuilder = new StringBuilder();
-            if(string.IsNullOrWhiteSpace(Index))
-                pathBuilder.Append(Index);
-
-            if (string.IsNullOrWhiteSpace(DocumentType))
-            { 
-                if(pathBuilder.Length > 0)
-                    pathBuilder.Append("/");
-                pathBuilder.Append(DocumentType);
-            }
-                
-            if(pathBuilder.Length > 0)
-                pathBuilder.Append("/");
-            pathBuilder.Append(_MULTI_GET_VALUE);
-
-            pathBuilder.Append(BuildQueryString());
-
-            return new Uri(clusterUriProvider.ClusterUri, pathBuilder.ToString());
-        }
-
-        public override string BuildQueryString()
-        {
-            StringBuilder builder = new StringBuilder();
-            if (!string.IsNullOrWhiteSpace(Routing))
-            {
-                builder = HttpRequest.AddToQueryString(builder, _ROUTING_KEY, Routing);
-            }
-
-            if (builder.Length > 0)
-                return null;
-
-            return builder.ToString();
         }
     }
 }

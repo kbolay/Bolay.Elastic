@@ -12,31 +12,41 @@ using System.Threading.Tasks;
 
 namespace Bolay.Elastic.Api.ClusterState
 {
-    public class StateRepository //: IStateRepository
+    public class StateRepository : IStateRepository
     {
-        private readonly Uri _ClusterUri;
+        private readonly IUriProvider _clusterUri;
+        private readonly IHttpLayer _httpLayer;
 
-        public StateRepository(IUriProvider clusterUri)
+        public StateRepository(IUriProvider clusterUri, IHttpLayer httpLayer)
         {
             if (clusterUri == null || clusterUri.Uri == null)
                 throw new ArgumentNullException("clusterUri", "Cluster uri is required for the Cluster State Repository.");
 
-            _ClusterUri = new Uri(clusterUri.Uri.GetLeftPart(UriPartial.Authority));
+            _clusterUri = clusterUri;
+            _httpLayer = httpLayer;
         }
+        public State Get(StateRequest request = null)
+        {
+            HttpRequest httpRequest = new HttpRequest(_clusterUri.Uri);
+            httpRequest.ChangeUriPath("_cluster", "state");
 
-        //public State Get(StateRequest request = null)
-        //{
-        //    Uri clusterUri = null;
-        //    if (request == null)
-        //        clusterUri = new Uri(_ClusterUri, "_cluster/state");
-        //    else
-        //        clusterUri = new Uri(_ClusterUri, "_cluster/state" + request.ToString());
+            if(request != null)
+            {
+                httpRequest.AddToQueryString(StateRequest.LOCAL, request.Local.ToString(), defaultValue: false.ToString());
+                httpRequest.AddToQueryString(StateRequest.FILTER_BLOCKS, request.FilterBlocks.ToString(), defaultValue: false.ToString());
+                httpRequest.AddToQueryString(StateRequest.FILTER_INDICES, request.FilterIndices.ToString(), defaultValue: false.ToString());
+                httpRequest.AddToQueryString(StateRequest.FILTER_METADATA, request.FilterMetaData.ToString(), defaultValue: false.ToString());
+                httpRequest.AddToQueryString(StateRequest.FILTER_NODES, request.FilterNodes.ToString(), defaultValue: false.ToString());
+                httpRequest.AddToQueryString(StateRequest.FILTER_ROUTING_TABLE, request.FilterRouting.ToString(), defaultValue: false.ToString());
+            }
 
-        //    HttpResponse response = httpLayer.Get(clusterUri);
-        //    if (response.StatusCode != System.Net.HttpStatusCode.OK)
-        //        throw new ElasticRequestException(clusterUri);
+            HttpResponse response = _httpLayer.Get(httpRequest);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new ElasticRequestException(httpRequest, response);
+            }
 
-        //    return JsonConvert.DeserializeObject<State>(response.Body);
-        //}
+            return JsonConvert.DeserializeObject<State>(response.Body);
+        }
     }
 }

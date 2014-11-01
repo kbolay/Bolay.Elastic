@@ -1,4 +1,3 @@
-E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\obj\Debug\Bolay.Elastic.Mvc4.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\bin\Bolay.Elastic.Mvc4.dll.config
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\bin\Bolay.Elastic.Mvc4.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\bin\Bolay.Elastic.Mvc4.pdb
@@ -34,5 +33,6 @@ E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\bin\Bolay.Elastic.Api.Settings.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\bin\Bolay.Elastic.Api.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\bin\Bolay.Elastic.pdb
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\bin\Bolay.Elastic.Analysis.pdb
+E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\obj\Debug\Bolay.Elastic.Mvc4.csprojResolveAssemblyReference.cache
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\obj\Debug\Bolay.Elastic.Mvc4.dll
 E:\Source\Bolay.Elastic\Bolay.Elastic.Mvc4\obj\Debug\Bolay.Elastic.Mvc4.pdb

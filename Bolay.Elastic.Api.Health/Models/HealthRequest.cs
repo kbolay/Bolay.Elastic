@@ -68,11 +68,11 @@ namespace Bolay.Elastic.Api.Health.Models
 
             StringBuilder builder = new StringBuilder();
 
-            if (Level != null) { builder = HttpRequest.AddToQueryString(builder, "level", Level.ToString()); }
-            if (WaitForStatus != null) { builder = HttpRequest.AddToQueryString(builder, "wait_for_status", WaitForStatus.ToString()); }
-            if (WaitForRelocatingShards.HasValue) { builder = HttpRequest.AddToQueryString(builder, "wait_for_relocating_shards", WaitForRelocatingShards.ToString()); }
-            if (WaitForNodes != null) { builder = HttpRequest.AddToQueryString(builder, "wait_for_nodes", WaitForNodes.ToString()); }
-            if (TimeOut == null) { builder = HttpRequest.AddToQueryString(builder, "timeout", TimeOut.ToString()); }
+            //if (Level != null) { builder = HttpRequest.AddToQueryString(builder, "level", Level.ToString()); }
+            //if (WaitForStatus != null) { builder = HttpRequest.AddToQueryString(builder, "wait_for_status", WaitForStatus.ToString()); }
+            //if (WaitForRelocatingShards.HasValue) { builder = HttpRequest.AddToQueryString(builder, "wait_for_relocating_shards", WaitForRelocatingShards.ToString()); }
+            //if (WaitForNodes != null) { builder = HttpRequest.AddToQueryString(builder, "wait_for_nodes", WaitForNodes.ToString()); }
+            //if (TimeOut == null) { builder = HttpRequest.AddToQueryString(builder, "timeout", TimeOut.ToString()); }
 
             return builder.ToString();
         }

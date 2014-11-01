@@ -14,12 +14,13 @@ namespace Bolay.Elastic.Api.Document.DeleteByQuery
     /// </summary>
     public class DeleteByQueryDocumentRequest : DocumentRequestBase
     {
-        private const string _ROUTING_KEY = "routing";
-        private const string _REPLICATION_KEY = "replication";
-        private const string _CONSISTENCY_KEY = "consistency";
+        internal const string ROUTING_KEY = "routing";
+        internal const string REPLICATION_KEY = "replication";
+        internal const string CONSISTENCY_KEY = "consistency";
 
-        private const string _QUERY_VALUE = "_query";
-        private const string _REPLICATION_VALUE = "async";
+        internal const string QUERY_VALUE = "_query";
+        internal const string REPLICATION_VALUE = "async";
+        internal static readonly WriteConsistencyEnum WRITE_CONSISTENCY_DEFAULT = WriteConsistencyEnum.QuorumOfShards;
 
         /// <summary>
         /// A comma separated list of routing values.
@@ -50,6 +51,7 @@ namespace Bolay.Elastic.Api.Document.DeleteByQuery
             Index = index;
             QueryString = queryString;
             DocumentType = documentType;
+            WriteConsistency = WriteConsistencyEnum.QuorumOfShards;
         }
         public DeleteByQueryDocumentRequest(string index, string contentQuery, string documentType = null)
         {
@@ -61,62 +63,7 @@ namespace Bolay.Elastic.Api.Document.DeleteByQuery
             ContentQuery = contentQuery;
             Index = index;
             DocumentType = documentType;
-        }
-
-        public override Uri BuildUri(IElasticUriProvider clusterUriProvider)
-        {
-            StringBuilder pathBuilder = new StringBuilder();
-            pathBuilder.Append(Index);
-            pathBuilder.Append("/");
-
-            if(string.IsNullOrWhiteSpace(DocumentType))
-            {
-                pathBuilder.Append(DocumentType);
-                pathBuilder.Append("/");
-            }
-
-            pathBuilder.Append(_QUERY_VALUE);
-
-            return new Uri(clusterUriProvider.ClusterUri, pathBuilder.ToString());
-        }
-
-        public override string BuildQueryString()
-        {
-            if (QueryString == null)
-                return null;
-
-            StringBuilder builder = new StringBuilder();
-            builder = HttpRequest.AddToQueryString(builder, QueryStringSearch._QUERY_KEY, QueryString.Query);
-
-            if (!string.IsNullOrWhiteSpace(QueryString.Analyzer))
-            {
-                builder = HttpRequest.AddToQueryString(builder, QueryStringSearch._ANALYZER_KEY, QueryString.Analyzer);
-            }
-            if (!string.IsNullOrWhiteSpace(QueryString.DefaultField))
-            {
-                builder = HttpRequest.AddToQueryString(builder, QueryStringSearch._DEFAULT_FIELD_KEY, QueryString.DefaultField);
-            }
-            if (QueryString.UseAndForDefaultOperator)
-            {
-                builder = HttpRequest.AddToQueryString(builder, QueryStringSearch._DEFAULT_OPERATOR_KEY, QueryStringSearch._AND_OPERATOR_VALUE);
-            }
-            if (!string.IsNullOrWhiteSpace(Routing))
-            {
-                builder = HttpRequest.AddToQueryString(builder, _ROUTING_KEY, Routing);
-            }
-            if (WriteConsistency == null)
-            {
-                builder = HttpRequest.AddToQueryString(builder, _CONSISTENCY_KEY, WriteConsistency.ToString());
-            }
-            if (UseAsyncReplication)
-            {
-                builder = HttpRequest.AddToQueryString(builder, _REPLICATION_KEY, _REPLICATION_VALUE);
-            }
-
-            if (builder.Length == 0)
-                return null;
-
-            return builder.ToString();
+            WriteConsistency = WriteConsistencyEnum.QuorumOfShards;
         }
     }
 }

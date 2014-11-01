@@ -74,58 +74,5 @@ namespace Bolay.Elastic.Api.Document.Tests.Index
                 Assert.AreEqual("document", ex.ParamName);
             }
         }
-
-        [TestMethod]
-        public void PASS_BuildUri()
-        {
-            IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _Type, _Document);
-            Uri uri = request.BuildUri(_ClusterUri);
-            Assert.IsNotNull(uri);
-
-            string expectedUri = string.Format("{0}{1}/{2}/", _ClusterUri.ClusterUri, _Index, _Type);
-            Assert.AreEqual(expectedUri, uri.ToString());
-        }
-
-        [TestMethod]
-        public void PASS_BuildUri_Id()
-        {
-            IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _Type, _Document, _Id);
-            Uri uri = request.BuildUri(_ClusterUri);
-            Assert.IsNotNull(uri);
-
-            string expectedUri = string.Format("{0}{1}/{2}/{3}", _ClusterUri.ClusterUri, _Index, _Type, _Id);
-            Assert.AreEqual(expectedUri, uri.ToString());
-        }
-
-        [TestMethod]
-        public void PASS_BuildQueryString()
-        {
-            DateTime utcNow = DateTime.UtcNow;
-            TimeSpan ttl = new TimeSpan(24, 0, 0);
-            TimeSpan timeOut = new TimeSpan(0, 0, 10);
-
-            IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _Type, _Document)
-            {
-                OperationTimeOut = timeOut,
-                ParentId = "9999",
-                Refresh = true,
-                Routing = "route",
-                TimeStamp = utcNow,
-                TimeToLive = ttl,
-                UseAsynchronousReplication = true,
-                Version = 66,
-                WriteConsistency = WriteConsistencyEnum.OneShard,
-                UseCreateOperationType = true
-            };
-
-            string queryString = request.BuildQueryString();
-            Assert.IsNotNull(queryString);
-
-            string expectedQS = "?version=66&op_type=_create&parent=9999&timestamp=" + utcNow.ToString("yyyy-MM-ddTHH:mm:ss") +
-                "&ttl=" + ttl.TotalMilliseconds.ToString() + "&routing=route&consistency=one&replication=async&refresh=true&timeout=" +
-                timeOut.TotalMilliseconds.ToString();
-
-            Assert.AreEqual(expectedQS, queryString);
-        }
     }
 }

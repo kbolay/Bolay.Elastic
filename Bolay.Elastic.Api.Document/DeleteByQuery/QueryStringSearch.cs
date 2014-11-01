@@ -8,12 +8,12 @@ namespace Bolay.Elastic.Api.Document.DeleteByQuery
 {
     public class QueryStringSearch
     {
-        public const string _QUERY_KEY = "q";
-        public const string _DEFAULT_FIELD_KEY = "df";
-        public const string _ANALYZER_KEY = "analyzer";
-        public const string _DEFAULT_OPERATOR_KEY = "default_operator";
+        internal const string QUERY_KEY = "q";
+        internal const string DEFAULT_FIELD_KEY = "df";
+        internal const string ANALYZER_KEY = "analyzer";
+        internal const string DEFAULT_OPERATOR_KEY = "default_operator";
 
-        public const string _AND_OPERATOR_VALUE = "AND";
+        internal const string AND_OPERATOR_VALUE = "AND";
 
         /// <summary>
         /// The query used to select documents.

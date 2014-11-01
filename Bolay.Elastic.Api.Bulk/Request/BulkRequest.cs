@@ -12,8 +12,10 @@ namespace Bolay.Elastic.Api.Bulk.Request
     /// </summary>
     public class BulkRequest
     {
-        internal const string WRITE_CONSISTENCY = "consistency";
+        internal const string WRITE_CONSISTENCY = "consistency";        
         internal const string REFRESH = "refresh";
+
+        internal static WriteConsistencyEnum WRITE_CONSISTENCY_DEFAULT = WriteConsistencyEnum.QuorumOfShards;
 
         /// <summary>
         /// Gets the bulk actions.

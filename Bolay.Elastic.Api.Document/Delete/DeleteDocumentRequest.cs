@@ -10,15 +10,17 @@ namespace Bolay.Elastic.Api.Document.Delete
 {
     public class DeleteDocumentRequest : DocumentRequestBase
     {
-        private const string _VERSION_KEY = "version";
-        private const string _PARENT_ID_KEY = "parent";
-        private const string _ROUTING_KEY = "routing";
-        private const string _WRITE_CONSISTENCY_KEY = "consistency";
-        private const string _ASYNCHRONOUS_REPLICATION_KEY = "replication";
-        private const string _REFRESH_KEY = "refresh";
-        private const string _OPERATION_TIMEOUT_KEY = "timeout";
+        internal const string VERSION_KEY = "version";
+        internal const string PARENT_ID_KEY = "parent";
+        internal const string ROUTING_KEY = "routing";
+        internal const string WRITE_CONSISTENCY_KEY = "consistency";
+        internal const string ASYNCHRONOUS_REPLICATION_KEY = "replication";
+        internal const string REFRESH_KEY = "refresh";
+        internal const string OPERATION_TIMEOUT_KEY = "timeout";
 
-        private const string _ASYNCHRONOUS_REPLICATION_VALUE = "async";
+        internal const string ASYNCHRONOUS_REPLICATION_VALUE = "async";
+        internal const string REFRESH_DEFAULT = "false";
+        internal static readonly WriteConsistencyEnum WRITE_CONSISTENCY_DEFAULT = WriteConsistencyEnum.QuorumOfShards;
 
         private Int64? _Version { get; set; }
 
@@ -110,63 +112,7 @@ namespace Bolay.Elastic.Api.Document.Delete
             Index = index;
             DocumentType = documentType;
             DocumentId = documentId;
-        }
-
-        public override Uri BuildUri(Interfaces.IElasticUriProvider uriProvider)
-        {
-            StringBuilder pathBuilder = new StringBuilder();
-            pathBuilder.Append(Index);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentType);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentId);
-
-            return new Uri(uriProvider.ClusterUri, pathBuilder.ToString());
-        }
-
-        public override string BuildQueryString()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            if (Version.HasValue) 
-            {
-                builder = HttpRequest.AddToQueryString(builder, _VERSION_KEY, Version.Value.ToString()); 
-            }
-
-            if (!string.IsNullOrWhiteSpace(ParentId)) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _PARENT_ID_KEY, ParentId); 
-            }
-
-            if (!string.IsNullOrWhiteSpace(Routing)) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _ROUTING_KEY, Routing); 
-            }
-
-            if (WriteConsistency != null) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _WRITE_CONSISTENCY_KEY, WriteConsistency.ToString()); 
-            }
-
-            if (UseAsynchronousReplication) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _ASYNCHRONOUS_REPLICATION_KEY, _ASYNCHRONOUS_REPLICATION_VALUE); 
-            }
-
-            if (Refresh) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _REFRESH_KEY, Refresh.ToString().ToLower()); 
-            }
-
-            if (OperationTimeOut.HasValue) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _OPERATION_TIMEOUT_KEY, Convert.ToInt64(OperationTimeOut.Value.TotalMilliseconds).ToString()); 
-            }
-
-            if (builder.Length == 0)
-                return null;
-
-            return builder.ToString();
+            WriteConsistency = WriteConsistencyEnum.QuorumOfShards;
         }
     }
 }

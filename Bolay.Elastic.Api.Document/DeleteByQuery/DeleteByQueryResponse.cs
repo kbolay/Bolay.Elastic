@@ -14,6 +14,6 @@ namespace Bolay.Elastic.Api.Document.DeleteByQuery
         public bool Success { get; set; }
 
         [JsonProperty("_indices")]
-        public IEnumerable<IndexShards> Indices { get; set; }
+        public IndexShards Indices { get; set; }
     }
 }

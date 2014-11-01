@@ -23,8 +23,5 @@ namespace Bolay.Elastic.Api.Document.Models
         /// The _id of the document.
         /// </summary>
         public string DocumentId { get; protected set; }
-
-        public abstract Uri BuildUri(IElasticUriProvider clusterUriProvider);
-        public abstract string BuildQueryString();
     }
 }

@@ -61,35 +61,5 @@ namespace Bolay.Elastic.Api.Document.Tests.Delete
                 Assert.AreEqual("documentId", ex.ParamName);
             }
         }
-
-        [TestMethod]
-        public void PASS_BuildUriPath()
-        {
-            DeleteDocumentRequest request = new DeleteDocumentRequest(_Index, _Type, _Id);
-            Uri uri = request.BuildUri(new ElasticUriProvider("http://localhost:9200/dumb/values"));
-            Assert.IsNotNull(uri);
-            Assert.AreEqual(new Uri("http://localhost:9200/" + _Index + "/" + _Type + "/" + _Id), uri);
-        }
-
-        [TestMethod]
-        public void PASS_BuildQueryString()
-        {
-            DeleteDocumentRequest request = new DeleteDocumentRequest(_Index, _Type, _Id)
-            {
-                OperationTimeOut = new TimeSpan(0, 0, 1),
-                ParentId = "1",
-                Refresh = true,
-                Routing = "route",
-                UseAsynchronousReplication = true,
-                Version = 1,
-                WriteConsistency = WriteConsistencyEnum.OneShard
-            };
-
-            string queryString = request.BuildQueryString();
-            Assert.IsNotNull(queryString);
-
-            string expectedQS = "?version=1&parent=1&routing=route&consistency=one&replication=async&refresh=true&timeout=1000";
-            Assert.AreEqual(expectedQS, queryString);
-        }
     }
 }

@@ -28,6 +28,21 @@ namespace Bolay.Elastic.Api
             }
         }
 
+        public static void AddHeaders(this HttpRequestMessage request, Dictionary<string, string> headers = null)
+        {
+            if (request == null)
+                throw new ArgumentNullException("request");
+
+            if (headers == null || !headers.Any())
+                return;
+
+            foreach (KeyValuePair<string, string> header in headers)
+            {
+                // TODO: this may get angry if i add the "wrong" headers
+                request.Headers.Add(header.Key, header.Value);
+            }
+        }
+
         public static Dictionary<string, IEnumerable<string>> GetHeaders(this HttpResponseMessage httpResponse)
         {
             if (httpResponse.Headers == null || !httpResponse.Headers.Any())

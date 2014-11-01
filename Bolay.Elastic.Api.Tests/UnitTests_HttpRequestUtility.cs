@@ -25,9 +25,9 @@ namespace Kgb.Elastic.Tests
         public void PASS_Get_WithHeaders()
         {
             string uri = "http://www.google.com";
-            Dictionary<string, string> headers = new Dictionary<string,string>();
-            headers.Add("accept-language", "fr;q=1.0");
-            HttpResponse response = new HttpLayer().Get(new HttpRequest(uri, null, headers));
+            HttpRequest request = new HttpRequest(uri);
+            request.AddToHeaders("accept-language", "fr;q=1.0");
+            HttpResponse response = new HttpLayer().Get(request);
 
             Assert.IsNotNull(response);
             Assert.AreEqual(System.Net.HttpStatusCode.OK, response.StatusCode);

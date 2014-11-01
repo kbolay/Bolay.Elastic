@@ -14,16 +14,16 @@ namespace Bolay.Elastic.Api.Document.Get
     /// </summary>
     public class GetDocumentRequest : DocumentRequestBase
     {
-        private const string _REALTIME_KEY = "realtime";
-        private const string _FIELDS_KEY = "fields";
-        private const string _ROUTING_KEY = "routing";
-        private const string _REFRESH_KEY = "refresh";
-        private const string _PREFERENCE_KEY = "preference";
+        internal const string REALTIME_KEY = "realtime";
+        internal const string FIELDS_KEY = "fields";
+        internal const string ROUTING_KEY = "routing";
+        internal const string REFRESH_KEY = "refresh";
+        internal const string SHARD_PREFERENCE_KEY = "preference";
 
-        private const string _REALTIME_VALUE = "false";
-        private const string _DOCUMENT_TYPE_DEFAULT = "_all";
-        private const string _EXCLUDE_METADATA_VALUE = "_source";
-        private const string _REFRESH_VALUE = "true";
+        internal const string REALTIME_DEFAULT = "false";
+        internal const string DOCUMENT_TYPE_DEFAULT = "_all";
+        internal const string EXCLUDE_METADATA_DEFAULT = "_source";
+        internal const string REFRESH_DEFAULT = "true";
 
         /// <summary>
         /// By default, the get API is realtime, and is not affected by the 
@@ -83,71 +83,6 @@ namespace Bolay.Elastic.Api.Document.Get
             Index = index;
             DocumentId = documentId;
             DocumentType = documentType;
-        }
-
-        /// <summary>
-        /// Builds the path and query string of the request, using the BuildQueryString method,
-        /// and adds this to the cluster uri.
-        /// </summary>
-        /// <param name="uriProvider">The uri of the elastic cluster.</param>
-        /// <returns></returns>
-        public override Uri BuildUri(IElasticUriProvider uriProvider)
-        {
-            StringBuilder pathBuilder = new StringBuilder();
-            pathBuilder.Append(Index);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentType);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentId);
-            
-            if(ExcludeMetaData)
-            {
-                pathBuilder.Append("/");
-                pathBuilder.Append(_EXCLUDE_METADATA_VALUE);
-            }
-
-            pathBuilder.Append(BuildQueryString());
-
-            return new Uri(uriProvider.ClusterUri, pathBuilder.ToString());
-        }
-
-        /// <summary>
-        /// Builds the query string of the request. 
-        /// This method was left public to allow for unit testing.
-        /// </summary>
-        /// <returns></returns>
-        public override string BuildQueryString()
-        {
-            StringBuilder builder = new StringBuilder();
-            if (DisableRealTime) 
-            {
-                builder = HttpRequest.AddToQueryString(builder, _REALTIME_KEY, _REALTIME_VALUE); 
-            }
-
-            if (Fields != null && Fields.Any()) 
-            {
-                builder = HttpRequest.AddToQueryString(builder, _FIELDS_KEY, string.Join(",", Fields)); 
-            }
-
-            if (!string.IsNullOrWhiteSpace(Routing)) 
-            {
-                builder = HttpRequest.AddToQueryString(builder, _ROUTING_KEY, Routing);
-            }
-            
-            if (ShardPreference != null && !string.IsNullOrWhiteSpace(ShardPreference.ToString())) 
-            {
-                builder = HttpRequest.AddToQueryString(builder, _PREFERENCE_KEY, ShardPreference.ToString());
-            }
-
-            if (RefreshBeforeSearch) 
-            {
-                builder = HttpRequest.AddToQueryString(builder, _REFRESH_KEY, _REFRESH_VALUE);
-            }
-
-            if (builder.Length == 0)
-                return null;
-
-            return builder.ToString();
         }
     }
 }

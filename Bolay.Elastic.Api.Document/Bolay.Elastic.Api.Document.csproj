@@ -47,10 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bulk\BulkResponse.cs" />
-    <Compile Include="Bulk\CreateBulkAction.cs" />
-    <Compile Include="Bulk\DeleteBulkAction.cs" />
-    <Compile Include="Bulk\UpdateBulkAction.cs" />
     <Compile Include="DeleteByQuery\DeleteByQueryResponse.cs" />
     <Compile Include="Delete\DeleteResponse.cs" />
     <Compile Include="Index\IndexResponse.cs" />
@@ -64,17 +60,15 @@
     <Compile Include="Get\GetResponse.cs" />
     <Compile Include="IDocumentRepository.cs" />
     <Compile Include="Models\AdminElasticResponse.cs" />
-    <Compile Include="Bulk\BulkActionBase.cs" />
     <Compile Include="Models\DocumentRequestBase.cs" />
     <Compile Include="Models\ElasticDocument.cs" />
-    <Compile Include="Bulk\IndexBulkAction.cs" />
     <Compile Include="Models\IndexShards.cs" />
+    <Compile Include="Models\VersionTypeEnum.cs" />
     <Compile Include="MultiGet\MultiGetRequestContent.cs" />
     <Compile Include="MultiGet\MultiGetRequestedDocument.cs" />
     <Compile Include="MultiGet\MultiGetResponse.cs" />
     <Compile Include="Update\UpdateResponse.cs" />
     <Compile Include="Update\UpdateContent.cs" />
-    <Compile Include="Bulk\BulkDocumentRequest.cs" />
     <Compile Include="Delete\DeleteDocumentRequest.cs" />
     <Compile Include="Exist\DoesExistDocumentRequest.cs" />
     <Compile Include="Get\GetDocumentRequest.cs" />

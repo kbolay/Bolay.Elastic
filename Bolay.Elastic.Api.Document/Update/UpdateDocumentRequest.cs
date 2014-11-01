@@ -1,6 +1,7 @@
 ﻿using Bolay.Elastic.Api.Document.Models;
 using Bolay.Elastic.Interfaces;
 using Bolay.Elastic.Models;
+using Bolay.Elastic.Time;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,21 +15,22 @@ namespace Bolay.Elastic.Api.Document.Update
     /// </summary>
     public class UpdateDocumentRequest : DocumentRequestBase
     {
-        private const string _UPDATE_OPERATION = "_update";
+        internal const string UPDATE_OPERATION = "_update";
 
-        private const string _PARENT_ID_KEY = "parent";
-        private const string _ROUTING_KEY = "routing";
-        private const string _PERCOLATE_KEY = "percolate";
-        private const string _WRITE_CONSISTENCY_KEY = "consistency";
-        private const string _ASYNCHRONOUS_REPLICATION_KEY = "replication";
-        private const string _REFRESH_KEY = "refresh";
-        private const string _OPERATION_TIMEOUT_KEY = "timeout";
-        private const string _FIELDS_KEY = "fields";
-        private const string _RETRY_ON_CONFLICT_KEY = "retry_on_conflict";
+        internal const string PARENT_ID_KEY = "parent";
+        internal const string ROUTING_KEY = "routing";
+        internal const string PERCOLATE_KEY = "percolate";
+        internal const string WRITE_CONSISTENCY_KEY = "consistency";
+        internal const string ASYNCHRONOUS_REPLICATION_KEY = "replication";
+        internal const string REFRESH_KEY = "refresh";
+        internal const string OPERATION_TIMEOUT_KEY = "timeout";
+        internal const string FIELDS_KEY = "fields";
+        internal const string RETRY_ON_CONFLICT_KEY = "retry_on_conflict";
 
-        private const string _ASYNCHRONOUS_REPLICATION_VALUE = "async";
+        internal const string ASYNCHRONOUS_REPLICATION_VALUE = "async";
+        internal static readonly WriteConsistencyEnum WRITE_CONSISTENCY_DEFAULT = WriteConsistencyEnum.QuorumOfShards;
+        internal const string REFRESH_DEFAULT = "false";
 
-        private TimeSpan? _TimeToLive { get; set; }
         private int? _MaximumRetryAttempts { get; set; }
 
         /// <summary>
@@ -137,67 +139,7 @@ namespace Bolay.Elastic.Api.Document.Update
             DocumentId = documentId;
             DocumentType = documentType;
             Content = content;
-        }
-
-        public override Uri BuildUri(IElasticUriProvider clusterUriProvider)
-        {
-            StringBuilder pathBuilder = new StringBuilder();
-            pathBuilder.Append(Index);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentType);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentId);
-            pathBuilder.Append("/");
-            pathBuilder.Append(_UPDATE_OPERATION);
-            
-            pathBuilder.Append(BuildQueryString());
-
-            return new Uri(clusterUriProvider.ClusterUri, pathBuilder.ToString());
-        }
-
-        public override string BuildQueryString()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            if (!string.IsNullOrWhiteSpace(ParentId))
-            {
-                builder = HttpRequest.AddToQueryString(builder, _PARENT_ID_KEY, ParentId);
-            }
-
-            if (!string.IsNullOrWhiteSpace(Routing))
-            {
-                builder = HttpRequest.AddToQueryString(builder, _ROUTING_KEY, Routing);
-            }
-
-            if (Fields != null && Fields.Any())
-            {
-                builder = HttpRequest.AddToQueryString(builder, _FIELDS_KEY, string.Join(",", Fields));
-            }
-
-            if (WriteConsistency != null)
-            {
-                builder = HttpRequest.AddToQueryString(builder, _WRITE_CONSISTENCY_KEY, WriteConsistency.ToString());
-            }
-
-            if (UseAsynchronousReplication)
-            {
-                builder = HttpRequest.AddToQueryString(builder, _ASYNCHRONOUS_REPLICATION_KEY, _ASYNCHRONOUS_REPLICATION_VALUE);
-            }
-
-            if (Refresh)
-            {
-                builder = HttpRequest.AddToQueryString(builder, _REFRESH_KEY, Refresh.ToString());
-            }
-
-            if (OperationTimeOut.HasValue)
-            {
-                builder = HttpRequest.AddToQueryString(builder, _OPERATION_TIMEOUT_KEY, Convert.ToInt64(OperationTimeOut.Value.TotalMilliseconds).ToString());
-            }
-
-            if (builder.Length == 0)
-                return null;
-
-            return builder.ToString();
+            WriteConsistency = WriteConsistencyEnum.QuorumOfShards;
         }
     }
 }

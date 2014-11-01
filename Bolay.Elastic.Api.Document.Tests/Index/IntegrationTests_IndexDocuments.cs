@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bolay.Elastic.Api.Document.Index;
 using Bolay.Elastic.Api.Document.Models;
 using Bolay.Elastic.Models;
+using Bolay.Elastic.Api.Exceptions;
+using System.Net;
 
 namespace Bolay.Elastic.Api.Document.Tests.Index
 {
@@ -21,6 +23,19 @@ namespace Bolay.Elastic.Api.Document.Tests.Index
             Author = "indextester",
             Text = "index test tweet"
         };
+
+        [TestInitialize]
+        public void Init()
+        {
+            tweetRepo = new DocumentRepository<Tweet>(_ClusterUri, new HttpLayer());
+            tweetRepo.DeleteByQuery(new DeleteByQuery.DeleteByQueryDocumentRequest(_Index, "{\"query\":{\"match_all\":{}}}"));
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            tweetRepo.DeleteByQuery(new DeleteByQuery.DeleteByQueryDocumentRequest(_Index, "{\"query\":{\"match_all\":{}}}"));
+        }
 
         [TestMethod]
         public void PASS_IndexDocument()
@@ -76,16 +91,22 @@ namespace Bolay.Elastic.Api.Document.Tests.Index
         }
 
         [TestMethod]
-        public void PASS_IndexDocument_Parent()
+        public void PASS_IndexDocument_Parent_Fail()
         {
             tweetRepo = new DocumentRepository<Tweet>(_ClusterUri, new HttpLayer());
             IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _DocumentType, _Document, _Id)
             {
                 ParentId = "2525"
             };
-            IndexResponse response = tweetRepo.Index(request);
-            Assert.IsNotNull(response);
-            Assert.AreEqual(_Id, response.DocumentId);
+            try
+            {
+                IndexResponse response = tweetRepo.Index(request);
+                Assert.Fail();
+            }
+            catch (ElasticRequestException ex)
+            {
+                Assert.AreEqual(HttpStatusCode.BadRequest, ex.Response.StatusCode);
+            }   
         }
 
         [TestMethod]
@@ -133,7 +154,7 @@ namespace Bolay.Elastic.Api.Document.Tests.Index
             tweetRepo = new DocumentRepository<Tweet>(_ClusterUri, new HttpLayer());
             IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _DocumentType, _Document, _Id)
             {
-                TimeToLive = new TimeSpan(0, 10, 0)
+                TimeToLive = new Time.TimeValue(new TimeSpan(0, 10, 0))
             };
             IndexResponse response = tweetRepo.Index(request);
             Assert.IsNotNull(response);
@@ -166,30 +187,13 @@ namespace Bolay.Elastic.Api.Document.Tests.Index
         }
 
         [TestMethod]
-        public void FAIL_IndexDocument_CreateOnly()
+        public void PASS_IndexDocument_Version_External()
         {
             tweetRepo = new DocumentRepository<Tweet>(_ClusterUri, new HttpLayer());
             IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _DocumentType, _Document, _Id)
             {
-                UseCreateOperationType = true
-            };
-            try
-            {
-                IndexResponse response = tweetRepo.Index(request);
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail();
-            }
-        }
-
-        [TestMethod]
-        public void PASS_IndexDocument_Version()
-        {
-            tweetRepo = new DocumentRepository<Tweet>(_ClusterUri, new HttpLayer());
-            IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _DocumentType, _Document, _Id)
-            {
-                Version = 115
+                Version = 115,
+                VersionType = VersionTypeEnum.External
             };
             IndexResponse response = tweetRepo.Index(request);
             Assert.IsNotNull(response);
@@ -210,16 +214,24 @@ namespace Bolay.Elastic.Api.Document.Tests.Index
         }
 
         [TestMethod]
-        public void PASS_IndexDocument_Consistency_All()
+        public void FAIL_IndexDocument_Consistency_All_Timeout()
         {
             tweetRepo = new DocumentRepository<Tweet>(_ClusterUri, new HttpLayer());
             IndexDocumentRequest<Tweet> request = new IndexDocumentRequest<Tweet>(_Index, _DocumentType, _Document, _Id)
             {
-                WriteConsistency = WriteConsistencyEnum.AllShards
+                WriteConsistency = WriteConsistencyEnum.AllShards,
+                OperationTimeOut = new TimeSpan(0, 0, 5)
             };
-            IndexResponse response = tweetRepo.Index(request);
-            Assert.IsNotNull(response);
-            Assert.AreEqual(_Id, response.DocumentId);
+
+            try
+            {
+                IndexResponse response = tweetRepo.Index(request);
+                Assert.Fail();
+            }
+            catch (ElasticRequestException ex)
+            {
+                Assert.AreEqual(HttpStatusCode.ServiceUnavailable, ex.Response.StatusCode);
+            }
         }
 
         [TestMethod]

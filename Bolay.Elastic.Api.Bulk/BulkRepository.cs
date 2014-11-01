@@ -14,12 +14,12 @@ namespace Bolay.Elastic.Api.Bulk
     {
         private const string _BULK_API_PATH = "_bulk";
 
-        private readonly Uri _bulkUri;
+        private readonly Uri _clusterUri;
         private readonly IHttpLayer _httpLayer;
 
-        public BulkRepository(IUriProvider serverUri, IHttpLayer httpLayer)
+        public BulkRepository(IUriProvider clusterUri, IHttpLayer httpLayer)
         {
-            if (serverUri == null || serverUri.Uri == null)
+            if (clusterUri == null || clusterUri.Uri == null)
             {
                 throw new ArgumentNullException("serverUri", "Any bulk request requires the uri of the ES cluster.");
             }
@@ -29,7 +29,7 @@ namespace Bolay.Elastic.Api.Bulk
                 throw new ArgumentNullException("httpLayer");
             }
 
-            _bulkUri = new Uri(serverUri.Uri, _BULK_API_PATH);
+            _clusterUri = clusterUri.Uri;
             _httpLayer = httpLayer;
         }
 
@@ -40,7 +40,15 @@ namespace Bolay.Elastic.Api.Bulk
                 throw new ArgumentNullException("request");
             }
 
-            HttpRequest httpRequest = new HttpRequest(_bulkUri, request.ToString());
+            HttpRequest httpRequest = new HttpRequest(_clusterUri, request.ToString());
+            httpRequest.ChangeUriPath(_BULK_API_PATH);
+
+            httpRequest.AddToQueryString(BulkRequest.REFRESH, request.Refresh.ToString(), defaultValue: false.ToString());
+            httpRequest.AddToQueryString(
+                BulkRequest.WRITE_CONSISTENCY,
+                request.WriteConsistency != null ? request.WriteConsistency.ToString() : BulkRequest.WRITE_CONSISTENCY_DEFAULT.ToString(), 
+                defaultValue: BulkRequest.WRITE_CONSISTENCY_DEFAULT.ToString());
+
             HttpResponse httpResponse = _httpLayer.Post(httpRequest);
             
             return JsonConvert.DeserializeObject<BulkResponse>(httpResponse.Body);

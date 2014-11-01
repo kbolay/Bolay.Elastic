@@ -1,5 +1,6 @@
 ﻿using Bolay.Elastic.Api.Document.Models;
 using Bolay.Elastic.Models;
+using Bolay.Elastic.Time;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +14,27 @@ namespace Bolay.Elastic.Api.Document.Index
     /// </summary>
     public class IndexDocumentRequest<T> : DocumentRequestBase
     {
-        private const string _VERSION_KEY = "version";
-        private const string _OPERATION_TYPE_KEY = "op_type";
-        private const string _PARENT_ID_KEY = "parent";
-        private const string _TIMESTAMP_KEY = "timestamp";
-        private const string _TIME_TO_LIVE_KEY = "ttl";
-        private const string _ROUTING_KEY = "routing";
-        private const string _PERCOLATE_KEY = "percolate";
-        private const string _WRITE_CONSISTENCY_KEY = "consistency";
-        private const string _ASYNCHRONOUS_REPLICATION_KEY = "replication";
-        private const string _REFRESH_KEY = "refresh";
-        private const string _OPERATION_TIMEOUT_KEY = "timeout";
+        internal const string VERSION_KEY = "version";
+        internal const string OPERATION_TYPE_KEY = "op_type";
+        internal const string PARENT_ID_KEY = "parent";
+        internal const string TIMESTAMP_KEY = "timestamp";
+        internal const string TIME_TO_LIVE_KEY = "ttl";
+        internal const string ROUTING_KEY = "routing";
+        internal const string PERCOLATE_KEY = "percolate";
+        internal const string WRITE_CONSISTENCY_KEY = "consistency";
+        internal const string ASYNCHRONOUS_REPLICATION_KEY = "replication";
+        internal const string REFRESH_KEY = "refresh";
+        internal const string OPERATION_TIMEOUT_KEY = "timeout";
+        internal const string VERSION_TYPE_KEY = "version_type";
 
-        private const string _ASYNCHRONOUS_REPLICATION_VALUE = "async";
-        private const string _TIMESTAMP_FORMAT = "yyyy-MM-ddTHH:mm:ss";
-        private const string _CREATE_OPERATION = "_create";
+        internal const string ASYNCHRONOUS_REPLICATION_VALUE = "async";
+        internal const string TIMESTAMP_FORMAT = "yyyy-MM-ddTHH:mm:ss";
+        internal const string CREATE_OPERATION = "create";
+        internal static readonly VersionTypeEnum VERSION_TYPE_DEFAULT = VersionTypeEnum.Internal;
+        internal static readonly WriteConsistencyEnum WRITE_CONSISTENCY_DEFAULT = WriteConsistencyEnum.QuorumOfShards;
 
         private Int64? _Version { get; set; }
-        private TimeSpan? _TimeToLive { get; set; }
+        private TimeValue _TimeToLive { get; set; }
 
         /// <summary>
         /// Only affective if version_type of the index has been set to external.
@@ -47,6 +51,12 @@ namespace Bolay.Elastic.Api.Document.Index
                 _Version = value;
             }
         }
+
+        /// <summary>
+        /// Gets or sets the type of versioning for the document to use.
+        /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-index_.html#_version_types
+        /// </summary>
+        public VersionTypeEnum VersionType { get; set; }
 
         /// <summary>
         /// This allows for "put-if-absent" behavior. When create is used, 
@@ -80,12 +90,12 @@ namespace Bolay.Elastic.Api.Document.Index
         /// ttl is relative to the timestamp of the document, meaning it can be 
         /// based on the time of indexing or on any time provided. This value must be positive.
         /// </summary>
-        public TimeSpan? TimeToLive 
+        public TimeValue TimeToLive 
         {
             get { return _TimeToLive; }
             set 
             {
-                if (value.HasValue && value.Value.TotalMilliseconds <= 0)
+                if (value != null && value.TimeSpan.TotalMilliseconds <= 0)
                     throw new ArgumentOutOfRangeException("TimeToLive", "Document TimeToLive must be a positive value.");
 
                 _TimeToLive = value;
@@ -162,78 +172,7 @@ namespace Bolay.Elastic.Api.Document.Index
             DocumentType = documentType;
             DocumentId = documentId;
             Document = document;
-        }
-
-        public override Uri BuildUri(Interfaces.IElasticUriProvider uriProvider)
-        {
-            StringBuilder pathBuilder = new StringBuilder();
-            pathBuilder.Append(Index);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentType);
-            pathBuilder.Append("/");
-            pathBuilder.Append(DocumentId);
-
-            return new Uri(uriProvider.ClusterUri, pathBuilder.ToString());
-        }
-
-        public override string BuildQueryString()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            if (Version.HasValue) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _VERSION_KEY, Version.Value.ToString()); 
-            }
-
-            if (UseCreateOperationType) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _OPERATION_TYPE_KEY, _CREATE_OPERATION); 
-            }
-
-            if (!string.IsNullOrWhiteSpace(ParentId)) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _PARENT_ID_KEY, ParentId); 
-            }
-
-            if (TimeStamp.HasValue) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _TIMESTAMP_KEY, TimeStamp.Value.ToString(_TIMESTAMP_FORMAT)); 
-            }
-
-            if (TimeToLive.HasValue) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _TIME_TO_LIVE_KEY, Convert.ToInt64(TimeToLive.Value.TotalMilliseconds).ToString()); 
-            }
-
-            if (!string.IsNullOrWhiteSpace(Routing)) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _ROUTING_KEY, Routing); 
-            }
-
-            if (WriteConsistency != null) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _WRITE_CONSISTENCY_KEY, WriteConsistency.ToString()); 
-            }
-
-            if (UseAsynchronousReplication) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _ASYNCHRONOUS_REPLICATION_KEY, _ASYNCHRONOUS_REPLICATION_VALUE); 
-            }
-
-            if (Refresh) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _REFRESH_KEY, Refresh.ToString().ToLower()); 
-            }
-
-            if (OperationTimeOut.HasValue) 
-            { 
-                builder = HttpRequest.AddToQueryString(builder, _OPERATION_TIMEOUT_KEY, Convert.ToInt64(OperationTimeOut.Value.TotalMilliseconds).ToString()); 
-            }
-
-            if (builder.Length == 0)
-                return null;
-
-            return builder.ToString();
+            WriteConsistency = WriteConsistencyEnum.QuorumOfShards;
         }
     }
 }
