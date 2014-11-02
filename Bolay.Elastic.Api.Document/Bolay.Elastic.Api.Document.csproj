@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DeleteByQuery\DeleteByQueryResponse.cs" />
     <Compile Include="Delete\DeleteResponse.cs" />
+    <Compile Include="Models\FieldSerializer.cs" />
     <Compile Include="Index\IndexResponse.cs" />
     <Compile Include="DeleteByQuery\DeleteByQueryDocumentRequest.cs" />
     <Compile Include="DeleteByQuery\QueryStringSearch.cs" />

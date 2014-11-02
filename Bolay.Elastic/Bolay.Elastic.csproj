@@ -51,6 +51,7 @@
     <Compile Include="Coordinates\CoordinatePointSerializer.cs" />
     <Compile Include="Coordinates\SerializeTypeException.cs" />
     <Compile Include="EmbeddedResource.cs" />
+    <Compile Include="Exceptions\PropertyNotFoundException.cs" />
     <Compile Include="Models\RegexFlagEnum.cs" />
     <Compile Include="Models\WriteConsistencyEnum.cs" />
     <Compile Include="Scripts\ScriptExtensions.cs" />

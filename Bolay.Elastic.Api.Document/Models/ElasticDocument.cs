@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Bolay.Elastic.Api.Document.Get;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,7 @@ namespace Bolay.Elastic.Api.Document.Models
         [JsonProperty(PropertyName = "_source")]
         public T Document { get { return _Document; } set { _Document = value; } }
 
+        [JsonConverter(typeof(FieldSerializer))]
         [JsonProperty(PropertyName = "fields")]
         protected T Fields { get { return _Document; } set { _Document = value; } }
     }
