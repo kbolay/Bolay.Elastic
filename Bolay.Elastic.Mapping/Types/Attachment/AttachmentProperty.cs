@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Attachment
+namespace Bolay.Elastic.Mapping.Properties.Attachment
 {
     [JsonConverter(typeof(AttachmentPropertySerializer))]
     public class AttachmentProperty : DocumentPropertyBase

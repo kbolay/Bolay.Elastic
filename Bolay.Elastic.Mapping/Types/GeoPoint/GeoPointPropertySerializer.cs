@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.GeoPoint
+namespace Bolay.Elastic.Mapping.Properties.GeoPoint
 {
     internal class GeoPointPropertySerializer : JsonConverter
     {

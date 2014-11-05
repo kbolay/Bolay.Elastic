@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bolay.Elastic.Mapping.Types.Nested;
+using Bolay.Elastic.Mapping.Properties.Nested;
 using Newtonsoft.Json;
 
 namespace Bolay.Elastic.Mapping.Tests.Types

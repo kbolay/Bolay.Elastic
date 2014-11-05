@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Numbers
+namespace Bolay.Elastic.Mapping.Properties.Numbers
 {
     /// <summary>
     /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.x/mapping-core-types.html#number

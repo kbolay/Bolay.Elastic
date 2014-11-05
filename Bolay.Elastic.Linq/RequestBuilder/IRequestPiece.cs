@@ -1,5 +1,5 @@
 ﻿using Bolay.Elastic.Api.Mapping.Models;
-using Bolay.Elastic.Mapping.Types;
+using Bolay.Elastic.Mapping.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;

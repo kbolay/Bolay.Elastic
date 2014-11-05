@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Numbers.TokenCount
+namespace Bolay.Elastic.Mapping.Properties.Numbers.TokenCount
 {
     /// <summary>
     /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html#token_count

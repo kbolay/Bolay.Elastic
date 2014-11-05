@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bolay.Elastic.Mapping.Types.Numbers.Floats;
+using Bolay.Elastic.Mapping.Properties.Numbers.Floats;
 using Newtonsoft.Json;
 
 namespace Bolay.Elastic.Mapping.Tests.Types.Core

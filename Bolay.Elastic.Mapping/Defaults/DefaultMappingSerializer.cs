@@ -1,14 +1,10 @@
-﻿using Bolay.Elastic.Analysis;
-using Bolay.Elastic.Exceptions;
-using Bolay.Elastic.Mapping.Types;
-using Bolay.Elastic.Mapping.Types.RootObject;
+﻿using Bolay.Elastic.Exceptions;
+using Bolay.Elastic.Mapping.Properties;
 using Bolay.Elastic.Time;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bolay.Elastic.Mapping.Defaults
 {
@@ -53,8 +49,8 @@ namespace Bolay.Elastic.Mapping.Defaults
             defaultMapping.IsEnabled = fieldDict.GetBool(_IS_ENABLED, DefaultMapping._IS_ENABLED_DEFAULT);
 
             defaultMapping.Analyzer = PropertyAnalyzer.Deserialize(fieldDict);
-            defaultMapping.DetectDates = fieldDict.GetBool(_DETECT_DATES, RootObjectProperty._DETECT_DATES_DEFAULT);
-            defaultMapping.DetectNumbers = fieldDict.GetBool(_DETECT_NUMBERS, RootObjectProperty._DETECT_NUMBERS_DEFAULT);
+            defaultMapping.DetectDates = fieldDict.GetBool(_DETECT_DATES, TypeMapping._DETECT_DATES_DEFAULT);
+            defaultMapping.DetectNumbers = fieldDict.GetBool(_DETECT_NUMBERS, TypeMapping._DETECT_NUMBERS_DEFAULT);
             if (fieldDict.ContainsKey(_DATE_FORMATS))
             {
                 defaultMapping.DateFormats = JsonConvert.DeserializeObject<IEnumerable<DateFormat>>(fieldDict.GetString(_DATE_FORMATS));

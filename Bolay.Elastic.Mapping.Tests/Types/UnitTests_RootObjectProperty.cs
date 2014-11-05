@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bolay.Elastic.Mapping.Types.RootObject;
+using Bolay.Elastic.Mapping;
 using System.Collections.Generic;
-using Bolay.Elastic.Mapping.Types;
-using Bolay.Elastic.Mapping.Types.String;
+using Bolay.Elastic.Mapping.Properties;
+using Bolay.Elastic.Mapping.Properties.String;
 using Newtonsoft.Json;
 using Bolay.Elastic.Time;
 using Bolay.Elastic.Analysis.Analyzers.Standard;
@@ -17,10 +17,9 @@ namespace Bolay.Elastic.Mapping.Tests.Types
         [TestMethod]
         public void PASS_Create()
         {
-            RootObjectProperty prop = new RootObjectProperty("entity")
+            TypeMapping prop = new TypeMapping("entity")
             {
                 Analyzer = new PropertyAnalyzer(new StandardAnalyzer("standard")),
-                CopyTo = new List<string>() { "field1" },
                 DetectDates = false,
                 DetectNumbers = true,
                 Dynamic = DynamicSettingEnum.Strict,
@@ -37,7 +36,6 @@ namespace Bolay.Elastic.Mapping.Tests.Types
 
             Assert.IsNotNull(prop);
             Assert.AreEqual("standard", prop.Analyzer.Analyzer.Name);
-            Assert.AreEqual("field1", prop.CopyTo.First());
             Assert.AreEqual(false, prop.DetectDates);
             Assert.AreEqual(true, prop.DetectNumbers);
             Assert.AreEqual(DynamicSettingEnum.Strict, prop.Dynamic);
@@ -54,10 +52,9 @@ namespace Bolay.Elastic.Mapping.Tests.Types
         [TestMethod]
         public void PASS_Serialize()
         {
-            RootObjectProperty prop = new RootObjectProperty("entity")
+            TypeMapping prop = new TypeMapping("entity")
             {
                 Analyzer = new PropertyAnalyzer(new StandardAnalyzer("standard")),
-                CopyTo = new List<string>() { "field1" },
                 DetectDates = false,
                 DetectNumbers = true,
                 Dynamic = DynamicSettingEnum.Strict,
@@ -75,7 +72,7 @@ namespace Bolay.Elastic.Mapping.Tests.Types
             string json = JsonConvert.SerializeObject(prop);
             Assert.IsNotNull(json);
 
-            string expectedJson = "{\"entity\":{\"analyzer\":\"standard\",\"date_detection\":false,\"numeric_detection\":true,\"dynamic_date_formats\":[\"format1\",\"format2\"],\"dynamic_templates\":[{\"template1\":{\"match\":\"*\",\"mapping\":{\"type\":\"string\"}}}],\"dynamic\":\"strict\",\"copy_to\":\"field1\",\"properties\":{\"name\":{\"type\":\"string\"}}}}";
+            string expectedJson = "{\"entity\":{\"analyzer\":\"standard\",\"date_detection\":false,\"numeric_detection\":true,\"dynamic_date_formats\":[\"format1\",\"format2\"],\"dynamic_templates\":[{\"template1\":{\"match\":\"*\",\"mapping\":{\"type\":\"string\"}}}],\"dynamic\":\"strict\",\"properties\":{\"name\":{\"type\":\"string\"}}}}";
             Assert.AreEqual(expectedJson, json);
         }
 
@@ -84,10 +81,9 @@ namespace Bolay.Elastic.Mapping.Tests.Types
         {
             string json = "{\"entity\":{\"analyzer\":\"standard\",\"date_detection\":false,\"numeric_detection\":true,\"dynamic_date_formats\":[\"format1\",\"format2\"],\"dynamic_templates\":[{\"template1\":{\"match\":\"*\",\"mapping\":{\"type\":\"string\"}}}],\"dynamic\":\"strict\",\"copy_to\":\"field1\",\"properties\":{\"name\":{\"type\":\"string\"}}}}";
 
-            RootObjectProperty prop = JsonConvert.DeserializeObject<RootObjectProperty>(json);
+            TypeMapping prop = JsonConvert.DeserializeObject<TypeMapping>(json);
             Assert.IsNotNull(prop);
             Assert.AreEqual("standard", prop.Analyzer.Analyzer.Name);
-            Assert.AreEqual("field1", prop.CopyTo.First());
             Assert.AreEqual(false, prop.DetectDates);
             Assert.AreEqual(true, prop.DetectNumbers);
             Assert.AreEqual(DynamicSettingEnum.Strict, prop.Dynamic);

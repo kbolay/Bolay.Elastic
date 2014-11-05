@@ -1,10 +1,6 @@
 ﻿using Bolay.Elastic.Api.Mapping.Models;
-using Bolay.Elastic.Mapping.Types.RootObject;
-using System;
+using Bolay.Elastic.Mapping;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bolay.Elastic.Api.Mapping
 {
@@ -36,6 +32,6 @@ namespace Bolay.Elastic.Api.Mapping
         /// <param name="indexName">The name of the index or alias.</param>
         /// <param name="type">The name of the type.</param>
         /// <returns>The mapping of the type.</returns>
-        RootObjectProperty GetIndexTypeMapping(string indexName, string type);
+        TypeMapping GetIndexTypeMapping(string indexName, string type);
     }
 }

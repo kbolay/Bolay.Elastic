@@ -1,17 +1,11 @@
 ﻿using Bolay.Elastic.Api.Mapping.Exceptions;
-using Bolay.Elastic.Api;
+using Bolay.Elastic.Api.Mapping.Models;
+using Bolay.Elastic.Api.Settings;
+using Bolay.Elastic.Interfaces;
+using Bolay.Elastic.Mapping;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bolay.Elastic.Api.Mapping.Models;
-using Bolay.Elastic.Interfaces;
-using Bolay.Elastic.Mapping.Types.RootObject;
-using Bolay.Elastic.Api.Settings;
-using Bolay.Elastic.Analysis;
-using Bolay.Elastic.Mapping;
 
 namespace Bolay.Elastic.Api.Mapping
 {
@@ -66,7 +60,7 @@ namespace Bolay.Elastic.Api.Mapping
             return JsonConvert.DeserializeObject<IndexMapping>(response.Body);
         }
 
-        public RootObjectProperty GetIndexTypeMapping(string indexName, string type)
+        public TypeMapping GetIndexTypeMapping(string indexName, string type)
         {
             Uri mappingUri = new Uri(_ClusterUri, indexName + "/" + type + "/" + _MAPPING);
             HttpResponse response = _httpLayer.Get(new HttpRequest(mappingUri));
@@ -75,7 +69,7 @@ namespace Bolay.Elastic.Api.Mapping
 
             IndexMappingCollection.PopulateIndicesAnalysis(_SettingsRepository.GetByIndex(indexName));
             PropertyAnalyzer.PopulateIndexAnalyzers(IndexMappingCollection.GetIndexAnalysis(indexName));
-            return JsonConvert.DeserializeObject<RootObjectProperty>(response.Body);
+            return JsonConvert.DeserializeObject<TypeMapping>(response.Body);
         }
     }
 }

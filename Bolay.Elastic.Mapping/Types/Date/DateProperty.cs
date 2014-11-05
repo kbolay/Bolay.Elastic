@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Date
+namespace Bolay.Elastic.Mapping.Properties.Date
 {
     [JsonConverter(typeof(DatePropertySerializer))]
     public class DateProperty : FieldProperty

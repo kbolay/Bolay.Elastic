@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bolay.Elastic.Mapping.Types.Attachment;
+using Bolay.Elastic.Mapping.Properties.Attachment;
 using System.Collections.Generic;
-using Bolay.Elastic.Mapping.Types;
-using Bolay.Elastic.Mapping.Types.String;
+using Bolay.Elastic.Mapping.Properties;
+using Bolay.Elastic.Mapping.Properties.String;
 using Newtonsoft.Json;
-using Bolay.Elastic.Mapping.Types.Date;
+using Bolay.Elastic.Mapping.Properties.Date;
 using Bolay.Elastic.Analysis.Analyzers.Standard;
 
 namespace Bolay.Elastic.Mapping.Tests.Types

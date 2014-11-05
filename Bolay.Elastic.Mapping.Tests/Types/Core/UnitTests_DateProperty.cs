@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using Bolay.Elastic.Mapping.Types.Date;
+using Bolay.Elastic.Mapping.Properties.Date;
 using Bolay.Elastic.Time;
 
 namespace Bolay.Elastic.Mapping.Tests.Types.Core

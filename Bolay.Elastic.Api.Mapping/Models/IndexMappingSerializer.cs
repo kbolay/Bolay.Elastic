@@ -1,12 +1,9 @@
 ﻿using Bolay.Elastic.Exceptions;
 using Bolay.Elastic.Mapping;
-using Bolay.Elastic.Mapping.Types.RootObject;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bolay.Elastic.Api.Mapping.Models
 {
@@ -27,14 +24,14 @@ namespace Bolay.Elastic.Api.Mapping.Models
 
             Dictionary<string, object> typesDict = JsonConvert.DeserializeObject<Dictionary<string, object>>(indexDict.First().Value.ToString());
 
-            List<RootObjectProperty> types = new List<RootObjectProperty>();
+            List<TypeMapping> types = new List<TypeMapping>();
             foreach (KeyValuePair<string, object> typeKvp in typesDict)
             {
                 Dictionary<string, object> typeDict = new Dictionary<string, object>();
                 typeDict.Add(typeKvp.Key, typeKvp.Value);                
 
                 string typeJson = JsonConvert.SerializeObject(typeDict);
-                types.Add(JsonConvert.DeserializeObject<RootObjectProperty>(typeJson));
+                types.Add(JsonConvert.DeserializeObject<TypeMapping>(typeJson));
             }
 
             if (!types.Any())
@@ -51,7 +48,7 @@ namespace Bolay.Elastic.Api.Mapping.Models
             IndexMapping indexMapping = value as IndexMapping;
 
             Dictionary<string, object> typesDict = new Dictionary<string, object>();
-            foreach (RootObjectProperty type in indexMapping.Types)
+            foreach (TypeMapping type in indexMapping.Types)
             {
                 string typeJson = JsonConvert.SerializeObject(type);
                 Dictionary<string, object> typeDict = JsonConvert.DeserializeObject<Dictionary<string, object>>(typeJson);

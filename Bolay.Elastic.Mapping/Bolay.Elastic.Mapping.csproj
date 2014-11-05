@@ -128,8 +128,8 @@
     <Compile Include="Types\Numbers\Shorts\ShortProperty.cs" />
     <Compile Include="DynamicTemplate.cs" />
     <Compile Include="DynamicTemplateSerializer.cs" />
-    <Compile Include="Types\RootObject\RootObjectProperty.cs" />
-    <Compile Include="Types\RootObject\RootObjectPropertySerializer.cs" />
+    <Compile Include="TypeMapping.cs" />
+    <Compile Include="TypeMappingSerializer.cs" />
     <Compile Include="Types\SimilarityAlgorithmEnum.cs" />
     <Compile Include="Types\String\IndexOptionEnum.cs" />
     <Compile Include="Types\String\NormLoadingEnum.cs" />

@@ -1,12 +1,10 @@
-﻿using Bolay.Elastic.Mapping.Types;
-using Bolay.Elastic.Mapping.Types.Object;
-using Bolay.Elastic.Mapping.Types.RootObject;
+﻿using Bolay.Elastic.Mapping;
+using Bolay.Elastic.Mapping.Properties;
+using Bolay.Elastic.Mapping.Properties.Object;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Linq2ElasticSearch.Mapping
 {
@@ -15,10 +13,10 @@ namespace Linq2ElasticSearch.Mapping
         private const string _DELIMITER = ".";
 
         public Type TargetType { get { return typeof(T); } }
-        public RootObjectProperty Mapping { get; private set; }
+        public TypeMapping Mapping { get; private set; }
         public IEnumerable<PropertyMapping> PropertyMappings { get; private set; }
 
-        public ModelMapping(RootObjectProperty documentTypeMapping)
+        public ModelMapping(TypeMapping documentTypeMapping)
         {
             Mapping = documentTypeMapping;
         }

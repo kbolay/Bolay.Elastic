@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Ip
+namespace Bolay.Elastic.Mapping.Properties.Ip
 {
     /// <summary>
     /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.x/mapping-ip-type.html

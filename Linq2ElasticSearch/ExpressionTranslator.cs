@@ -1,4 +1,4 @@
-﻿using Bolay.Elastic.Mapping.Types;
+﻿using Bolay.Elastic.Mapping.Properties;
 using Bolay.Elastic.QueryBuilding;
 using System;
 using System.Collections.Generic;

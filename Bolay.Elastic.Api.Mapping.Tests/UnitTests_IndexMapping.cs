@@ -1,15 +1,13 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bolay.Elastic.Mapping.Types.RootObject;
-using Bolay.Elastic.Analysis.Analyzers.Standard;
-using System.Collections.Generic;
-using Bolay.Elastic.Mapping.Types;
-using Bolay.Elastic.Time;
+﻿using Bolay.Elastic.Analysis.Analyzers.Standard;
 using Bolay.Elastic.Api.Mapping.Models;
-using Newtonsoft.Json;
 using Bolay.Elastic.Mapping;
-using Bolay.Elastic.Mapping.Types.String;
+using Bolay.Elastic.Mapping.Properties;
+using Bolay.Elastic.Mapping.Properties.String;
+using Bolay.Elastic.Time;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Bolay.Elastic.Api.Mapping.Tests
 {
@@ -19,10 +17,9 @@ namespace Bolay.Elastic.Api.Mapping.Tests
         [TestMethod]
         public void PASS_Serialize()
         {
-            RootObjectProperty prop = new RootObjectProperty("entity")
+            TypeMapping prop = new TypeMapping("entity")
             {
                 Analyzer = new PropertyAnalyzer(new StandardAnalyzer("standard")),
-                CopyTo = new List<string>() { "field1" },
                 DetectDates = false,
                 DetectNumbers = true,
                 Dynamic = DynamicSettingEnum.Strict,
@@ -37,12 +34,12 @@ namespace Bolay.Elastic.Api.Mapping.Tests
                 }
             };
 
-            IndexMapping indexMapping = new IndexMapping("1234index", new List<RootObjectProperty>() { prop });
+            IndexMapping indexMapping = new IndexMapping("1234index", new List<TypeMapping>() { prop });
 
             string json = JsonConvert.SerializeObject(indexMapping);
             Assert.IsNotNull(json);
 
-            string expectedJson = "{\"1234index\":{\"entity\":{\"analyzer\":\"standard\",\"date_detection\":false,\"numeric_detection\":true,\"dynamic_date_formats\":[\"format1\",\"format2\"],\"dynamic_templates\":[{\"template1\":{\"match\":\"*\",\"mapping\":{\"type\":\"string\"}}}],\"dynamic\":\"strict\",\"copy_to\":\"field1\",\"properties\":{\"name\":{\"type\":\"string\"}}}}}";
+            string expectedJson = "{\"1234index\":{\"entity\":{\"analyzer\":\"standard\",\"date_detection\":false,\"numeric_detection\":true,\"dynamic_date_formats\":[\"format1\",\"format2\"],\"dynamic_templates\":[{\"template1\":{\"match\":\"*\",\"mapping\":{\"type\":\"string\"}}}],\"dynamic\":\"strict\",\"properties\":{\"name\":{\"type\":\"string\"}}}}}";
 
             Assert.AreEqual(expectedJson, json);
         }
@@ -50,15 +47,14 @@ namespace Bolay.Elastic.Api.Mapping.Tests
         [TestMethod]
         public void PASS_Deserialize()
         {
-            string json = "{\"1234index\":{\"entity\":{\"analyzer\":\"standard\",\"date_detection\":false,\"numeric_detection\":true,\"dynamic_date_formats\":[\"format1\",\"format2\"],\"dynamic_templates\":[{\"template1\":{\"match\":\"*\",\"mapping\":{\"type\":\"string\"}}}],\"dynamic\":\"strict\",\"copy_to\":\"field1\",\"properties\":{\"name\":{\"type\":\"string\"}}}}}";
+            string json = "{\"1234index\":{\"entity\":{\"analyzer\":\"standard\",\"date_detection\":false,\"numeric_detection\":true,\"dynamic_date_formats\":[\"format1\",\"format2\"],\"dynamic_templates\":[{\"template1\":{\"match\":\"*\",\"mapping\":{\"type\":\"string\"}}}],\"dynamic\":\"strict\",\"properties\":{\"name\":{\"type\":\"string\"}}}}}";
 
             IndexMapping indexMapping = JsonConvert.DeserializeObject<IndexMapping>(json);
             Assert.IsNotNull(indexMapping);
             Assert.AreEqual("1234index", indexMapping.IndexName);
-            RootObjectProperty prop = indexMapping.Types.First();
+            TypeMapping prop = indexMapping.Types.First();
             Assert.IsNotNull(prop);
             Assert.AreEqual("standard", prop.Analyzer.Analyzer.Name);
-            Assert.AreEqual("field1", prop.CopyTo.First());
             Assert.AreEqual(false, prop.DetectDates);
             Assert.AreEqual(true, prop.DetectNumbers);
             Assert.AreEqual(DynamicSettingEnum.Strict, prop.Dynamic);

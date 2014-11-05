@@ -1,6 +1,6 @@
 ﻿using Bolay.Elastic.Api.Mapping.Models;
 //using Bolay.Elastic.Mapping;
-//using Bolay.Elastic.Mapping.Types.RootObject;
+//using Bolay.Elastic.Mapping.Properties.RootObject;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

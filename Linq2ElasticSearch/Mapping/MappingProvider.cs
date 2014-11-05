@@ -1,10 +1,7 @@
 ﻿using Bolay.Elastic.Api.Mapping;
 using Bolay.Elastic.Api.Mapping.Models;
-using Bolay.Elastic.Mapping.Types.RootObject;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Linq2ElasticSearch.Mapping

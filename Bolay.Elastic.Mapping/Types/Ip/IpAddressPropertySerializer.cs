@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Ip
+namespace Bolay.Elastic.Mapping.Properties.Ip
 {
     internal class IpAddressPropertySerializer : JsonConverter
     {

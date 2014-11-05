@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Binary
+namespace Bolay.Elastic.Mapping.Properties.Binary
 {
     internal class BinaryPropertySerializer : JsonConverter
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Numbers.TokenCount
+namespace Bolay.Elastic.Mapping.Properties.Numbers.TokenCount
 {
     public class TokenCountPropertySerializer : JsonConverter
     {

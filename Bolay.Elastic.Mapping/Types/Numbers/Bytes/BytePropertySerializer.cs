@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Numbers.Bytes
+namespace Bolay.Elastic.Mapping.Properties.Numbers.Bytes
 {
     internal class BytePropertySerializer : JsonConverter
     {

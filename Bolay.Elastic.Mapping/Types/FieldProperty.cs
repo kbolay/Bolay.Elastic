@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types
+namespace Bolay.Elastic.Mapping.Properties
 {
     /// <summary>
     /// For the following types: string, float, double, byte, short, long, integer, ip, date, boolean

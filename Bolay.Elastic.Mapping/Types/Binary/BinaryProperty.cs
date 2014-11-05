@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Binary
+namespace Bolay.Elastic.Mapping.Properties.Binary
 {
     /// <summary>
     /// The binary type is a base64 representation of binary data that can be stored in the index. 

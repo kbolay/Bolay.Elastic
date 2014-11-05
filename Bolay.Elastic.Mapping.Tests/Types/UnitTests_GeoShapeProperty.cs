@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bolay.Elastic.Mapping.Types.GeoShape;
+using Bolay.Elastic.Mapping.Properties.GeoShape;
 using Bolay.Elastic.Distance;
 using Newtonsoft.Json;
 

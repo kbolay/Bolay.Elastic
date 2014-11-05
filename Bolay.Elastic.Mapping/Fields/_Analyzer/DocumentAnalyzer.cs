@@ -13,7 +13,8 @@ namespace Bolay.Elastic.Mapping.Fields._Analyzer
     [JsonConverter(typeof(DocumentAnalyzerSerializer))]
     public class DocumentAnalyzer
     {
-        internal const string _PATH_DEFAULT = "_analyzer";
+        internal const string PATH = "path";
+        internal const string PATH_DEFAULT = "_analyzer";
 
         /// <summary>
         /// Gets the path of the document default analyzer.

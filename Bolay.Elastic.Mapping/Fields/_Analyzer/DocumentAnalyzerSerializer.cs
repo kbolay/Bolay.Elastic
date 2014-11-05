@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 namespace Bolay.Elastic.Mapping.Fields._Analyzer
 {
     public class DocumentAnalyzerSerializer : JsonConverter
-    {
-        private const string _PATH = "path";
-
+    {       
         public override bool CanConvert(Type objectType)
         {
             throw new NotImplementedException();
@@ -20,7 +18,7 @@ namespace Bolay.Elastic.Mapping.Fields._Analyzer
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             Dictionary<string, object> fieldDict = serializer.Deserialize<Dictionary<string, object>>(reader);
-            return new DocumentAnalyzer(fieldDict.GetString(_PATH));
+            return new DocumentAnalyzer(fieldDict.GetString(DocumentAnalyzer.PATH));
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
@@ -30,7 +28,7 @@ namespace Bolay.Elastic.Mapping.Fields._Analyzer
 
             DocumentAnalyzer analyzer = value as DocumentAnalyzer;
             Dictionary<string, object> fieldDict = new Dictionary<string,object>();
-            fieldDict.AddObject(_PATH, analyzer.Path, DocumentAnalyzer._PATH_DEFAULT);
+            fieldDict.AddObject(DocumentAnalyzer.PATH, analyzer.Path, DocumentAnalyzer.PATH_DEFAULT);
 
             serializer.Serialize(writer, fieldDict);
         }

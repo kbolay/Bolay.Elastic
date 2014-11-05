@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Object
+namespace Bolay.Elastic.Mapping.Properties.Object
 {
     /// <summary>
     /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.x/mapping-object-type.html

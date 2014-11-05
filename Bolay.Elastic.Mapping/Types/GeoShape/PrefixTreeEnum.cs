@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.GeoShape
+namespace Bolay.Elastic.Mapping.Properties.GeoShape
 {
     public sealed class PrefixTreeEnum : TypeSafeEnumBase<PrefixTreeEnum>
     {

@@ -1,21 +1,21 @@
 ﻿using Bolay.Elastic;
-using Bolay.Elastic.Mapping.Types.Attachment;
-using Bolay.Elastic.Mapping.Types.Binary;
-using Bolay.Elastic.Mapping.Types.Boolean;
-using Bolay.Elastic.Mapping.Types.Date;
-using Bolay.Elastic.Mapping.Types.GeoPoint;
-using Bolay.Elastic.Mapping.Types.GeoShape;
-using Bolay.Elastic.Mapping.Types.Ip;
-using Bolay.Elastic.Mapping.Types.Nested;
-using Bolay.Elastic.Mapping.Types.Numbers.Bytes;
-using Bolay.Elastic.Mapping.Types.Numbers.Doubles;
-using Bolay.Elastic.Mapping.Types.Numbers.Floats;
-using Bolay.Elastic.Mapping.Types.Numbers.Integers;
-using Bolay.Elastic.Mapping.Types.Numbers.Longs;
-using Bolay.Elastic.Mapping.Types.Numbers.Shorts;
-using Bolay.Elastic.Mapping.Types.Numbers.TokenCount;
-using Bolay.Elastic.Mapping.Types.Object;
-using Bolay.Elastic.Mapping.Types.String;
+using Bolay.Elastic.Mapping.Properties.Attachment;
+using Bolay.Elastic.Mapping.Properties.Binary;
+using Bolay.Elastic.Mapping.Properties.Boolean;
+using Bolay.Elastic.Mapping.Properties.Date;
+using Bolay.Elastic.Mapping.Properties.GeoPoint;
+using Bolay.Elastic.Mapping.Properties.GeoShape;
+using Bolay.Elastic.Mapping.Properties.Ip;
+using Bolay.Elastic.Mapping.Properties.Nested;
+using Bolay.Elastic.Mapping.Properties.Numbers.Bytes;
+using Bolay.Elastic.Mapping.Properties.Numbers.Doubles;
+using Bolay.Elastic.Mapping.Properties.Numbers.Floats;
+using Bolay.Elastic.Mapping.Properties.Numbers.Integers;
+using Bolay.Elastic.Mapping.Properties.Numbers.Longs;
+using Bolay.Elastic.Mapping.Properties.Numbers.Shorts;
+using Bolay.Elastic.Mapping.Properties.Numbers.TokenCount;
+using Bolay.Elastic.Mapping.Properties.Object;
+using Bolay.Elastic.Mapping.Properties.String;
 using Bolay.Elastic.Models;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types
+namespace Bolay.Elastic.Mapping.Properties
 {
     public sealed class PropertyTypeEnum : TypeSafeEnumBase<PropertyTypeEnum>
     {

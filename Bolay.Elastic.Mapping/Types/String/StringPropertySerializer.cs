@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.String
+namespace Bolay.Elastic.Mapping.Properties.String
 {
     internal class StringPropertySerializer : JsonConverter
     {

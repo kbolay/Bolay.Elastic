@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Boolean
+namespace Bolay.Elastic.Mapping.Properties.Boolean
 {
     internal class BooleanPropertySerializer : JsonConverter
     {

@@ -1,13 +1,8 @@
-﻿using Bolay.Elastic.Mapping.Types;
-using Bolay.Elastic.Mapping.Types.Object;
-using Bolay.Elastic.Mapping.Types.RootObject;
+﻿using Bolay.Elastic.Mapping.Properties;
+using Bolay.Elastic.Mapping.Properties.Object;
 using Bolay.Elastic.Time;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bolay.Elastic.Mapping.Defaults
 {

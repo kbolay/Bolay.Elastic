@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.GeoPoint
+namespace Bolay.Elastic.Mapping.Properties.GeoPoint
 {
     /// <summary>
     /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.x/mapping-geo-point-type.html

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Numbers.Floats
+namespace Bolay.Elastic.Mapping.Properties.Numbers.Floats
 {
     [JsonConverter(typeof(FloatPropertySerializer))]
     public class FloatProperty : NumberProperty

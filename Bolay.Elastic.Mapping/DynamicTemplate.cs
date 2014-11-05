@@ -1,5 +1,5 @@
 ﻿using Bolay.Elastic.Api.Serialization;
-using Bolay.Elastic.Mapping.Types;
+using Bolay.Elastic.Mapping.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

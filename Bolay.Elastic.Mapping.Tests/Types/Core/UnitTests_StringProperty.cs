@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bolay.Elastic.Mapping.Types.String;
+using Bolay.Elastic.Mapping.Properties.String;
 using Newtonsoft.Json;
-using Bolay.Elastic.Mapping.Types;
+using Bolay.Elastic.Mapping.Properties;
 using System.Collections.Generic;
 using Bolay.Elastic.Analysis.Analyzers.Standard;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using Bolay.Elastic.Mapping.Types.Numbers.Longs;
+using Bolay.Elastic.Mapping.Properties.Numbers.Longs;
 
 namespace Bolay.Elastic.Mapping.Tests.Types.Core
 {

@@ -1,5 +1,5 @@
 ﻿using Bolay.Elastic.Exceptions;
-using Bolay.Elastic.Mapping.Types.Object;
+using Bolay.Elastic.Mapping.Properties.Object;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolay.Elastic.Mapping.Types.Nested
+namespace Bolay.Elastic.Mapping.Properties.Nested
 {
     internal class NestedObjectPropertySerializer : JsonConverter
     {
