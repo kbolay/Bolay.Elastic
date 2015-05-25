@@ -22,6 +22,10 @@ using System.Threading.Tasks;
 
 namespace Bolay.Elastic.Mapping
 {
+    /// <summary>
+    /// The model for root objects.
+    /// http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-root-object-type.html
+    /// </summary>
     [JsonConverter(typeof(TypeMappingSerializer))]
     public class TypeMapping
     {
